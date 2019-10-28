@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 7463824193384340319}
   - component: {fileID: 7463824193384340315}
   - component: {fileID: 7463824193384340256}
+  - component: {fileID: 2481765727904495917}
   - component: {fileID: 7463824193384340257}
   m_Layer: 0
   m_Name: Player
@@ -263,6 +264,38 @@ MonoBehaviour:
   m_DefaultActionMap: 8de7fc6e-4fe5-4c59-9464-4b6d46996257
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &2481765727904495917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7463824193384340258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc9e454a471bd947a24cf07926529d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisions:
+    above: 0
+    below: 0
+    left: 0
+    right: 0
+  Velocity: {x: 0, y: 0, z: 0}
+  moveSpeed: 250
+  groundedDampen: 0.1
+  airbornDampen: 0.2
+  jumpHeight: 3.5
+  timeToJumpApex: 0.35
+  enableMultiJump: 1
+  multiJumpCount: 2
+  slamEnabled: 1
+  groundLayer:
+    m_LayerIndex: 9
+  aboveCheck: {fileID: 4818945342244440486}
+  rightCheck: {fileID: 7773876155547238937}
+  belowCheck: {fileID: 1574728350001830392}
+  leftCheck: {fileID: 5188489015071410639}
 --- !u!114 &7463824193384340257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,18 +308,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80591c668c051964d88efe1fee0fddaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 350
-  jumpHeight: 3.5
-  timeToJumpApex: 0.3
-  enableDoubleJump: 0
-  groundedDampen: 0.1
-  airbornDampen: 0.2
-  aboveCheck: {fileID: 4818945342244440486}
-  rightCheck: {fileID: 7773876155547238937}
-  belowCheck: {fileID: 1574728350001830392}
-  leftCheck: {fileID: 5188489015071410639}
-  collisions:
-    above: 0
-    below: 0
-    left: 0
-    right: 0
