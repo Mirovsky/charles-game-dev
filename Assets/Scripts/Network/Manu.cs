@@ -1,18 +1,55 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Bolt;
+using Bolt.Matchmaking;
 
-public class Manu : MonoBehaviour
+
+public class Manu : Bolt.GlobalEventListener
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void BoltStartDone()
     {
-        
+        if (BoltNetwork.IsServer) {
+            BoltMatchmaking.CreateSession(Guid.NewGuid().ToString(), null, "Main");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void SessionListUpdated(UdpKit.Map<Guid, UdpKit.UdpSession> sessionList)
     {
-        
+        foreach (var session in sessionList) {
+            var photonSession = session.Value as UdpKit.UdpSession;
+
+            if (photonSession.Source == UdpKit.UdpSessionSource.Photon) {
+                BoltNetwork.Connect(photonSession);
+            }
+        }
+    }
+
+    void Start()
+    {
+        var server = GetArg("-s");
+
+        if (server == "true") {
+            BoltLauncher.StartServer();
+        } else {
+            BoltLauncher.StartClient();
+        }
+    }
+
+    static string GetArg(params string[] names)
+    {
+        var args = Environment.GetCommandLineArgs();
+        for (int i = 0; i < args.Length; i++)
+        {
+            foreach (var name in names)
+            {
+                if (args[i] == name && args.Length > i + 1)
+                {
+                    return args[i + 1];
+                }
+            }
+        }
+        return null;
     }
 }
