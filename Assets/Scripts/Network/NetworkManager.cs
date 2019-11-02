@@ -36,13 +36,13 @@ public class NetworkManager: Bolt.GlobalEventListener
             BoltLauncher.StartServer();
         } else {
 
-            if (clientType == PlayerConfig.TYPE.OOO.ToString())
+            if (clientType == PlayerConfig.TYPE.DEAD_ONE.ToString())
             {
-                GameInstance.Instance.type = PlayerConfig.TYPE.OOO;
+                GameInstance.Instance.type = PlayerConfig.TYPE.DEAD_ONE;
             }
             else
             {
-                GameInstance.Instance.type = PlayerConfig.TYPE.DEAD_ONE;
+                GameInstance.Instance.type = PlayerConfig.TYPE.OOO;
             }
 
             BoltLauncher.StartClient();

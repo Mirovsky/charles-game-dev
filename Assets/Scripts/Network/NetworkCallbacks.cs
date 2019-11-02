@@ -4,9 +4,12 @@ using UnityEngine;
 using Bolt;
 
 
-[BoltGlobalBehaviour]
 public class NetworkCallbacks : Bolt.GlobalEventListener
 {
+
+    public GameObject mobileCamera;
+    public GameObject vrCamera;
+
     public override void SceneLoadLocalDone(string scene)
     {
         if (!BoltNetwork.IsServer) {
@@ -14,8 +17,12 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
 
             if (GameInstance.Instance.type == PlayerConfig.TYPE.DEAD_ONE)
             {
-                var spawnPosition = new Vector3(Random.Range(-8, 8), 0, Random.Range(-8, 8));
-                BoltNetwork.Instantiate(BoltPrefabs.DeadOne, spawnPosition, Quaternion.identity);
+                BoltNetwork.Instantiate(BoltPrefabs.DeadOne, Vector3.zero, Quaternion.identity);
+                Instantiate(mobileCamera);
+            }
+            else
+            {
+                Instantiate(vrCamera);
             }
         }
     }
