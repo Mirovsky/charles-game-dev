@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 7463824193384340256}
   - component: {fileID: 2481765727904495917}
   - component: {fileID: 526875875070597379}
-  - component: {fileID: -7972097688207966000}
+  - component: {fileID: 2300635586756672231}
   m_Layer: 0
   m_Name: DeadOne
   m_TagString: Untagged
@@ -326,7 +326,7 @@ MonoBehaviour:
   _entityBehaviourQueryOption: 0
   _entityPriorityCalculatorQueryOption: 0
   _entityReplicationFilterQueryOption: 0
---- !u!114 &-7972097688207966000
+--- !u!114 &2300635586756672231
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

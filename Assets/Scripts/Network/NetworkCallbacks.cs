@@ -10,9 +10,13 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
     public override void SceneLoadLocalDone(string scene)
     {
         if (!BoltNetwork.IsServer) {
-            var spawnPosition = new Vector3(Random.Range(-8, 8), 0, Random.Range(-8, 8));
 
-            BoltNetwork.Instantiate(BoltPrefabs.DeadOne, spawnPosition, Quaternion.identity);
+
+            if (GameInstance.Instance.type == PlayerConfig.TYPE.DEAD_ONE)
+            {
+                var spawnPosition = new Vector3(Random.Range(-8, 8), 0, Random.Range(-8, 8));
+                BoltNetwork.Instantiate(BoltPrefabs.DeadOne, spawnPosition, Quaternion.identity);
+            }
         }
     }
 }
