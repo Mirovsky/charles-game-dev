@@ -135,9 +135,10 @@ GameObject:
   - component: {fileID: 7463824193384340315}
   - component: {fileID: 7463824193384340256}
   - component: {fileID: 2481765727904495917}
-  - component: {fileID: 7463824193384340257}
+  - component: {fileID: 526875875070597379}
+  - component: {fileID: -7972097688207966000}
   m_Layer: 0
-  m_Name: Player
+  m_Name: DeadOne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -296,7 +297,7 @@ MonoBehaviour:
   rightCheck: {fileID: 7773876155547238937}
   belowCheck: {fileID: 1574728350001830392}
   leftCheck: {fileID: 5188489015071410639}
---- !u!114 &7463824193384340257
+--- !u!114 &526875875070597379
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -305,6 +306,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 7463824193384340258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80591c668c051964d88efe1fee0fddaf, type: 3}
+  m_Script: {fileID: -36112512, guid: 5b00bf8b25851d440940a40ec23344f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneGuid: 
+  _serializerGuid: b709c23b-6115-42a2-8a31-bbffeb6af1ce
+  _prefabId: 1
+  _updateRate: 1
+  _autoFreezeProxyFrames: 0
+  _clientPredicted: 1
+  _allowInstantiateOnClient: 1
+  _persistThroughSceneLoads: 0
+  _sceneObjectDestroyOnDetach: 1
+  _sceneObjectAutoAttach: 1
+  _alwaysProxy: 0
+  _detachOnDisable: 1
+  _allowFirstReplicationWhenFrozen: 0
+  _autoRemoveChildEntities: 0
+  _entityBehaviourQueryOption: 0
+  _entityPriorityCalculatorQueryOption: 0
+  _entityReplicationFilterQueryOption: 0
+--- !u!114 &-7972097688207966000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7463824193384340258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1211fade48ec04b07aa6c907f4a02604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
