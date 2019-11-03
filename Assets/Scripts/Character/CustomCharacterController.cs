@@ -80,8 +80,8 @@ public class CustomCharacterController : MonoBehaviour
     {
         HandleCollisions();
         MoveCharacter();
-        
-        Velocity.y += Gravity * Time.deltaTime;
+
+        // Velocity.y += Gravity * Time.deltaTime;
         rb.velocity = Velocity;
     }
 
@@ -106,7 +106,7 @@ public class CustomCharacterController : MonoBehaviour
         collisions.below = Physics.Linecast(position, belowCheck.position, groundLayer.Mask);
         collisions.left = Physics.Linecast(position, leftCheck.position, groundLayer.Mask);
         collisions.right = Physics.Linecast(position, rightCheck.position, groundLayer.Mask);
-    
+
         if (!prev.below && collisions.below) OnHitBelow?.Invoke();
         if (!prev.above && collisions.above) OnHitAbove?.Invoke();
         if (!prev.left && collisions.left) OnHitLeft?.Invoke();
