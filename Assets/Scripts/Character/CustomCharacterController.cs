@@ -78,10 +78,13 @@ public class CustomCharacterController : MonoBehaviour
 
     void FixedUpdate()
     {
+        collisions.Reset();
+
         HandleCollisions();
         MoveCharacter();
 
-        // Velocity.y += Gravity * Time.deltaTime;
+        Velocity.y += Gravity * Time.deltaTime;
+
         rb.velocity = Velocity;
     }
 
@@ -123,5 +126,11 @@ public class CustomCharacterController : MonoBehaviour
     {
         public bool above, below;
         public bool left, right;
+
+        public void Reset()
+        {
+            above = below = false;
+            left = right = false;
+        }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class DeadOneBehaviour : Bolt.EntityBehaviour<IDeadOneState>
+public class DeadOneBehaviour : MonoBehaviour
 {
     CustomCharacterController controller;
     PlayerInputActions playerInput;
@@ -17,13 +17,9 @@ public class DeadOneBehaviour : Bolt.EntityBehaviour<IDeadOneState>
         controller = GetComponent<CustomCharacterController>();
     }
 
-    public override void Attached()
-    {
-        state.SetTransforms(state.DeadOneTransform, transform);
-    }
+    void Update() => controller.Direction = playerInput.Player.Movement.ReadValue<float>();
 
-    public override void SimulateOwner()
-    {
-        controller.Direction = playerInput.Player.Movement.ReadValue<float>();
-    }
+    void OnJump() => controller.Jump();
+
+    void OnSlam() => controller.Slam();
 }

@@ -2,13 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Bolt;
-using Bolt.Matchmaking;
 
 
-public class NetworkManager: Bolt.GlobalEventListener
+public class NetworkManager2: MonoBehaviour
 {
-    public override void BoltStartDone()
+    /* public override void BoltStartDone()
     {
         if (BoltNetwork.IsServer) {
             BoltMatchmaking.CreateSession(Guid.NewGuid().ToString(), null, "Main");
@@ -63,5 +61,5 @@ public class NetworkManager: Bolt.GlobalEventListener
             }
         }
         return null;
-    }
+    } */
 }

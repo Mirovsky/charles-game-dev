@@ -1,16 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Bolt;
 
 
-public class NetworkCallbacks : Bolt.GlobalEventListener
+public class NetworkCallbacks : MonoBehaviour
 {
 
     public GameObject mobileCamera;
     public GameObject vrCamera;
 
-    public override void SceneLoadLocalDone(string scene)
+    /* public override void SceneLoadLocalDone(string scene)
     {
         if (!BoltNetwork.IsServer) {
 
@@ -25,5 +24,5 @@ public class NetworkCallbacks : Bolt.GlobalEventListener
                 Instantiate(vrCamera);
             }
         }
-    }
+    } */
 }
