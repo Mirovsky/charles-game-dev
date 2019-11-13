@@ -6,7 +6,7 @@ namespace OOO
 {
     public class GameTypeResolver : MonoBehaviour
     {
-        [Tooltip("Add default value so that the mods are usable in the editor play.")] [SerializeField]
+        [Tooltip("Add default value so that the mods are usable in the editor play."), SerializeField]
         public GameType type = default;
         
         public static GameTypeResolver Instance = null;

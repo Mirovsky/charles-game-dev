@@ -53,8 +53,7 @@ namespace OOO.Utils
                 throw new NullReferenceException();
             }
 
-            Delegate containedDelegate;
-            if (delegates.TryGetValue(typeof(T), out containedDelegate)) {
+            if (delegates.TryGetValue(typeof(T), out Delegate containedDelegate)) {
 
                 if (containedDelegate is EventDelegate<T> callback) {
                     callback(gameEvent);
