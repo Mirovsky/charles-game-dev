@@ -129,7 +129,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7463824193384340316}
-  - component: {fileID: 4256504344094515825}
   - component: {fileID: 7463824193384340317}
   - component: {fileID: 7463824193384340318}
   - component: {fileID: 7463824193384340319}
@@ -137,12 +136,11 @@ GameObject:
   - component: {fileID: 7463824193384340256}
   - component: {fileID: 2481765727904495917}
   - component: {fileID: 2300635586756672231}
-  - component: {fileID: 6089074341163124993}
-  - component: {fileID: 6263552388471625985}
-  - component: {fileID: 156074326493046075}
+  - component: {fileID: 5761247595263198988}
+  - component: {fileID: 7137666032947772796}
   m_Layer: 0
   m_Name: DeadOne
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,7 +153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7463824193384340258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.79, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4818945342244440486}
@@ -165,21 +163,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4256504344094515825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7463824193384340258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serverOnly: 0
-  m_AssetId: 
-  m_SceneId: 0
 --- !u!33 &7463824193384340317
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -205,7 +188,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -279,7 +262,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Gamepad
+  m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: 8de7fc6e-4fe5-4c59-9464-4b6d46996257
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -295,6 +278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc9e454a471bd947a24cf07926529d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   collisions:
     above: 0
     below: 0
@@ -327,7 +312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1211fade48ec04b07aa6c907f4a02604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6089074341163124993
+  syncMode: 0
+  syncInterval: 0.1
+--- !u!114 &5761247595263198988
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -336,15 +323,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7463824193384340258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc6587c27fd07824eb346469eb351e86, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nst: {fileID: 0}
-  na: {fileID: 0}
-  cachedGameObject: {fileID: 0}
-  cachedTransform: {fileID: 0}
-  frameCount: 0
---- !u!114 &6263552388471625985
+  serverOnly: 0
+  m_AssetId: f4cce8ee18a42e64e996accfd7ee0627
+  m_SceneId: 0
+--- !u!114 &7137666032947772796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -353,194 +338,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7463824193384340258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba7cb10fedfa1164ebbb304fa0368dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
---- !u!114 &156074326493046075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7463824193384340258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbdf5a6b1cc27d74cab63a5666d2960a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  na: {fileID: 6263552388471625985}
-  ghostGO: {fileID: 0}
-  _state: 2
-  ignoreStateUntil: 2
-  sendEveryXTick: 1
-  desiredBufferMS: 0.1
-  bufferDriftCorrectAmt: 0.1
-  autoKinematic: 1
-  allowOfftick: 1
-  sendOnEvent: 30
-  includedAxes: 7
-  keyEvery: 5
-  extrapolation: 0.5
-  extrapolationDivisor: 0
-  maxExtrapolates: 2
-  teleportThreshold: 2
-  bitCullingLevel: 0
-  sequentialKeys: 5
-  rootRotationElement:
-    name: Root Rotation
-    isRoot: 1
-    crusher:
-      isExpanded: 1
-      hideFieldName: 1
-      _trsType: 2
-      defaultTransform: {fileID: 0}
-      uniformAxes: 0
-      _xcrusher:
-        axis: 0
-        showBCL: 0
-        expandBCL: 0
-        showEnableToggle: 1
-        enabled: 1
-        _accurateCenter: 0
-        outOfBoundsHandling: 1
-        encoder: 5.6833334
-        decoder: 0.17595308
-        actualMin: -90
-        actualMax: 90
-        wrappoint: 180
-        range: 180
-        rotationMaxValue: 270
-        maxEncodedVal: 1023
-        centerValue: 0
-        centerEncodedValue: 511
-        _limitRange: 1
-        _useHalfRangeX: 1
-        _bitsDeterminedBy: 10
-        _bits: 0a000000060000000500000000000000
-        _min: -90
-        _max: 90
-        _resolution: 1023
-        _precision: 0.17595308
-        _trsType: 1
-      _ycrusher:
-        axis: 1
-        showBCL: 0
-        expandBCL: 0
-        showEnableToggle: 1
-        enabled: 1
-        _accurateCenter: 0
-        outOfBoundsHandling: 1
-        encoder: 11.375
-        decoder: 0.08791209
-        actualMin: -180
-        actualMax: 180
-        wrappoint: 180
-        range: 360
-        rotationMaxValue: 180
-        maxEncodedVal: 4095
-        centerValue: 0
-        centerEncodedValue: 2047
-        _limitRange: 1
-        _useHalfRangeX: 0
-        _bitsDeterminedBy: 12
-        _bits: 0c000000080000000600000000000000
-        _min: -180
-        _max: 180
-        _resolution: 4095
-        _precision: 0.08791209
-        _trsType: 1
-      _zcrusher:
-        axis: 2
-        showBCL: 0
-        expandBCL: 0
-        showEnableToggle: 1
-        enabled: 1
-        _accurateCenter: 0
-        outOfBoundsHandling: 1
-        encoder: 2.8416667
-        decoder: 0.35190615
-        actualMin: -180
-        actualMax: 180
-        wrappoint: 180
-        range: 360
-        rotationMaxValue: 180
-        maxEncodedVal: 1023
-        centerValue: 0
-        centerEncodedValue: 511
-        _limitRange: 1
-        _useHalfRangeX: 0
-        _bitsDeterminedBy: 10
-        _bits: 0a000000060000000500000000000000
-        _min: -180
-        _max: 180
-        _resolution: 1023
-        _precision: 0.35190615
-        _trsType: 1
-      _ucrusher:
-        axis: 4
-        showBCL: 0
-        expandBCL: 0
-        showEnableToggle: 0
-        enabled: 1
-        _accurateCenter: 0
-        outOfBoundsHandling: 1
-        encoder: 12.75
-        decoder: 0.078431375
-        actualMin: -10
-        actualMax: 10
-        wrappoint: 180
-        range: 20
-        rotationMaxValue: 350
-        maxEncodedVal: 255
-        centerValue: 0
-        centerEncodedValue: 127
-        _limitRange: 0
-        _useHalfRangeX: 0
-        _bitsDeterminedBy: 8
-        _bits: 08000000040000000300000000000000
-        _min: -10
-        _max: 10
-        _resolution: 255
-        _precision: 0.078431375
-        _trsType: 4
-      _qcrusher:
-        bits: 32
-        _compressLevel: 32
-        transform: {fileID: 0}
-        local: 0
-        isStandalone: 0
-        showEnableToggle: 1
-        enabled: 1
-      local: 0
-      useWorldBounds: 0
-      boundsGroupId: 0
-      enableTRSTypeSelector: 0
-      enableLocalSelector: 1
-      bounds:
-        m_Center: {x: 0, y: 0, z: 0}
-        m_Extent: {x: 0, y: 0, z: 0}
-    index: 0
-    drawerHeight: 193
-    nst: {fileID: 0}
-    na: {fileID: 0}
-    sendCullMask: 30
-    keyRate: 5
-    gameobject: {fileID: 0}
-    extrapolation: 0.5
-    maxExtrapolates: 2
-    teleportOverride: 1
-    ghostGO: {fileID: 0}
-    lastSentKeyTime: 0
-    snapshotFrameId: 0
-    targetFrameId: 0
-  debugXform: 0
-  dontDestroyOnLoad: 1
-  destroyUnspawned: 1
-  rb: {fileID: 0}
-  cachedGameObject: {fileID: 0}
-  cachedTransform: {fileID: 0}
-  frameUpdateInterval: 0
-  invFrameUpdateInterval: 0
-  lastSentPos: {x: 0, y: 0, z: 0}
+  compressRotation: 1

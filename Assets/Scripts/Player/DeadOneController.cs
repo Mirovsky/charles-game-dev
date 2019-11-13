@@ -1,9 +1,11 @@
 using System;
+using Mirror;
+using OOO.Base;
 using UnityEngine;
 
 
 [RequireComponent(typeof(Rigidbody))]
-public class CustomCharacterController : MonoBehaviour
+public class DeadOneController : BaseNetworkBehaviour
 {
     [HideInInspector] public CollisionChecks collisions;
     [HideInInspector] public Vector3 Velocity;
@@ -78,6 +80,10 @@ public class CustomCharacterController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!hasAuthority || !IsMobilePlayer) {
+            return;
+        }
+        
         collisions.Reset();
 
         HandleCollisions();

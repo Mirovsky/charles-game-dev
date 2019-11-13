@@ -1,12 +1,13 @@
-﻿using UnityEngine;
+﻿using Mirror;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-[RequireComponent(typeof(CustomCharacterController))]
+[RequireComponent(typeof(DeadOneController))]
 [RequireComponent(typeof(PlayerInput))]
-public class PlayerInputController : MonoBehaviour
+public class PlayerInputController : NetworkBehaviour
 {
-    CustomCharacterController controller;
+    DeadOneController controller;
     PlayerInputActions playerInput;
 
     void OnEnable() => playerInput.Enable();
@@ -15,7 +16,7 @@ public class PlayerInputController : MonoBehaviour
     void Awake()
     {
         playerInput = new PlayerInputActions();
-        controller = GetComponent<CustomCharacterController>();
+        controller = GetComponent<DeadOneController>();
 
         controller.OnHitAbove += HitAbove;
         controller.OnHitBelow += HitBelow;
@@ -23,12 +24,15 @@ public class PlayerInputController : MonoBehaviour
         controller.OnHitRight += HitRight;
     }
 
-    void Update() => controller.Direction = playerInput.Player.Movement.ReadValue<float>();
+    void Update() {
+    }
+    
+    void OnJump() {
+    }
 
-    void OnJump() => controller.Jump();
-
-    void OnSlam() => controller.Slam();
-
+    void OnSlam() {
+    }
+    
     void HitBelow() {}
 
     void HitAbove() {}

@@ -1,25 +1,54 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Mirror;
+using OOO.Base;
 using UnityEngine;
 
-
-public class DeadOneBehaviour : MonoBehaviour
+public class DeadOneBehaviour : BaseNetworkBehaviour
 {
-    CustomCharacterController controller;
+    DeadOneController controller;
     PlayerInputActions playerInput;
 
     void OnEnable() => playerInput.Enable();
-    void OnDisable() => playerInput.Disable();
+    void OnDisable() => playerInput.Disable();
 
-    void Awake()
-    {
+    void Awake() {
         playerInput = new PlayerInputActions();
-        controller = GetComponent<CustomCharacterController>();
+        controller = GetComponent<DeadOneController>();
     }
 
-    void Update() => controller.Direction = playerInput.Player.Movement.ReadValue<float>();
+    void Update() {
+        if (hasAuthority && IsMobilePlayer) {
+            controller.Direction = playerInput.Player.Movement.ReadValue<float>();
+        }
+    }
 
-    void OnJump() => controller.Jump();
 
-    void OnSlam() => controller.Slam();
+    [Server]
+    private void OnCollisionEnter(Collision other) {
+        if (isServer) {
+            if (other.gameObject.CompareTag("Platform")) {
+                RpcChangeParent(other.gameObject.transform);
+            }
+        }
+    }
+
+    [ClientRpc]
+    private void RpcChangeParent(Transform other) {
+        this.transform.parent = other;
+    }
+
+    [Server]
+    private void OnCollisionExit(Collision other) {
+        if (isServer) {
+            if (other.gameObject.CompareTag("Platform")) {
+                RpcChangeParent(null);
+            }
+        }
+    }
+
+
+    void OnJump() {
+    }
+
+    void OnSlam() {
+    }
 }
