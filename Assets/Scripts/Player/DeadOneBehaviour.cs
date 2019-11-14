@@ -1,29 +1,54 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Mirror;
+using OOO.Base;
 using UnityEngine;
 
-
-public class DeadOneBehaviour : Bolt.EntityBehaviour<IDeadOneState>
+public class DeadOneBehaviour : BaseNetworkBehaviour
 {
-    CustomCharacterController controller;
+    DeadOneController controller;
     PlayerInputActions playerInput;
 
     void OnEnable() => playerInput.Enable();
-    void OnDisable() => playerInput.Disable();
+    void OnDisable() => playerInput.Disable();
 
-    void Awake()
-    {
+    void Awake() {
         playerInput = new PlayerInputActions();
-        controller = GetComponent<CustomCharacterController>();
+        controller = GetComponent<DeadOneController>();
     }
 
-    public override void Attached()
-    {
-        state.SetTransforms(state.DeadOneTransform, transform);
+    void Update() {
+        if (hasAuthority && IsMobilePlayer) {
+            controller.Direction = playerInput.Player.Movement.ReadValue<float>();
+        }
     }
 
-    public override void SimulateOwner()
-    {
-        controller.Direction = playerInput.Player.Movement.ReadValue<float>();
+
+    [Server]
+    private void OnCollisionEnter(Collision other) {
+        if (isServer) {
+            if (other.gameObject.CompareTag("Platform")) {
+                RpcChangeParent(other.gameObject.transform);
+            }
+        }
+    }
+
+    [ClientRpc]
+    private void RpcChangeParent(Transform other) {
+        this.transform.parent = other;
+    }
+
+    [Server]
+    private void OnCollisionExit(Collision other) {
+        if (isServer) {
+            if (other.gameObject.CompareTag("Platform")) {
+                RpcChangeParent(null);
+            }
+        }
+    }
+
+
+    void OnJump() {
+    }
+
+    void OnSlam() {
     }
 }
