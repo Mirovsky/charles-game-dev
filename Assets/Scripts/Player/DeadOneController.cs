@@ -1,5 +1,4 @@
 using System;
-using Mirror;
 using OOO.Base;
 using OOO.Utils;
 using UnityEngine;
@@ -84,8 +83,6 @@ public class DeadOneController : BaseNetworkBehaviour
         if (!hasAuthority || !IsMobilePlayer) {
             return;
         }
-        
-        collisions.Reset();
 
         HandleCollisions();
         MoveCharacter();
