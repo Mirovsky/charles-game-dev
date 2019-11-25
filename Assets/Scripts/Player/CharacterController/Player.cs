@@ -24,14 +24,9 @@ public class Player : MonoBehaviour
     float minJumpVelocity;
     float yVelocity;
 
-    float velocityXSmoothing;
-    float velocityZSmoothing;
-
     bool wantsToJump;
 
     CharacterController controller;
-
-    float direction;
 
     void Start()
     {
@@ -55,14 +50,18 @@ public class Player : MonoBehaviour
             yVelocity = maxJumpVelocity;
         }
 
-        pathfinding.UpdateDistance(direction * moveSpeed * Time.deltaTime);
-        var newPosDelta = pathfinding.GetPosition() - transform.position;
+        float nextStep = Direction * moveSpeed * Time.deltaTime;
+        pathfinding.UpdateDistance(nextStep);
 
-        newPosDelta.y = yVelocity * Time.deltaTime;
+        var vel = pathfinding.GetNormal() * yVelocity * Time.deltaTime;
+
+        var pos = transform.position;
+        pos.y = 0;
+        vel += pathfinding.GetPosition() - pos;
 
         transform.rotation = pathfinding.GetRotation();
 
-        var flags = controller.Move(newPosDelta);
+        var flags = controller.Move(vel);
         ResolveCollisions(flags);
 
         wantsToJump = false;
@@ -72,13 +71,12 @@ public class Player : MonoBehaviour
     {
         collisions.above = (flags & CollisionFlags.Above) != 0;
         collisions.below = (flags & CollisionFlags.Below) != 0;
-
-        /* collisions.left = (flags & CollisionFlags.Sides) != 0;
-        collisions.right = (flags & CollisionFlags.Above) != 0; */
     }
 
+    public float Direction { get; private set; }
+
     public void SetDirectionalInput (float d) {
-        direction = d;
+        Direction = d;
     }
 
     public void OnJumpInputDown() {

@@ -7,38 +7,46 @@ public class BezierPathfinding : MonoBehaviour
     [SerializeField]
     PathCreator pathCreator;
 
+    [SerializeField]
+    Player player;
+
     float distance;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PathSwitcher")) {
+            pathCreator = other
+                .GetComponent<PathSwitcher>()
+                .GetNextPath(player.Direction);
+
+            distance = pathCreator.path.GetClosestDistanceAlongPath(transform.position);
+        }
+    }
 
     public void UpdateDistance(float direction)
     {
         distance += direction;
     }
 
-    /// <summary>
-    /// Returns current position on curve.
-    /// </summary>
-    /// <returns></returns>
-    public Vector3 GetPosition()
+    public Vector3 GetPosition(float nextStep = 0)
     {
-        return pathCreator.path.GetPointAtDistance(distance);
+        var pos = pathCreator.path.GetPointAtDistance(distance + nextStep);
+        pos.y = 0;
+        return pos;
     }
 
-    /// <summary>
-    /// Returns current normal on curve based on traveled distance.
-    /// </summary>
-    /// <returns></returns>
-    public Vector2 GetNormal()
+    public Vector3 GetNormal(float nextStep = 0)
     {
-        return pathCreator.path.GetNormalAtDistance(distance);
+        return pathCreator.path.GetNormalAtDistance(distance + nextStep);
     }
 
-    public Vector2 GetDirection()
+    public Vector3 GetDirection(float nextStep = 0)
     {
-        return pathCreator.path.GetDirectionAtDistance(distance);
+        return pathCreator.path.GetDirectionAtDistance(distance + nextStep);
     }
 
-    public Quaternion GetRotation()
+    public Quaternion GetRotation(float nextStep = 0)
     {
-        return pathCreator.path.GetRotationAtDistance(distance);
+        return pathCreator.path.GetRotationAtDistance(distance + nextStep);
     }
 }
