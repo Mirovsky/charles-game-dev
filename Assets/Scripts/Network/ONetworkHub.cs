@@ -9,15 +9,14 @@ namespace OOO.Network
     public class ONetworkHub: MonoBehaviour
     {
         private NetworkManager manager;
-        
+
         public void OnGUI() {
             manager = GetComponent<NetworkManager>();
-            
+
             if (!NetworkClient.isConnected && !NetworkServer.active && !NetworkClient.active) {
                 if (GameTypeResolver.Instance.type == GameType.MOBILE) {
                     manager.StartHost();
-                }
-                else {
+                } else {
                     manager.StartClient();
                 }
             }

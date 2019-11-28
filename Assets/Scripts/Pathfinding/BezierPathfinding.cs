@@ -14,6 +14,11 @@ public class BezierPathfinding : MonoBehaviour
     [SerializeField]
     PathSwitcher nextSwitcher = null;
 
+    void Start()
+    {
+        pathCreator = GameObject.Find("CirclePath").GetComponent<PathCreator>();
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PathSwitcher")) {
