@@ -49,6 +49,14 @@ public class PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Switch"",
+                    ""type"": ""Button"",
+                    ""id"": ""68bae94c-9ac1-4500-8696-3e8fc78b958a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -249,6 +257,39 @@ public class PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8db3f3de-c9b9-46a4-882a-1f49048bfdcd"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e0e86c8a-708a-4c99-98a4-3e3688c98b96"",
+                    ""path"": ""<Keyboard>/rightShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7cb0e439-aadc-45fe-815a-52cf0d85f4f1"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -284,6 +325,7 @@ public class PlayerInputActions : IInputActionCollection, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Slam = m_Player.FindAction("Slam", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
+        m_Player_Switch = m_Player.FindAction("Switch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -337,6 +379,7 @@ public class PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Slam;
     private readonly InputAction m_Player_Dash;
+    private readonly InputAction m_Player_Switch;
     public struct PlayerActions
     {
         private PlayerInputActions m_Wrapper;
@@ -345,6 +388,7 @@ public class PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Slam => m_Wrapper.m_Player_Slam;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
+        public InputAction @Switch => m_Wrapper.m_Player_Switch;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -366,6 +410,9 @@ public class PlayerInputActions : IInputActionCollection, IDisposable
                 Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                 Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                 Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                Switch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
+                Switch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
+                Switch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -382,6 +429,9 @@ public class PlayerInputActions : IInputActionCollection, IDisposable
                 Dash.started += instance.OnDash;
                 Dash.performed += instance.OnDash;
                 Dash.canceled += instance.OnDash;
+                Switch.started += instance.OnSwitch;
+                Switch.performed += instance.OnSwitch;
+                Switch.canceled += instance.OnSwitch;
             }
         }
     }
@@ -410,5 +460,6 @@ public class PlayerInputActions : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnSlam(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnSwitch(InputAction.CallbackContext context);
     }
 }

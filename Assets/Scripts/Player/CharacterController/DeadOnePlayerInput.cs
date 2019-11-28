@@ -19,6 +19,7 @@ public class DeadOnePlayerInput : MonoBehaviour
         player = GetComponent<Player> ();
 
         playerInput.Player.Jump.started += OnJumpPerformed;
+        playerInput.Player.Switch.started += OnSwitchPerformed;
     }
 
     void Update()
@@ -27,6 +28,10 @@ public class DeadOnePlayerInput : MonoBehaviour
     void OnJumpPerformed(InputAction.CallbackContext ctx)
     {
         player.OnJumpInputDown();
+    }
+
+    void OnSwitchPerformed(InputAction.CallbackContext ctx)
+    {
         pathfinding.TriggerAvailablePathSwitch(true);
     }
 }

@@ -12,14 +12,12 @@ public class BezierPathfinding : MonoBehaviour
 
     float distance;
     [SerializeField]
-    PathSwitcher nextSwitcher = null;  
+    PathSwitcher nextSwitcher = null;
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PathSwitcher")) {
             nextSwitcher = other.GetComponent<PathSwitcher>();
-
-            TriggerAvailablePathSwitch();
         }
     }
 
@@ -39,7 +37,6 @@ public class BezierPathfinding : MonoBehaviour
 
         pathCreator = nextPath;
         distance = pathCreator.path.GetClosestDistanceAlongPath(transform.position);
-        nextSwitcher = null;
     }
 
     public void UpdateDistance(float direction)

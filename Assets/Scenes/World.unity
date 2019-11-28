@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 238262070}
   - component: {fileID: 238262071}
   - component: {fileID: 238262072}
+  - component: {fileID: 238262067}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -273,6 +274,25 @@ CharacterController:
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &238262067
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238262065}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 40f5fee230208144a8ecceea57f93c6c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &238262069
 Transform:
   m_ObjectHideFlags: 0
@@ -1084,7 +1104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7275e73bfcbc4c4eb9facc32c01b718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directSwitchOnEnter: 1
+  directSwitchOnEnter: 0
   myPath: {fileID: 1914902812}
   directSwitchOnExit: 0
   nextPath: {fileID: 866605669}
@@ -1353,7 +1373,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 90a866f8b1540b34c91442282eb6e7c6, type: 2}
+  - {fileID: 2100000, guid: ee08ed6d34f255e49915b651ffb12d8c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1539,9 +1559,9 @@ MonoBehaviour:
     _bezierPath:
       points:
       - {x: -1.49601, y: 0, z: 36.100323}
-      - {x: -1.508968, y: 0, z: 17.96109}
-      - {x: -1.5348841, y: 0, z: -18.317379}
-      - {x: -1.5478421, y: 0, z: -36.45661}
+      - {x: -1.5055296, y: 0.030065767, z: 17.850634}
+      - {x: -1.5245688, y: 0.0901973, z: -18.648745}
+      - {x: -1.5340885, y: 0.12026307, z: -36.898434}
       isClosed: 0
       space: 0
       controlMode: 3
