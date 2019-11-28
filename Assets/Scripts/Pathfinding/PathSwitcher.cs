@@ -6,16 +6,31 @@ using PathCreation;
 
 public class PathSwitcher : MonoBehaviour
 {
+    [SerializeField, Tooltip("")]
+    bool directSwitchOnEnter;
     [SerializeField]
-    PathCreator rightPath;
-
+    PathCreator myPath;
+    [SerializeField, Tooltip("")]
+    bool directSwitchOnExit;
     [SerializeField]
-    PathCreator leftPath;
+    PathCreator nextPath;
 
-    public PathCreator GetNextPath(float direction)
+    public PathCreator GetNextPath(PathCreator currentPath, bool force)
     {
-        return direction >= 0 ?
-            rightPath :
-            leftPath;
+        // Player is on the same path as this switcher
+        if (currentPath == myPath) {
+            if (directSwitchOnExit || force) {
+                return nextPath;
+            }
+        }
+
+        // Player is on path this switcher leads to (or from)
+        if (currentPath == nextPath) {
+            if (directSwitchOnEnter || force) {
+                return myPath;
+            }
+        }
+
+        return null;
     }
 }

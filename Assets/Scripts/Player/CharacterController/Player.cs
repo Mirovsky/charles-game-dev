@@ -51,26 +51,39 @@ public class Player : MonoBehaviour
         }
 
         float nextStep = Direction * moveSpeed * Time.deltaTime;
-        pathfinding.UpdateDistance(nextStep);
 
-        var vel = pathfinding.GetNormal() * yVelocity * Time.deltaTime;
+        var normal = pathfinding.GetNormal(nextStep);
+        var position = pathfinding.GetPosition(nextStep);
+        var rotation = pathfinding.GetRotation(nextStep);
 
+        var vel = normal * yVelocity * Time.deltaTime;
         var pos = transform.position;
         pos.y = 0;
-        vel += pathfinding.GetPosition() - pos;
+        vel += position - pos;
 
-        transform.rotation = pathfinding.GetRotation();
+        transform.rotation = rotation;
 
         var flags = controller.Move(vel);
         ResolveCollisions(flags);
+        ConfirmMove(nextStep);
 
         wantsToJump = false;
+    }
+
+    void ConfirmMove(float step)
+    {
+        if (!collisions.sides) {
+            pathfinding.UpdateDistance(step);
+        }
     }
 
     void ResolveCollisions(CollisionFlags flags)
     {
         collisions.above = (flags & CollisionFlags.Above) != 0;
         collisions.below = (flags & CollisionFlags.Below) != 0;
+        collisions.sides = (flags & CollisionFlags.Sides) != 0;
+        collisions.left = collisions.sides && Direction < 0;
+        collisions.right = collisions.sides && Direction > 0;
     }
 
     public float Direction { get; private set; }
@@ -87,6 +100,6 @@ public class Player : MonoBehaviour
     public struct CollisionInfo
     {
         public bool below, above;
-        public bool left, right;
+        public bool left, right, sides;
     }
 }

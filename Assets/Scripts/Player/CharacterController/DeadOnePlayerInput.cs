@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 [RequireComponent (typeof (Player))]
 public class DeadOnePlayerInput : MonoBehaviour
 {
+    [SerializeField]
+    BezierPathfinding pathfinding;
+
     Player player;
     PlayerInputActions playerInput;
 
@@ -22,5 +25,8 @@ public class DeadOnePlayerInput : MonoBehaviour
         => player.SetDirectionalInput(playerInput.Player.Movement.ReadValue<float>());
 
     void OnJumpPerformed(InputAction.CallbackContext ctx)
-        => player.OnJumpInputDown();
+    {
+        player.OnJumpInputDown();
+        pathfinding.TriggerAvailablePathSwitch(true);
+    }
 }
