@@ -29,6 +29,11 @@ public class LevelGameState : BaseNetworkBehaviour
         levelKeysCount = FindObjectsOfType<KeyController>().Length;
     }
 
+    void OnDestroy()
+    {
+        RemoveEventListeners();
+    }
+
     void KeyCollectedEventHandler(KeyCollectedEvent e)
     {
         collectedKeys += 1;
@@ -69,5 +74,13 @@ public class LevelGameState : BaseNetworkBehaviour
 
         hub.AddListener<KeyCollectedEvent>(KeyCollectedEventHandler);
         hub.AddListener<ExitOccupancyChangeEvent>(ExitOccupancyChangeEventHandler);
+    }
+
+    void RemoveEventListeners()
+    {
+        var hub = EventHub.Instance;
+
+        hub.RemoveListener<KeyCollectedEvent>(KeyCollectedEventHandler);
+        hub.RemoveListener<ExitOccupancyChangeEvent>(ExitOccupancyChangeEventHandler);
     }
 }

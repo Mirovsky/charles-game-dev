@@ -17,6 +17,11 @@ public class ExitController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    void OnDestroy()
+    {
+        EventHub.Instance.RemoveListener<ExitOpenEvent>(ExitOpenEventHandler);    
+    }
+
     void ExitOpenEventHandler(ExitOpenEvent e)
     {
         // TODO: Figure out proper animation of exit appearing
