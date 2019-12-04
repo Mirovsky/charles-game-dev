@@ -41,6 +41,7 @@ namespace PathCreation {
         public bool showVertexPathOptions = true;
         public bool showNormals;
         public bool showNormalsHelpInfo;
+        public bool showPoints;
         public int tabIndex;
 
         public void Initialize (bool defaultIs2D) {

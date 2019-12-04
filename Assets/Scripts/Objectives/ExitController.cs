@@ -9,27 +9,22 @@ public class ExitController : MonoBehaviour
 
     public bool isOpen;
 
-    [SerializeField]
-    GameObject graphics;
-
     void Awake()
     {
         EventHub.Instance.AddListener<ExitOpenEvent>(ExitOpenEventHandler);
 
-        graphics.SetActive(false);
+        // Trigger only after all keys are collected
+        gameObject.SetActive(false);
     }
 
     void ExitOpenEventHandler(ExitOpenEvent e)
     {
-        isOpen = true;
         // TODO: Figure out proper animation of exit appearing
-        graphics.SetActive(true);
+        gameObject.SetActive(true);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (!isOpen) return;
-
         var e = new ExitOccupancyChangeEvent() { type = ExitOccupancyChangeEvent.Type.ENTER };
 
         SetPlayerType(other, ref e);
@@ -39,8 +34,6 @@ public class ExitController : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (!isOpen) return;
-
         var e = new ExitOccupancyChangeEvent() { type = ExitOccupancyChangeEvent.Type.LEAVE };
 
         SetPlayerType(other, ref e);

@@ -83,6 +83,8 @@ namespace PathCreationEditor {
                 TabChanged ();
             }
 
+            DrawBezierPoints();
+
             // Draw inspector for active tab
             switch (data.tabIndex) {
                 case bezierPathTab:
@@ -263,6 +265,36 @@ namespace PathCreationEditor {
                 if (check.changed) {
                     UpdateGlobalDisplaySettings ();
                     SceneView.RepaintAll ();
+                }
+            }
+        }
+
+        void DrawBezierPoints()
+        {
+            data.showPoints = EditorGUILayout.Foldout(data.showPoints, "Show Points", boldFoldoutStyle);
+
+            if (data.showPoints)
+            {
+                var bezierPath = creator.bezierPath;
+                
+                for (int i = 0; i < bezierPath.NumPoints; i += 4)
+                {
+                    var anchorA = bezierPath.GetPoint(i);
+                    var controlA = bezierPath.GetPoint(i + 1);
+                    var controlB = bezierPath.GetPoint(i + 2);
+                    var anchorB = bezierPath.GetPoint(i + 3);
+
+                    anchorA = EditorGUILayout.Vector3Field("Anchor A", anchorA);
+                    controlA = EditorGUILayout.Vector3Field("Control A", controlA);
+                    controlB = EditorGUILayout.Vector3Field("Control B", controlB);
+                    anchorB = EditorGUILayout.Vector3Field("Anchor B", anchorB);
+
+                    bezierPath.MovePoint(i, anchorA);
+                    bezierPath.MovePoint(i + 1, controlA);
+                    bezierPath.MovePoint(i + 2, controlB);
+                    bezierPath.MovePoint(i + 3, anchorB);
+
+                    EditorGUILayout.Space();
                 }
             }
         }
