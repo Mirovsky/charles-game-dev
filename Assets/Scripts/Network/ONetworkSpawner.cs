@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using Mirror;
 using OOO.Base;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 namespace OOO.Network
 {
@@ -34,7 +36,7 @@ namespace OOO.Network
         }
 
         private void Update() {
-            if (Input.GetKeyDown(KeyCode.Q)) {
+            if (Keyboard.current.qKey.wasPressedThisFrame) {
                 OnGameStart();
             }
         }

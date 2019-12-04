@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serverOnly: 0
-  m_AssetId: 3ed2a5b9d57a141e3a7ff483ac9bb529
+  m_AssetId: 
   m_SceneId: 0
 --- !u!114 &8562489253924319926
 MonoBehaviour:
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  playerPrefab: {fileID: 7463824193384340258, guid: f4cce8ee18a42e64e996accfd7ee0627,
+  playerPrefab: {fileID: 7447710313142363381, guid: 0455a227d5a284725b5d50918757809f,
     type: 3}
   platforms:
   - {fileID: 5207338766985461210, guid: 55413ec7ee17d4d95a3a867b6200d092, type: 3}
