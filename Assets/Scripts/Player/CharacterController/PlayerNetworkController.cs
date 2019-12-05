@@ -13,6 +13,8 @@ public class PlayerNetworkController : BaseNetworkBehaviour
     BezierPathfinding pathfinding = default;
     [SerializeField]
     DeadOnePlayerInput playerInput = default;
+    [SerializeField]
+    DeadOneKeyCollector keyCollector = default;
 
     void Awake()
     {
@@ -24,5 +26,6 @@ public class PlayerNetworkController : BaseNetworkBehaviour
         Destroy(playerInput);
         Destroy(pathfinding);
         Destroy(cameraObject);
+        Destroy(keyCollector);
     }
 }
