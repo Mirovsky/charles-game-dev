@@ -26,12 +26,8 @@ public class DeadOnePlayerInput : MonoBehaviour
         => player.SetDirectionalInput(playerInput.Player.Movement.ReadValue<float>());
 
     void OnJumpPerformed(InputAction.CallbackContext ctx)
-    {
-        player.OnJumpInputDown();
-    }
+        => player.OnJumpInputDown();
 
     void OnSwitchPerformed(InputAction.CallbackContext ctx)
-    {
-        pathfinding.TriggerAvailablePathSwitch(true);
-    }
+        => pathfinding.TriggerAvailablePathSwitch(true);
 }
