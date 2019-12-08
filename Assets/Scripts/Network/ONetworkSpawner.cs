@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Mirror;
 using OOO.Base;
@@ -62,7 +63,7 @@ namespace OOO.Network
         }
 
 
-        [Client]
+//        [Client]
         private void SpawnCamera() {
             if (isLocalPlayer && IsMobilePlayer) {
                 Instantiate(mobileCamera);
