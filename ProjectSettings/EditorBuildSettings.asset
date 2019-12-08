@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Main.unity
     guid: 4e63829dedb5b4e8587021dea0af4ed2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/World.unity
     guid: 1d81a31a77780442d816850cb3ecd745
+  - enabled: 1
+    path: Assets/Scenes/VRPlayground.unity
+    guid: 5a4330a5c6f924f4c8fcfe421e16e3e6
   m_configObjects: {}

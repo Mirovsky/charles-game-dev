@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serverOnly: 0
-  m_AssetId: 
+  m_AssetId: 3ed2a5b9d57a141e3a7ff483ac9bb529
   m_SceneId: 0
 --- !u!114 &8562489253924319926
 MonoBehaviour:
@@ -68,5 +68,5 @@ MonoBehaviour:
   mobileCamera: {fileID: 4182288405685184604, guid: 1cb131766d5bd46c7a7cb42d830b3995,
     type: 3}
   mobileCameraTransform: {fileID: 0}
-  vrCamera: {fileID: 71070457664650086, guid: 03a17f78302514449ba7981aa5cd982f, type: 3}
+  vrCamera: {fileID: 274474658664732215, guid: 5129efb8d9d02486c9253a9cac7c8531, type: 3}
   vrCameraTransform: {fileID: 0}
