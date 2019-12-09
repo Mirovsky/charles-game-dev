@@ -1,23 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using PathCreation;
 
 
-public class PathSwitcher : MonoBehaviour
+public class SegmentSwitcher : MonoBehaviour
 {
     [SerializeField, Tooltip("")]
     bool directSwitchOnEnter;
-    [SerializeField]
-    PathCreator myPath;
+    [SerializeField] PathSegment segment;
     [SerializeField, Tooltip("")]
     bool directSwitchOnExit;
-    [SerializeField]
-    PathCreator nextPath;
+    // [SerializeField] PathSegment 
 
-    public PathCreator GetNextPath(PathCreator currentPath, bool force)
+    public MultiPathDescriptor GetNextPath(MultiPathDescriptor currentPath, bool force)
     {
-        // Player is on the same path as this switcher
+        /*// Player is on the same path as this switcher
         if (currentPath == myPath) {
             if (directSwitchOnExit || force) {
                 return nextPath;
@@ -30,6 +26,8 @@ public class PathSwitcher : MonoBehaviour
                 return myPath;
             }
         }
+
+        return null; */
 
         return null;
     }
