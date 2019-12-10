@@ -1,42 +1,60 @@
-﻿using System.Linq;
+﻿
 using UnityEngine;
-using PathCreation;
 
 
 public class MultiPathDescriptor : MonoBehaviour
 {
+    [SerializeField, Help("Starting segment of MultiPath. If MultiPath is circular, pick any PathSegment.")]
+    PathSegment startingSegment;
+
+    public PathSegment StartingSegment => startingSegment;
+
     void Awake()
     {
-        var segments = GetComponentsInChildren<PathSegment>();
-
-        ConnectPathSegments(segments);
+        ConnectPathSegments();
     }
 
-    void ConnectPathSegments(PathSegment[] segments)
+    void ConnectPathSegments()
     {
         var connectorMask = LayerMask.NameToLayer("PathConnectors");
 
-        foreach (var segment in segments)
-        {
-            var collider = segment.nextConnectorCollider;
-            collider.enabled = false;
-            var overlaps = Physics.OverlapBox(collider.transform.position + collider.center, collider.size / 2f, Quaternion.identity, 1 << connectorMask);
-            collider.enabled = true;
+        if (startingSegment == null) {
+            Debug.LogWarning("MultiPathDescriptor: Starting segments is NULL.");
+            return;
+        }
 
-            // We don't need overlap since it can be last segment.
-            if (overlaps.Length == 0)
-                continue;
+        var segment = startingSegment;
+        while (segment != null) {
+            var overlaps = GetConnectorOverlap(segment.rightConnectorCollider, connectorMask);
+
+            if (overlaps.Length == 0) {
+                break;
+            }
 
             // We don't support connection with more than one segment.
-            if (overlaps.Length > 1)
-            {
+            if (overlaps.Length > 1) {
                 Debug.LogWarning($"MapCreatorRuntime: Segment has more connections than one. ({overlaps.Length})");
-                continue;
+                break;
             }
 
             var nextSegment = overlaps[0].GetComponentInParent<PathSegment>();
-            nextSegment.prevPath = segment;
-            segment.nextPath = nextSegment;
+            if (nextSegment.HasRight) {
+                break;
+            }
+
+            segment.leftSegment = nextSegment;
+            nextSegment.rightSegment = segment;
+
+            segment = nextSegment;
         }
+    }
+
+    Collider[] GetConnectorOverlap(BoxCollider collider, LayerMask connectorMask)
+    {
+        collider.enabled = false;
+        var overlaps = Physics.OverlapBox(collider.transform.position + collider.center, collider.size / 2f, Quaternion.identity, 1 << connectorMask);
+        collider.enabled = true;
+
+        return overlaps;
     }
 }

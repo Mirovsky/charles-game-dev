@@ -10,7 +10,7 @@ public class PlayerNetworkController : BaseNetworkBehaviour
     [SerializeField]
     GameObject cameraObject = default;
     [SerializeField]
-    BezierPathfinding pathfinding = default;
+    Pathfinding pathfinding = default;
     [SerializeField]
     DeadOnePlayerInput playerInput = default;
     [SerializeField]

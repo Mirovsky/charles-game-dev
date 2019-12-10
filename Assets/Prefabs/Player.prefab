@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7447710311615283091}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.75, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 7447710311827511913}
   m_RootOrder: 0
@@ -304,7 +304,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7447710313142363381}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 1, z: -3}
+  m_LocalPosition: {x: 2, y: 0.5, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7447710312186190964}
@@ -325,8 +325,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serverOnly: 0
-  m_AssetId: 
-  m_SceneId: 1078061181
+  m_AssetId: 0455a227d5a284725b5d50918757809f
+  m_SceneId: 0
 --- !u!114 &-4643613537125336299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,10 +408,10 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1
-  m_Radius: 0.5
+  m_Height: 0.1
+  m_Radius: 0.1
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.05
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
@@ -433,12 +433,12 @@ MonoBehaviour:
     left: 0
     right: 0
     sides: 0
-  maxJumpHeight: 10
+  maxJumpHeight: 1
   minJumpHeight: 3
   timeToJumpApex: 0.4
   accelerationTimeAirborne: 0.2
   accelerationTimeGrounded: 0.05
-  moveSpeed: 6
+  moveSpeed: 1
   pathfinding: {fileID: 7447710313142363388}
 --- !u!114 &7447710313142363379
 MonoBehaviour:
@@ -465,8 +465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a1b0b168111f9b46a1c53b967befffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathCreator: {fileID: 0}
-  player: {fileID: 7447710313142363378}
+  segment: {fileID: 0}
   nextSwitcher: {fileID: 0}
 --- !u!114 &2396328416803820382
 MonoBehaviour:

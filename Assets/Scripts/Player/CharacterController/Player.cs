@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] float moveSpeed;
 
     [Header("Pathfinding")]
-    [SerializeField] BezierPathfinding pathfinding;
+    [SerializeField] Pathfinding pathfinding;
 
 
     float gravity;

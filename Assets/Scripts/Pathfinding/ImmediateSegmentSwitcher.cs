@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(Collider))]
-public class ImmediatePathSwitcher : MonoBehaviour
+public class ImmediateSegmentSwitcher : MonoBehaviour
 {
     static readonly string PLAYER_2D = "Player_2D";
 
@@ -11,7 +11,7 @@ public class ImmediatePathSwitcher : MonoBehaviour
         if (!other.CompareTag(PLAYER_2D))
             return;
 
-        var pathfinding = other.GetComponent<BezierPathfinding>();
+        var pathfinding = other.GetComponent<Pathfinding>();
         pathfinding.TriggerAvailablePathSwitch();
     }
 }

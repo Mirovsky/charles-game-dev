@@ -3,5 +3,5 @@
 
 public abstract class AbstractSegmentSwitcher : MonoBehaviour
 {
-    public abstract PathSegment GetNextSegment();
+    public abstract PathSegment GetNextSegment(PathSegment currentSegment);
 }

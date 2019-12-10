@@ -3,5 +3,11 @@
 
 public class PathConnector : MonoBehaviour
 {
-    public PathConnector nextConnector;
+    public enum PathConnectorDirection
+    {
+        LEFT,
+        RIGHT
+    }
+
+    public PathConnectorDirection direction;
 }

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class DeadOnePlayerInput : MonoBehaviour
 {
     [SerializeField]
-    BezierPathfinding pathfinding;
+    Pathfinding pathfinding;
 
     Player player;
     PlayerInputActions playerInput;

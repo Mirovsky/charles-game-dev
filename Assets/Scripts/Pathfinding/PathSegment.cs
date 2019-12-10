@@ -4,16 +4,37 @@ using PathCreation;
 
 public class PathSegment : MonoBehaviour
 {
-    public PathCreator path;
+    public PathCreator currentPath;
 
-    public PathSegment nextPath;
-    public PathSegment prevPath;
+    public PathSegment rightSegment;
+    public PathSegment leftSegment;
 
-    public BoxCollider nextConnectorCollider;
-    public BoxCollider prevConnectorCollider;
+    public BoxCollider rightConnectorCollider;
 
-    public float Length => path.path.length;
+    public float Length => currentPath.path.length;
 
-    public bool HasNext => nextPath != null;
-    public bool HasPrev => prevPath != null;
+    public bool HasRight => rightSegment != null;
+    public bool HasLeft => leftSegment != null;
+
+    void OnDrawGizmos()
+    {
+        DrawLine();
+    }
+
+    void DrawLine()
+    {
+        var vPath = currentPath.path;
+
+        Gizmos.color = Color.black;
+
+        var pos = transform.position + transform.up * .1f;
+
+        Gizmos.DrawLine(pos, pos + transform.forward * .1f + transform.right * .1f);
+        Gizmos.DrawLine(pos, pos - transform.forward * .1f + transform.right * .1f);
+
+        for (int i = 0; i < vPath.NumPoints - 1; i++)
+        {
+            Gizmos.DrawLine(vPath.GetPoint(i) + vPath.GetNormal(i) * .1f, vPath.GetPoint(i + 1) + vPath.GetNormal(i + 1) * .1f);
+        }
+    }
 }
