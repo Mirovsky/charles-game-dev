@@ -13,6 +13,8 @@ namespace OOO.Network
         public void OnGUI() {
             manager = GetComponent<NetworkManager>();
 
+            manager.networkAddress = GameTypeResolver.Instance.ip;
+
             if (!NetworkClient.isConnected && !NetworkServer.active && !NetworkClient.active) {
                 if (GameTypeResolver.Instance.type == GameType.MOBILE) {
                     manager.StartHost();
