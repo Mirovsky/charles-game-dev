@@ -27,10 +27,13 @@ public class PathSegment : MonoBehaviour
 
         Gizmos.color = Color.black;
 
-        var pos = transform.position + transform.up * .1f;
+        var inversed = gameObject.name.Contains("Inversed");
 
-        Gizmos.DrawLine(pos, pos + transform.forward * .1f + transform.right * .1f);
-        Gizmos.DrawLine(pos, pos - transform.forward * .1f + transform.right * .1f);
+        var pos = transform.position + transform.up * .1f;
+        var right = inversed ? -transform.right : transform.right;
+
+        Gizmos.DrawLine(pos, pos + transform.forward * .1f + right * .1f);
+        Gizmos.DrawLine(pos, pos - transform.forward * .1f + right * .1f);
 
         for (int i = 0; i < vPath.NumPoints - 1; i++)
         {

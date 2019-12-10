@@ -30,6 +30,11 @@ public class Pathfinding : MonoBehaviour
         nextSwitcher = null;
     }
 
+    public void SetNextSwitcher(AbstractSegmentSwitcher switcher)
+    {
+        nextSwitcher = switcher;
+    }
+
     public void TriggerAvailablePathSwitch(bool force = false)
     {
         if (nextSwitcher == null)
