@@ -70,3 +70,7 @@ MonoBehaviour:
   mobileCameraTransform: {fileID: 0}
   vrCamera: {fileID: 274474658664732215, guid: 5129efb8d9d02486c9253a9cac7c8531, type: 3}
   vrCameraTransform: {fileID: 0}
+  leftHand: {fileID: 1723506367551182960, guid: 1ea1a1ec38a854bad9a53906b769ec28,
+    type: 3}
+  rightHand: {fileID: 4670533044216219965, guid: aaac9c3ae5ea74047bbe6845113d5e0a,
+    type: 3}

@@ -32,6 +32,10 @@ public class Grabber : MonoBehaviour
 
     public BaseGrabbable grabbedObject => _grabbedObj;
 
+    public void SetParentTransform(Transform pTransform) {
+        _parentTransform = pTransform;
+    }
+
     public void ForceRelease(BaseGrabbable grabbable) {
         bool canRelease = (
             (_grabbedObj != null) &&
