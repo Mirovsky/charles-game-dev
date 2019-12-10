@@ -127,6 +127,7 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -170,6 +171,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.charlesdev.ooo
+    Standalone: com.DefaultCompany.com.charlesdev.ooo
   buildNumber: {}
   AndroidBundleVersionCode: 2
   AndroidMinSdkVersion: 21
@@ -408,8 +410,8 @@ PlayerSettings:
   - m_BuildTarget: Standalone
     m_Enabled: 1
     m_Devices:
-    - OpenVR
     - Oculus
+    - OpenVR
   - m_BuildTarget: Android
     m_Enabled: 1
     m_Devices:
