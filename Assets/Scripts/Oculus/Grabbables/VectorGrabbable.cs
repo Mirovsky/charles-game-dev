@@ -11,9 +11,8 @@ public class VectorGrabbable : BaseGrabbable
         initalPosition = transform.position;
     }
 
-    private void LateUpdate() {
-        var pos = transform.position;
-
+    /** @return the position that is corrected to be in the vector line .*/
+    public Vector3 GetCorrectedPosition(Vector3 pos) {
         var toHandDis = pos - initalPosition;
 
         var lineAng = Vector3.Angle(directionCap, toHandDis);
@@ -24,10 +23,8 @@ public class VectorGrabbable : BaseGrabbable
         var directionTwo = initalPosition - corrected;
 
         //We figure out which way is closest to the current position. 
-        transform.position = Vector3.Distance(directionOne, pos) < Vector3.Distance(directionTwo, pos)
+        return Vector3.Distance(directionOne, pos) < Vector3.Distance(directionTwo, pos)
             ? directionOne
             : directionTwo;
-
-        transform.rotation = Quaternion.identity;
     }
 }

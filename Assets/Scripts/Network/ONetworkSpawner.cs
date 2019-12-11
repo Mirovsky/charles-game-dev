@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using emotitron.NST;
 using Mirror;
 using OOO.Base;
 using UnityEngine;
@@ -32,6 +33,11 @@ namespace OOO.Network
         public GameObject vrCamera;
         [SerializeField] public Transform vrCameraTransform;
 
+
+        /** VR player hands */
+        [SerializeField] private GameObject leftHand;
+        [SerializeField] private GameObject rightHand;
+
         public override void OnStartLocalPlayer() {
             OnEnvironmentSetup();
         }
@@ -62,7 +68,6 @@ namespace OOO.Network
             }
         }
 
-
 //        [Client]
         private void SpawnCamera() {
             if (isLocalPlayer && IsMobilePlayer) {
@@ -70,7 +75,13 @@ namespace OOO.Network
             }
 
             if (isLocalPlayer && IsVrPlayer) {
-                Instantiate(vrCamera);
+                vrCamera = Instantiate(vrCamera);
+                
+                leftHand = Instantiate(leftHand);
+                rightHand = Instantiate(rightHand);
+                
+                leftHand.GetComponent<Grabber>().SetParentTransform(vrCamera.transform);
+                rightHand.GetComponent<Grabber>().SetParentTransform(vrCamera.transform);
             }
         }
         

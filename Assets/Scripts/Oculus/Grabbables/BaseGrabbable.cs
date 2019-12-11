@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using OOO.Base;
+using UnityEngine;
 
-public class BaseGrabbable : MonoBehaviour
+public class BaseGrabbable : BaseNetworkBehaviour
 {
     [SerializeField] protected bool _allowOffhandGrab = true;
     [SerializeField] protected bool _snapPosition = false;

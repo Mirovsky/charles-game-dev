@@ -32,6 +32,10 @@ public class Grabber : MonoBehaviour
 
     public BaseGrabbable grabbedObject => _grabbedObj;
 
+    public void SetParentTransform(Transform pTransform) {
+        _parentTransform = pTransform;
+    }
+
     public void ForceRelease(BaseGrabbable grabbable) {
         bool canRelease = (
             (_grabbedObj != null) &&
@@ -220,12 +224,15 @@ public class Grabber : MonoBehaviour
             return;
         }
 
-        Rigidbody grabbedRigidbody = _grabbedObj.grabbedRigidbody;
-        Vector3 grabbablePosition = pos + rot * _grabbedObjectPosOff;
-        Quaternion grabbableRotation = rot * _grabbedObjectRotOff;
+        if (_grabbedObj is VectorGrabbable) {
+            Rigidbody grabbedRigidbody = _grabbedObj.grabbedRigidbody;
+            
+            Vector3 grabbablePosition = pos + rot * _grabbedObjectPosOff;
+            Quaternion grabbableRotation = rot * _grabbedObjectRotOff;
 
-        grabbedRigidbody.transform.position = grabbablePosition;
-        grabbedRigidbody.transform.rotation = grabbableRotation;
+            grabbedRigidbody.transform.position = ((VectorGrabbable) _grabbedObj).GetCorrectedPosition(grabbablePosition);
+            grabbedRigidbody.transform.rotation = Quaternion.identity;
+        }
     }
 
     protected void GrabEnd() {

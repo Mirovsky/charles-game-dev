@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serverOnly: 0
-  m_AssetId: 3ed2a5b9d57a141e3a7ff483ac9bb529
-  m_SceneId: 0
+  m_AssetId: 
+  m_SceneId: 2874492307
 --- !u!114 &8562489253924319926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,9 +64,14 @@ MonoBehaviour:
   playerPrefab: {fileID: 7447710313142363381, guid: 0455a227d5a284725b5d50918757809f,
     type: 3}
   platforms:
+  - {fileID: 4241559871092781978, guid: b8be49b2ec16b47cd94eb41859d8e8e9, type: 3}
   - {fileID: 5207338766985461210, guid: 55413ec7ee17d4d95a3a867b6200d092, type: 3}
   mobileCamera: {fileID: 4182288405685184604, guid: 1cb131766d5bd46c7a7cb42d830b3995,
     type: 3}
   mobileCameraTransform: {fileID: 0}
   vrCamera: {fileID: 274474658664732215, guid: 5129efb8d9d02486c9253a9cac7c8531, type: 3}
   vrCameraTransform: {fileID: 0}
+  leftHand: {fileID: 1723506367551182960, guid: 1ea1a1ec38a854bad9a53906b769ec28,
+    type: 3}
+  rightHand: {fileID: 4670533044216219965, guid: aaac9c3ae5ea74047bbe6845113d5e0a,
+    type: 3}
