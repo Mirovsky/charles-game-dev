@@ -1,6 +1,8 @@
 using System;
 using OOO.Utils;
 using UnityEngine;
+using UnityEngine.XR;
+
 
 namespace OOO
 {
@@ -18,6 +20,8 @@ namespace OOO
             if (Instance == null) {
                 type = ParseGameType();
                 ip = ParseIP();
+
+                XRSettings.enabled = (type == GameType.VR);
 
                 Instance = this;
                 
