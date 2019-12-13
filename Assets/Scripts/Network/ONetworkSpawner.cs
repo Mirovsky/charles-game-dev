@@ -1,10 +1,8 @@
-using System;
-using System.Collections.Generic;
-using emotitron.NST;
-using Mirror;
-using OOO.Base;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Mirror;
+using OOO.Base;
 
 
 namespace OOO.Network
@@ -25,24 +23,22 @@ namespace OOO.Network
         /** The actual DeadOne prefab */
         public GameObject playerPrefab;
 
-        /** List of all the platforms that should be spawn on game start */
-        public List<GameObject> platforms;
+        [Header("2D Camera"), SerializeField]
+        GameObject mobileCamera;
 
-        [Header("Camera")] public GameObject mobileCamera;
-        [SerializeField] public Transform mobileCameraTransform;
-        public GameObject vrCamera;
-        [SerializeField] public Transform vrCameraTransform;
+        [Header("VR Camera"), SerializeField]
+        GameObject vrCamera;
+        [Header("VR Hands"), SerializeField]
+        GameObject leftHand;
+        [SerializeField]
+        GameObject rightHand;
 
-
-        /** VR player hands */
-        [SerializeField] private GameObject leftHand;
-        [SerializeField] private GameObject rightHand;
 
         public override void OnStartLocalPlayer() {
             OnEnvironmentSetup();
         }
 
-        private void Update() {
+        void Update() {
             if (Keyboard.current.qKey.wasPressedThisFrame) {
                 OnGameStart();
             }
@@ -50,16 +46,16 @@ namespace OOO.Network
         
 
         /** The local player is connected and we can setup the cameras and platforms. */
-        private void OnEnvironmentSetup() {
+        void OnEnvironmentSetup() {
             SpawnCamera();
-            SpawnPlatforms();
+            SpawnNetworkedObjects();
         }
         
         /**
          * Game starts.
          * Spawn the player and destroy this object
          */
-        private void OnGameStart() {
+        void OnGameStart() {
             SpawnMobilePlayer();
 
             if (isServer) {
@@ -68,55 +64,91 @@ namespace OOO.Network
             }
         }
 
-//        [Client]
-        private void SpawnCamera() {
+        void SpawnCamera() {
             if (isLocalPlayer && IsMobilePlayer) {
-                Instantiate(mobileCamera);
+                SpawnMobileCamera();
             }
 
             if (isLocalPlayer && IsVrPlayer) {
-                vrCamera = Instantiate(vrCamera);
-                
-                leftHand = Instantiate(leftHand);
-                rightHand = Instantiate(rightHand);
-                
-                leftHand.GetComponent<Grabber>().SetParentTransform(vrCamera.transform);
-                rightHand.GetComponent<Grabber>().SetParentTransform(vrCamera.transform);
+                SpawnVRCamera();
             }
         }
         
-
         [Client]
-        private void SpawnPlatforms() {
+        void SpawnNetworkedObjects() {
+            var networkedObjects = FindObjectsOfType<ONetworkedObject>();
+
             if (IsVrPlayer && isLocalPlayer) {
-                CmdSpawnPlatforms();
+                var vrAuthorityObjects = networkedObjects
+                    .Where(o => o.authority == ONetworkedObject.ObjectAuthority.VR)
+                    .Select(o => o.gameObject)
+                    .ToArray();
+
+
+                CmdAssignCorrectNetworkedObjectIdentity(vrAuthorityObjects);
+            }
+
+            if (IsMobilePlayer && isLocalPlayer) {
+                var mobileAuthorityObjects = networkedObjects
+                    .Where(o => o.authority == ONetworkedObject.ObjectAuthority.MOBILE)
+                    .Select(o => o.gameObject)
+                    .ToArray();
+
+                CmdAssignCorrectNetworkedObjectIdentity(mobileAuthorityObjects);
             }
         }
+
         [Command]
-        private void CmdSpawnPlatforms() {
+        void CmdAssignCorrectNetworkedObjectIdentity(GameObject[] objects)
+        {
+            foreach (var o in objects) {
+                var identity = o.GetComponent<NetworkIdentity>();
+                identity.AssignClientAuthority(connectionToClient);
+            }
+        }
+
+        /* [Command]
+        void CmdSpawnPlatforms() {
             foreach (var platform in platforms) {
                 var player = Instantiate(platform);
                 NetworkServer.SpawnWithClientAuthority(player, connectionToClient);
             }
-        }
+        } */
 
         
         [Client]
-        private void SpawnMobilePlayer() {
+        void SpawnMobilePlayer() {
             if (IsMobilePlayer && isLocalPlayer) {
                 CmdSpawnMobilePlayer();
             }
         }
+
         [Command]
-        private void CmdSpawnMobilePlayer() {
+        void CmdSpawnMobilePlayer() {
             var player = Instantiate(playerPrefab);
             NetworkServer.SpawnWithClientAuthority(player, NetworkServer.localConnection);
         }
 
 
         [ClientRpc]
-        private void RpcDestroySpawner() {
+        void RpcDestroySpawner() {
             Destroy(gameObject);
+        }
+
+        void SpawnMobileCamera()
+        {
+            Instantiate(mobileCamera);
+        }
+
+        void SpawnVRCamera()
+        {
+            vrCamera = Instantiate(vrCamera);
+
+            leftHand = Instantiate(leftHand);
+            rightHand = Instantiate(rightHand);
+
+            leftHand.GetComponent<Grabber>().SetParentTransform(vrCamera.transform);
+            rightHand.GetComponent<Grabber>().SetParentTransform(vrCamera.transform);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace OOO.Utils
         }
 
         public Type type;
-        public GameType playerType;
+        public PlayerType playerType;
     }
 
     /** Fired when 2D player collects all keys and exits should open. */

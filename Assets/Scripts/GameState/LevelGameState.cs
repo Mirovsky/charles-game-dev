@@ -46,21 +46,21 @@ public class LevelGameState : BaseNetworkBehaviour
     void ExitOccupancyChangeEventHandler(ExitOccupancyChangeEvent e)
     {
         if (e.type == ExitOccupancyChangeEvent.Type.ENTER) {
-            if (e.playerType == OOO.GameType.MOBILE) {
+            if (e.playerType == OOO.PlayerType.MOBILE) {
                 mobileInsideExit = true;
             }
 
-            if (e.playerType == OOO.GameType.VR) {
+            if (e.playerType == OOO.PlayerType.VR) {
                 vrInsideExit = true;
             }
         }
 
         if (e.type == ExitOccupancyChangeEvent.Type.LEAVE) {
-            if (e.playerType == OOO.GameType.MOBILE) {
+            if (e.playerType == OOO.PlayerType.MOBILE) {
                 mobileInsideExit = false;
             }
 
-            if (e.playerType == OOO.GameType.VR) {
+            if (e.playerType == OOO.PlayerType.VR) {
                 vrInsideExit = false;
             }
         }

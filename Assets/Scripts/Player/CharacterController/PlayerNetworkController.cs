@@ -22,8 +22,8 @@ public class PlayerNetworkController : BaseNetworkBehaviour
             return;
 
         Destroy(characterController);
-        Destroy(player);
         Destroy(playerInput);
+        Destroy(player);
         Destroy(pathfinding);
         Destroy(cameraObject);
         Destroy(keyCollector);
