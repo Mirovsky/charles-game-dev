@@ -8,36 +8,37 @@ namespace OOO
 {
     public class GameTypeResolver : MonoBehaviour
     {
-        [SerializeField, Help("Add default value so that the mods are usable in the editor play.")]
-        public GameType type = default;
-        [SerializeField, Help("Add default IP address to look for.")]
+        [Help("Add default value so that the mods are usable in the editor play.")]
+        public PlayerType playerType = default;
+        [Help("Add default IP address to look for.")]
         public string ip = default;
+        [Help("Forces type of game - Host or Client (leave default for automatic resolve)")]
+        public GameType gameType = default;
         
         public static GameTypeResolver Instance = null;
 
         private void Awake()
         {
             if (Instance == null) {
-                type = ParseGameType();
+                playerType = ParsePlayerType();
                 ip = ParseIP();
 
-                XRSettings.enabled = (type == GameType.VR);
+                XRSettings.enabled = (playerType == PlayerType.VR);
 
                 Instance = this;
                 
                 EventHub.Instance.FireEvent(new GameTypeLoadedEvent());
                 
                 DontDestroyOnLoad(gameObject);
-            }
-            else if (Instance != this) {
+            } else if (Instance != this) {
                 DestroyImmediate(gameObject);
             }
         }
 
-        private GameType ParseGameType()
+        private PlayerType ParsePlayerType()
         {
-            var parseResult = Enum.TryParse(GetArg(TYPE_ARG), out GameType t);
-            return parseResult ? t : type;
+            var parseResult = Enum.TryParse(GetArg(TYPE_ARG), out PlayerType t);
+            return parseResult ? t : playerType;
         }
 
         private string ParseIP()
@@ -63,11 +64,19 @@ namespace OOO
         private const string IP_ARG = "-ip";
     }
 
-    public enum GameType
+    public enum PlayerType
     {
         UNDEFINED,
 
         MOBILE,
         VR
+    }
+
+    public enum GameType
+    {
+        DEFAULT,
+
+        CLIENT,
+        HOST
     }
 }

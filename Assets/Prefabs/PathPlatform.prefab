@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8420584348749597895}
   - component: {fileID: 4097813356732789056}
   - component: {fileID: 8241403953606957067}
+  - component: {fileID: 4155263043732916148}
   - component: {fileID: 4946889546992962747}
   - component: {fileID: 5222393363342065722}
   - component: {fileID: -2038761986294260073}
@@ -131,6 +132,21 @@ MonoBehaviour:
   serverOnly: 0
   m_AssetId: b8be49b2ec16b47cd94eb41859d8e8e9
   m_SceneId: 0
+--- !u!114 &4155263043732916148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4241559871092781978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e7194cd50a0124db91657ed92d5c28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  authority: 1
 --- !u!114 &4946889546992962747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,6 +357,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4008384208999735620, guid: 42053a15b3b79074990795cd4c9e7ba0,
+        type: 3}
+      propertyPath: otherSegment
+      value: 
+      objectReference: {fileID: 8420584348749597895}
     - target: {fileID: 2305811304790416963, guid: 42053a15b3b79074990795cd4c9e7ba0,
         type: 3}
       propertyPath: m_IsTrigger
@@ -356,11 +377,6 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 4008384208999735620, guid: 42053a15b3b79074990795cd4c9e7ba0,
-        type: 3}
-      propertyPath: otherSegment
-      value: 
-      objectReference: {fileID: 8420584348749597895}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42053a15b3b79074990795cd4c9e7ba0, type: 3}
 --- !u!4 &5707153950957696564 stripped

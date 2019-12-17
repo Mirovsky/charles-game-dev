@@ -231,7 +231,7 @@ public class Grabber : MonoBehaviour
             Quaternion grabbableRotation = rot * _grabbedObjectRotOff;
 
             grabbedRigidbody.transform.position = ((VectorGrabbable) _grabbedObj).GetCorrectedPosition(grabbablePosition);
-            grabbedRigidbody.transform.rotation = Quaternion.identity;
+            // grabbedRigidbody.transform.rotation = Quaternion.identity;
         }
     }
 

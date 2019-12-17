@@ -49,9 +49,9 @@ public class ExitController : MonoBehaviour
     void SetPlayerType(Collider other, ref ExitOccupancyChangeEvent e)
     {
         if (other.CompareTag(PLAYER_2D)) {
-            e.playerType = OOO.GameType.MOBILE;
+            e.playerType = OOO.PlayerType.MOBILE;
         } else if (other.CompareTag(PLAYER_VR)) {
-            e.playerType = OOO.GameType.VR;
+            e.playerType = OOO.PlayerType.VR;
         }
     }
 }
