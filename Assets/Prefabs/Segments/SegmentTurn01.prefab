@@ -95,9 +95,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPath: {fileID: 7218398259927265692}
-  rightSegment: {fileID: 0}
-  leftSegment: {fileID: 0}
-  rightConnectorCollider: {fileID: 8232294377697252924}
+  nextSegment: {fileID: 0}
+  prevSegment: {fileID: 0}
+  pathStart: {fileID: 4585931061493745680}
+  pathEnd: {fileID: 1125370686313034578}
+  inversed: 0
 --- !u!64 &5836418789699561783
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -140,8 +142,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1125370686313034578}
   - {fileID: 4585931061493745680}
+  - {fileID: 1125370686313034578}
   m_Father: {fileID: 7232966894710163714}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -160,10 +162,10 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: -0.5, y: 0, z: 0.5}
-      - {x: -0.5, y: 0, z: 0.2}
-      - {x: -0.3, y: 0, z: 0}
       - {x: 0, y: 0, z: 0}
+      - {x: -2, y: 0, z: 0}
+      - {x: -5, y: 0, z: 1.5}
+      - {x: -5, y: 0, z: 5}
       isClosed: 0
       space: 0
       controlMode: 0
@@ -209,12 +211,12 @@ PrefabInstance:
     - target: {fileID: 3288659095714499808, guid: de554992630f7844a84177653fddf60f,
         type: 3}
       propertyPath: m_Name
-      value: RightConnector
+      value: End
       objectReference: {fileID: 0}
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
@@ -224,7 +226,7 @@ PrefabInstance:
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
@@ -249,7 +251,7 @@ PrefabInstance:
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
@@ -274,12 +276,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1838692540367850611}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &8232294377697252924 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 7762698331756583503, guid: de554992630f7844a84177653fddf60f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1838692540367850611}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3008061169880135473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -290,7 +286,7 @@ PrefabInstance:
     - target: {fileID: 3288659095714499808, guid: de554992630f7844a84177653fddf60f,
         type: 3}
       propertyPath: m_Name
-      value: RightConnector (1)
+      value: Start
       objectReference: {fileID: 0}
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
@@ -330,7 +326,7 @@ PrefabInstance:
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}

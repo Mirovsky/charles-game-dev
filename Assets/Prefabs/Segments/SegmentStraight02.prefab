@@ -48,9 +48,9 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: -2, y: 0, z: 0}
-      - {x: -1.9, y: 0, z: 0}
-      - {x: -0.1, y: 0, z: 0}
+      - {x: -20, y: 0, z: 0}
+      - {x: -19, y: 0, z: 0}
+      - {x: -1, y: 0, z: 0}
       - {x: 0, y: 0, z: 0}
       isClosed: 0
       space: 0
@@ -288,7 +288,7 @@ PrefabInstance:
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}

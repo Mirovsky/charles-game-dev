@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8929232466385498537}
-  - component: {fileID: 68904941987094522}
+  - component: {fileID: 2112420792523217472}
   m_Layer: 0
   m_Name: Path
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 7255063739685473288}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &68904941987094522
+--- !u!114 &2112420792523217472
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,10 +48,10 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: -1, y: 0, z: 0}
-      - {x: -0.9, y: 0, z: 0}
-      - {x: -0.1, y: 0, z: 0}
       - {x: 0, y: 0, z: 0}
+      - {x: -1, y: 0, z: 0}
+      - {x: -9, y: 0, z: 0}
+      - {x: -10, y: 0, z: 0}
       isClosed: 0
       space: 0
       controlMode: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
       - 0
       - 0
       globalNormalsAngle: 0
-      flipNormals: 1
+      flipNormals: 0
     vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 1875555049860826684}
   - component: {fileID: 2978895445627826415}
   - component: {fileID: 2600808668198948734}
-  - component: {fileID: 7499156267161023225}
+  - component: {fileID: 968411281648513136}
   m_Layer: 0
   m_Name: SegmentStraight01
   m_TagString: Untagged
@@ -115,7 +115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7642904709982269475}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8929232466385498537}
@@ -181,12 +181,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c89bfbbbda72641819a726de1c339a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPath: {fileID: 68904941987094522}
-  rightSegment: {fileID: 0}
-  leftSegment: {fileID: 0}
-  rightConnectorCollider: {fileID: 5971639469925144629}
-  leftConnectorCollider: {fileID: 7234867201987256764}
---- !u!65 &7499156267161023225
+  currentPath: {fileID: 2112420792523217472}
+  nextSegment: {fileID: 0}
+  prevSegment: {fileID: 0}
+  pathStart: {fileID: 1857607100689499346}
+  pathEnd: {fileID: 3422565047565778267}
+  inversed: 0
+--- !u!65 &968411281648513136
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,8 +198,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.1, z: 0.2}
-  m_Center: {x: -0.5, y: -0.05, z: 0}
+  m_Size: {x: 10, y: 1, z: 2}
+  m_Center: {x: -5, y: -0.5, z: 0}
 --- !u!1001 &1143294603601738739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -209,7 +210,7 @@ PrefabInstance:
     - target: {fileID: 3288659095714499808, guid: de554992630f7844a84177653fddf60f,
         type: 3}
       propertyPath: m_Name
-      value: LeftConnector
+      value: Start
       objectReference: {fileID: 0}
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
@@ -271,17 +272,12 @@ PrefabInstance:
       propertyPath: direction
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7762698331756583503, guid: de554992630f7844a84177653fddf60f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: de554992630f7844a84177653fddf60f, type: 3}
 --- !u!4 &1857607100689499346 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1143294603601738739}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &7234867201987256764 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 7762698331756583503, guid: de554992630f7844a84177653fddf60f,
     type: 3}
   m_PrefabInstance: {fileID: 1143294603601738739}
   m_PrefabAsset: {fileID: 0}
@@ -295,12 +291,12 @@ PrefabInstance:
     - target: {fileID: 3288659095714499808, guid: de554992630f7844a84177653fddf60f,
         type: 3}
       propertyPath: m_Name
-      value: RightConnector
+      value: End
       objectReference: {fileID: 0}
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
@@ -357,12 +353,6 @@ PrefabInstance:
 --- !u!4 &3422565047565778267 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
-    type: 3}
-  m_PrefabInstance: {fileID: 4135750815565038202}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &5971639469925144629 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 7762698331756583503, guid: de554992630f7844a84177653fddf60f,
     type: 3}
   m_PrefabInstance: {fileID: 4135750815565038202}
   m_PrefabAsset: {fileID: 0}
