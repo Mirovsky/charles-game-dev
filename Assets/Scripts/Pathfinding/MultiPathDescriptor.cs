@@ -10,10 +10,8 @@ public class MultiPathDescriptor : MonoBehaviour
 
     public PathSegment StartingSegment => startingSegment;
 
-    void Awake()
-    {
-        ConnectPathSegments();
-    }
+
+    void Awake() => ConnectPathSegments();
 
     void ConnectPathSegments()
     {
@@ -26,18 +24,18 @@ public class MultiPathDescriptor : MonoBehaviour
 
         var segment = startingSegment;
         while (segment != null) {
-            var onSecondTry = false;
+            var shouldBeInversed = false;
             var next = GetSegment(segments, segment, true, segment.inversed);
             
             if (next == null) {
                 next = GetSegment(segments, segment, false, segment.inversed);
-                onSecondTry = true;
+                shouldBeInversed = true;
             }
 
             if (next == null || next.HasPrev)
                 break;
 
-            next.inversed = onSecondTry;
+            next.inversed = shouldBeInversed;
             segment.nextSegment = next;
             next.prevSegment = segment;
 
@@ -51,10 +49,10 @@ public class MultiPathDescriptor : MonoBehaviour
 
         foreach (var s in segments) {
             if (fromStart) {
-                if (s.pathStart.position == pos && s != current)
+                if (Vector3.Distance(s.pathStart.position, pos) <= .5f && s != current)
                     return s;
             } else {
-                if (s.pathEnd.position == pos && s != current)
+                if (Vector3.Distance(s.pathEnd.position, pos) <= .5f && s != current)
                     return s;
             }
         }

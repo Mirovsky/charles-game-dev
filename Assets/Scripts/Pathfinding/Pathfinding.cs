@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
-using PathCreation;
 
 
 public class Pathfinding : MonoBehaviour
 {
-    [SerializeField] PathSegment segment = default;
-    [SerializeField] AbstractSegmentSwitcher nextSwitcher = null;
+    [SerializeField]
+    PathSegment segment = default;
+    [SerializeField]
+    AbstractSegmentSwitcher nextSwitcher = null;
 
+    [SerializeField]
     float distance;
 
     void Awake()
@@ -48,47 +50,37 @@ public class Pathfinding : MonoBehaviour
 
     public void UpdateDistance(float deltaDistance)
     {
-        distance += deltaDistance * segment.PathDirection;
-        distance = Mathf.Clamp(distance, 0, segment.Length);
+        var isMoving = !Mathf.Approximately(deltaDistance, 0);
+        var isAtStart = Mathf.Approximately(distance, 0);
+        var isAtEnd = Mathf.Approximately(distance, segment.Length);
 
-        if (segment.inversed) {
-            if (Mathf.Approximately(distance, 0) && !Mathf.Approximately(deltaDistance, 0) && segment.HasNext) {
-                segment = segment.nextSegment;
-                distance = segment.GetClosestDistanceAlongPath(transform.position);
-            } else if (Mathf.Approximately(distance, segment.Length) && !Mathf.Approximately(deltaDistance, 0) && segment.HasPrev) {
-                segment = segment.prevSegment;
-                distance = segment.GetClosestDistanceAlongPath(transform.position);
-            }
-        } else {
-            if (Mathf.Approximately(distance, segment.Length) && !Mathf.Approximately(deltaDistance, 0) && segment.HasNext) {
-                segment = segment.nextSegment;
-                distance = segment.GetClosestDistanceAlongPath(transform.position);
-            } else if (Mathf.Approximately(distance, 0) && !Mathf.Approximately(deltaDistance, 0) && segment.HasPrev) {
-                segment = segment.prevSegment;
-                distance = segment.GetClosestDistanceAlongPath(transform.position);
-            }
+        if (
+            (segment.inversed && isAtStart && isMoving && segment.HasNext) ||
+            (!segment.inversed && isAtEnd && isMoving && segment.HasNext)
+        ) {
+            segment = segment.nextSegment;
+        } else if (
+            (segment.inversed && isAtEnd && isMoving && segment.HasPrev) ||
+            (!segment.inversed && isAtStart && isMoving && segment.HasPrev)
+        ) {
+            segment = segment.prevSegment;
         }
+
+        distance = segment.GetClosestDistanceAlongPath(transform.position);
     }
 
     public Vector3 GetPosition(float nextStep = 0)
-    {
-        var pos = segment.GetPointAtDistance(distance + nextStep * segment.PathDirection);
-        pos.y = 0;
-        return pos;
-    }
+        => segment.GetPointAtDistance(distance + nextStep);
 
     public Vector3 GetNormal(float nextStep = 0)
-    {
-        return segment.GetNormalAtDistance(distance + nextStep * segment.PathDirection);
-    }
+        => segment.GetNormalAtDistance(distance + nextStep);
 
     public Vector3 GetDirection(float nextStep = 0)
-    {
-        return segment.GetDirectionAtDistance(distance + nextStep * segment.PathDirection);
-    }
+        => segment.GetDirectionAtDistance(distance + nextStep);
 
     public Quaternion GetRotation(float nextStep = 0)
-    {
-        return segment.GetRotationAtDistance(distance + nextStep * segment.PathDirection);
-    }
+        => segment.GetRotationAtDistance(distance + nextStep);
+
+    public int GetSegmentRotation()
+        => segment.PathDirection;
 }

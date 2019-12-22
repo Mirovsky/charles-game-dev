@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using PathCreation;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 
 public class PathSegment : MonoBehaviour
 {
@@ -12,14 +16,14 @@ public class PathSegment : MonoBehaviour
     public Transform pathStart;
     public Transform pathEnd;
 
-    [HideInInspector]
+    // [HideInInspector]
     public PathSegment nextSegment;
-    [HideInInspector]
+    // [HideInInspector]
     public PathSegment prevSegment;
-    [HideInInspector]
+    // [HideInInspector]
     public bool inversed;
     
-    public float PathDirection => inversed ? -1 : 1;
+    public int PathDirection => inversed ? -1 : 1;
 
     public float Length => currentPath.path.length;
 
@@ -42,19 +46,45 @@ public class PathSegment : MonoBehaviour
 
     public float GetClosestDistanceAlongPath(Vector3 p) => currentPath.path.GetClosestDistanceAlongPath(p);
 
+#if UNITY_EDITOR
     void OnDrawGizmos()
     {
-        DrawLine();
-    }
+        if (currentPath == null)
+            return;
 
-    void DrawLine()
-    {
         var vPath = currentPath.path;
 
+        DrawLine(vPath);
+        DrawDistance(vPath);
+    }
+
+    void DrawLine(VertexPath vPath)
+    {
         Gizmos.color = Color.black;
         for (int i = 0; i < vPath.NumPoints - 1; i++)
         {
             Gizmos.DrawLine(vPath.GetPoint(i) + vPath.GetNormal(i) * ARROW_SIZE, vPath.GetPoint(i + 1) + vPath.GetNormal(i + 1) * ARROW_SIZE);
         }
+
+        var length = vPath.length;
+
+        var startDirection = vPath.GetDirection(0);
+        var endDirection = vPath.GetDirection(length);
+
+        Gizmos.DrawWireSphere(pathStart.position + startDirection * .5f, .05f);
+        Gizmos.DrawWireSphere(pathEnd.position - endDirection * .5f, .05f);
     }
+
+    void DrawDistance(VertexPath vPath)
+    {
+        var start = 0;
+        var length = vPath.length;
+
+        var startDirection = vPath.GetDirection(0);
+        var endDirection = vPath.GetDirection(length);
+
+        Handles.Label(pathStart.position + startDirection * .5f, start.ToString());
+        Handles.Label(pathEnd.position - endDirection *.5f, length.ToString());
+    }
+#endif
 }
