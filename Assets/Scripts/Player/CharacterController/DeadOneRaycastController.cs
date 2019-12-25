@@ -15,12 +15,13 @@ public class DeadOneRaycastController : MonoBehaviour
     [SerializeField]
     LayerMask collisionMask = default;
 
+
     public void Move(Vector3 motion, Vector3 gravity, Vector3 direction, Vector3 normal, bool wantsToJump)
     {
         Collisions.Reset();
 
         HorizontalCollisions(ref motion, direction);
-        VerticalCollisions(ref gravity, normal, wantsToJump);
+        VerticalCollisions(ref gravity, normal, direction, wantsToJump);
 
         transform.Translate(motion + gravity);
     }
@@ -43,25 +44,36 @@ public class DeadOneRaycastController : MonoBehaviour
             moveAmount = Vector3.zero;
     }
 
-    void VerticalCollisions(ref Vector3 gravity, Vector3 normal, bool wantsToJump)
+    void VerticalCollisions(ref Vector3 gravity, Vector3 normal, Vector3 direction, bool wantsToJump)
     {
         var origin = transform.position + center;
-        var up = origin + normal * (radius + skinWidth);
-        var down = origin + normal * -(radius + skinWidth);
 
         var col = Collisions;
-        col.above = Physics.Linecast(origin, up, out var aboveHit, collisionMask);
-        col.below = Physics.Linecast(origin, down, out var belowHit, collisionMask);
-        Collisions = col;
 
-        Debug.DrawLine(origin, up, Color.yellow, 1f);
-        Debug.DrawLine(origin, down, Color.green, 1f);
+        var normalDistance = normal * (radius + skinWidth);
+        for (int i = -1; i <= 1; i++) {
+            var pos = origin + direction * i * radius;
+
+            col.above |= Physics.Linecast(pos, pos + normalDistance, collisionMask);
+            Debug.DrawLine(pos, pos + normalDistance, Color.yellow, 1f);
+        }
+
+        var belowHitDistance = radius + skinWidth;
+        for (int i = -1; i <= 1; i++) {
+            var pos = origin + direction * i * radius;
+
+            col.below |= Physics.Linecast(pos, pos - normalDistance, out var belowHit, collisionMask);
+            belowHitDistance = Mathf.Min(belowHitDistance, belowHit.distance);
+            Debug.DrawLine(pos, pos - normalDistance, Color.green, 1f);
+        }
+
+        Collisions = col;
 
         if (col.above)
             gravity = Vector3.zero;
 
         if (col.below && !wantsToJump)
-            gravity = normal * (radius - belowHit.distance - skinWidth);
+            gravity = normal * (radius - belowHitDistance - skinWidth);
     }
 
     void OnDrawGizmosSelected()

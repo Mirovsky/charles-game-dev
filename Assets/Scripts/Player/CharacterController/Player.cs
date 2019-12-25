@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     float accelerationTimeAirborne;
     [SerializeField]
     float accelerationTimeGrounded;
-    
+
     [Header("Movement")]
     [SerializeField]
     float moveSpeed;
@@ -53,17 +53,20 @@ public class Player : MonoBehaviour
         if (controller.Collisions.below && wantsToJump)
             yVelocity = maxJumpVelocity;
 
-        float nextStep = Direction * pathfinding.GetSegmentRotation() * moveSpeed * Time.deltaTime;
         var normal = pathfinding.GetNormal().normalized;
         var direction = pathfinding.GetDirection().normalized;
 
+        float nextStep = Direction * moveSpeed * Time.deltaTime;
+        var currentPos = pathfinding.GetPosition();
+        var pos = pathfinding.GetPosition(nextStep);
+
         var g = normal * yVelocity * Time.deltaTime;
-        var d = direction * Direction * moveSpeed * Time.deltaTime * pathfinding.GetSegmentRotation();
+        var d = (pos - currentPos);
 
         controller.Move(d, g, direction, normal, wantsToJump);
 
         ConfirmMove(nextStep);
-        
+
         wantsToJump = false;
     }
 

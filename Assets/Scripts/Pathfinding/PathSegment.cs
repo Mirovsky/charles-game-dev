@@ -12,31 +12,31 @@ public class PathSegment : MonoBehaviour
     const float ARROW_SIZE = 1f;
 
     public PathCreator currentPath;
-    
+
     public Transform pathStart;
     public Transform pathEnd;
 
-    // [HideInInspector]
+    [HideInInspector]
     public PathSegment nextSegment;
-    // [HideInInspector]
+    [HideInInspector]
     public PathSegment prevSegment;
-    // [HideInInspector]
+    [HideInInspector]
     public bool inversed;
-    
+
     public int PathDirection => inversed ? -1 : 1;
 
     public float Length => currentPath.path.length;
 
     public bool HasNext => nextSegment != null;
-    
+
     public bool HasPrev => prevSegment != null;
 
     public Vector3 GetPointAtDistance(float d) => currentPath.path.GetPointAtDistance(d, endOfPath);
-    
+
     public Vector3 GetNormalAtDistance(float d) => currentPath.path.GetNormalAtDistance(d, endOfPath);
-    
+
     public Vector3 GetDirectionAtDistance(float d) => currentPath.path.GetDirectionAtDistance(d, endOfPath);
-    
+
     public Quaternion GetRotationAtDistance(float d)
     {
         var rot = currentPath.path.GetRotationAtDistance(d, endOfPath);

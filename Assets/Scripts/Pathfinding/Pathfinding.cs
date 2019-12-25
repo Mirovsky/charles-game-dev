@@ -45,42 +45,57 @@ public class Pathfinding : MonoBehaviour
             return;
 
         segment = nextSegment;
-        distance = nextSegment.currentPath.path.GetClosestDistanceAlongPath(transform.position);
+        distance = nextSegment.GetClosestDistanceAlongPath(transform.position);
     }
 
     public void UpdateDistance(float deltaDistance)
     {
-        var isMoving = !Mathf.Approximately(deltaDistance, 0);
-        var isAtStart = Mathf.Approximately(distance, 0);
-        var isAtEnd = Mathf.Approximately(distance, segment.Length);
-
-        if (
-            (segment.inversed && isAtStart && isMoving && segment.HasNext) ||
-            (!segment.inversed && isAtEnd && isMoving && segment.HasNext)
-        ) {
-            segment = segment.nextSegment;
-        } else if (
-            (segment.inversed && isAtEnd && isMoving && segment.HasPrev) ||
-            (!segment.inversed && isAtStart && isMoving && segment.HasPrev)
-        ) {
-            segment = segment.prevSegment;
-        }
+        segment = GetNextSegment(segment, deltaDistance);
 
         distance = segment.GetClosestDistanceAlongPath(transform.position);
     }
 
     public Vector3 GetPosition(float nextStep = 0)
-        => segment.GetPointAtDistance(distance + nextStep);
+    {
+        if (nextStep == 0)
+            return segment.GetPointAtDistance(distance);
+
+        var nextSegment = GetNextSegment(segment, nextStep * GetSegmentDirection());
+        var nextDistance = nextSegment.GetClosestDistanceAlongPath(transform.position);
+
+        return nextSegment.GetPointAtDistance(nextDistance + (nextStep * nextSegment.PathDirection));
+    }
 
     public Vector3 GetNormal(float nextStep = 0)
-        => segment.GetNormalAtDistance(distance + nextStep);
+        => segment.GetNormalAtDistance(distance + (nextStep * GetSegmentDirection()));
 
     public Vector3 GetDirection(float nextStep = 0)
-        => segment.GetDirectionAtDistance(distance + nextStep);
+        => segment.GetDirectionAtDistance(distance + (nextStep * GetSegmentDirection()));
 
     public Quaternion GetRotation(float nextStep = 0)
-        => segment.GetRotationAtDistance(distance + nextStep);
+        => segment.GetRotationAtDistance(distance + (nextStep * GetSegmentDirection()));
 
-    public int GetSegmentRotation()
+    public int GetSegmentDirection()
         => segment.PathDirection;
+
+    PathSegment GetNextSegment(PathSegment s, float deltaDistance)
+    {
+        var isMoving = !Mathf.Approximately(deltaDistance, 0);
+        var isAtStart = Mathf.Approximately(distance, 0);
+        var isAtEnd = Mathf.Approximately(distance, s.Length);
+
+        if (
+            (s.inversed && isAtStart && isMoving && s.HasNext) ||
+            (!s.inversed && isAtEnd && isMoving && s.HasNext)
+        ) {
+            return s.nextSegment;
+        } else if (
+            (s.inversed && isAtEnd && isMoving && s.HasPrev) ||
+            (!s.inversed && isAtStart && isMoving && s.HasPrev)
+        ) {
+            return s.prevSegment;
+        }
+
+        return s;
+    }
 }
