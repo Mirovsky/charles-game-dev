@@ -101,9 +101,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPath: {fileID: 5780596346763779139}
-  rightSegment: {fileID: 0}
-  leftSegment: {fileID: 0}
-  rightConnectorCollider: {fileID: 149611752252332940}
+  pathStart: {fileID: 5263453134008158059}
+  pathEnd: {fileID: 9201810249172729570}
+  nextSegment: {fileID: 0}
+  prevSegment: {fileID: 0}
+  inversed: 0
 --- !u!65 &4097813356732789056
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -246,10 +248,10 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: -1, y: 0, z: 0}
-      - {x: -0.9, y: 0, z: 0}
-      - {x: -0.1, y: 0, z: 0}
       - {x: 0, y: 0, z: 0}
+      - {x: 0, y: 0, z: 0}
+      - {x: -9, y: 0, z: 0}
+      - {x: -10, y: 0, z: 0}
       isClosed: 0
       space: 0
       controlMode: 0
@@ -292,16 +294,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3774908628183240625}
     m_Modifications:
-    - target: {fileID: 2305811304790416960, guid: 42053a15b3b79074990795cd4c9e7ba0,
-        type: 3}
-      propertyPath: m_Name
-      value: ImmediateSegmentSwitcher
-      objectReference: {fileID: 0}
-    - target: {fileID: 2305811304790416960, guid: 42053a15b3b79074990795cd4c9e7ba0,
-        type: 3}
-      propertyPath: m_TagString
-      value: PathSwitcher
-      objectReference: {fileID: 0}
     - target: {fileID: 2305811304790416961, guid: 42053a15b3b79074990795cd4c9e7ba0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -357,6 +349,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2305811304790416960, guid: 42053a15b3b79074990795cd4c9e7ba0,
+        type: 3}
+      propertyPath: m_Name
+      value: ImmediateSegmentSwitcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 2305811304790416960, guid: 42053a15b3b79074990795cd4c9e7ba0,
+        type: 3}
+      propertyPath: m_TagString
+      value: PathSwitcher
+      objectReference: {fileID: 0}
     - target: {fileID: 4008384208999735620, guid: 42053a15b3b79074990795cd4c9e7ba0,
         type: 3}
       propertyPath: otherSegment
@@ -392,11 +394,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3109455114006737424}
     m_Modifications:
-    - target: {fileID: 3288659095714499808, guid: de554992630f7844a84177653fddf60f,
-        type: 3}
-      propertyPath: m_Name
-      value: LeftConnector
-      objectReference: {fileID: 0}
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -451,6 +448,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3288659095714499808, guid: de554992630f7844a84177653fddf60f,
+        type: 3}
+      propertyPath: m_Name
+      value: Start
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de554992630f7844a84177653fddf60f, type: 3}
@@ -467,15 +469,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3109455114006737424}
     m_Modifications:
-    - target: {fileID: 3288659095714499808, guid: de554992630f7844a84177653fddf60f,
-        type: 3}
-      propertyPath: m_Name
-      value: RightConnector
-      objectReference: {fileID: 0}
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
@@ -527,17 +524,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3288659095714499808, guid: de554992630f7844a84177653fddf60f,
+        type: 3}
+      propertyPath: m_Name
+      value: End
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de554992630f7844a84177653fddf60f, type: 3}
 --- !u!4 &9201810249172729570 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
-    type: 3}
-  m_PrefabInstance: {fileID: 7613654137995461059}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &149611752252332940 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 7762698331756583503, guid: de554992630f7844a84177653fddf60f,
     type: 3}
   m_PrefabInstance: {fileID: 7613654137995461059}
   m_PrefabAsset: {fileID: 0}
