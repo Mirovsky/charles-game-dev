@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -9,52 +10,53 @@ public class MultiPathDescriptor : MonoBehaviour
 
     public PathSegment StartingSegment => startingSegment;
 
-    void Awake()
-    {
-        ConnectPathSegments();
-    }
+
+    void Awake() => ConnectPathSegments();
 
     void ConnectPathSegments()
     {
-        var connectorMask = LayerMask.NameToLayer("PathConnectors");
-
         if (startingSegment == null) {
             Debug.LogWarning("MultiPathDescriptor: Starting segments is NULL.");
             return;
         }
 
+        var segments = GetComponentsInChildren<PathSegment>();
+
         var segment = startingSegment;
         while (segment != null) {
-            var overlaps = GetConnectorOverlap(segment.rightConnectorCollider, connectorMask);
-
-            if (overlaps.Length == 0) {
-                break;
+            var shouldBeInversed = false;
+            var next = GetSegment(segments, segment, true, segment.inversed);
+            
+            if (next == null) {
+                next = GetSegment(segments, segment, false, segment.inversed);
+                shouldBeInversed = true;
             }
 
-            // We don't support connection with more than one segment.
-            if (overlaps.Length > 1) {
-                Debug.LogWarning($"MapCreatorRuntime: Segment has more connections than one. ({overlaps.Length})");
+            if (next == null || next.HasPrev)
                 break;
-            }
 
-            var nextSegment = overlaps[0].GetComponentInParent<PathSegment>();
-            if (nextSegment.HasRight) {
-                break;
-            }
+            next.inversed = shouldBeInversed;
+            segment.nextSegment = next;
+            next.prevSegment = segment;
 
-            segment.leftSegment = nextSegment;
-            nextSegment.rightSegment = segment;
-
-            segment = nextSegment;
+            segment = next;
         }
     }
 
-    Collider[] GetConnectorOverlap(BoxCollider collider, LayerMask connectorMask)
+    PathSegment GetSegment(PathSegment[] segments, PathSegment current, bool fromStart = true, bool startPos = false)
     {
-        collider.enabled = false;
-        var overlaps = Physics.OverlapBox(collider.transform.position + collider.center, collider.size / 2f, Quaternion.identity, 1 << connectorMask);
-        collider.enabled = true;
+        var pos = startPos ? current.pathStart.position : current.pathEnd.position;
 
-        return overlaps;
+        foreach (var s in segments) {
+            if (fromStart) {
+                if (Vector3.Distance(s.pathStart.position, pos) <= .5f && s != current)
+                    return s;
+            } else {
+                if (Vector3.Distance(s.pathEnd.position, pos) <= .5f && s != current)
+                    return s;
+            }
+        }
+
+        return null;
     }
 }

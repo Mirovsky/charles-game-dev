@@ -4,7 +4,7 @@ using OOO.Base;
 public class PlayerNetworkController : BaseNetworkBehaviour
 {
     [SerializeField]
-    CharacterController characterController = default;
+    DeadOneRaycastController characterController = default;
     [SerializeField]
     Player player = default;
     [SerializeField]
@@ -15,6 +15,7 @@ public class PlayerNetworkController : BaseNetworkBehaviour
     DeadOnePlayerInput playerInput = default;
     [SerializeField]
     DeadOneKeyCollector keyCollector = default;
+
 
     void Awake()
     {

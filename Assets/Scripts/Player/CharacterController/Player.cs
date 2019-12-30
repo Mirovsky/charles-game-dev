@@ -3,68 +3,68 @@
 
 public class Player : MonoBehaviour
 {
-    public CollisionInfo collisions;
-    
     [Header("Jumping")]
-    [SerializeField] float maxJumpHeight = default;
-    [SerializeField] float minJumpHeight = default;
-    [SerializeField] float timeToJumpApex = default;
-    [SerializeField] float accelerationTimeAirborne;
-    [SerializeField] float accelerationTimeGrounded;
-    
+    [SerializeField]
+    float maxJumpHeight = default;
+    [SerializeField]
+    float timeToJumpApex = default;
+    [SerializeField]
+    float accelerationTimeAirborne;
+    [SerializeField]
+    float accelerationTimeGrounded;
+
     [Header("Movement")]
-    [SerializeField] float moveSpeed;
+    [SerializeField]
+    float moveSpeed;
 
     [Header("Pathfinding")]
-    [SerializeField] Pathfinding pathfinding;
+    [SerializeField]
+    Pathfinding pathfinding;
 
 
     float gravity;
+
+    DeadOneRaycastController controller;
+
     float maxJumpVelocity;
-    float minJumpVelocity;
     float yVelocity;
 
     bool wantsToJump;
 
-    CharacterController controller;
 
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        controller = GetComponent<DeadOneRaycastController>();
 
         gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-        minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs (gravity) * minJumpHeight);
     }
 
     void Update()
     {
         yVelocity += gravity * Time.deltaTime;
 
-        if (collisions.below) {
-            yVelocity = -controller.stepOffset * Time.deltaTime;
-        }
-        // Solve problem when character controller is stuck to the platform from below
+        /* if (controller.Collisions.below)
+            yVelocity = 0; */
 
-        if (collisions.below && wantsToJump) {
+        if (controller.Collisions.above)
+            yVelocity = gravity * Time.deltaTime;
+
+        if (controller.Collisions.below && wantsToJump)
             yVelocity = maxJumpVelocity;
-        }
+
+        var normal = pathfinding.GetNormal().normalized;
+        var direction = pathfinding.GetDirection().normalized;
 
         float nextStep = Direction * moveSpeed * Time.deltaTime;
+        var currentPos = pathfinding.GetPosition();
+        var pos = pathfinding.GetPosition(nextStep);
 
-        var normal = pathfinding.GetNormal(nextStep);
-        var position = pathfinding.GetPosition(nextStep);
-        var rotation = pathfinding.GetRotation(nextStep);
+        var g = normal * yVelocity * Time.deltaTime;
+        var d = (pos - currentPos);
 
-        var vel = normal * yVelocity * Time.deltaTime;
-        var pos = transform.position;
-        pos.y = 0;
-        vel += position - pos;
+        controller.Move(d, g, direction, normal, wantsToJump);
 
-        transform.rotation = rotation;
-
-        var flags = controller.Move(vel);
-        ResolveCollisions(flags);
         ConfirmMove(nextStep);
 
         wantsToJump = false;
@@ -72,18 +72,9 @@ public class Player : MonoBehaviour
 
     void ConfirmMove(float step)
     {
-        if (!collisions.sides) {
+        if (!controller.Collisions.sides) {
             pathfinding.UpdateDistance(step);
         }
-    }
-
-    void ResolveCollisions(CollisionFlags flags)
-    {
-        collisions.above = (flags & CollisionFlags.Above) != 0;
-        collisions.below = (flags & CollisionFlags.Below) != 0;
-        collisions.sides = (flags & CollisionFlags.Sides) != 0;
-        collisions.left = collisions.sides && Direction < 0;
-        collisions.right = collisions.sides && Direction > 0;
     }
 
     public float Direction { get; private set; }

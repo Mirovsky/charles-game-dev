@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
-using PathCreation;
 
 
 public class Pathfinding : MonoBehaviour
 {
-    readonly EndOfPathInstruction endOfPath = EndOfPathInstruction.Stop;
-    
-    [SerializeField] PathSegment segment = default;
-    [SerializeField] AbstractSegmentSwitcher nextSwitcher = null;
+    [SerializeField]
+    PathSegment segment = default;
+    [SerializeField]
+    AbstractSegmentSwitcher nextSwitcher = null;
 
+    [SerializeField]
     float distance;
 
-    void Start()
+    void Awake()
     {
         segment = FindObjectOfType<DefaultMultiPathDescriptor>()
             .DefaultMultiPath
@@ -45,43 +45,57 @@ public class Pathfinding : MonoBehaviour
             return;
 
         segment = nextSegment;
-        distance = nextSegment.currentPath.path.GetClosestDistanceAlongPath(transform.position);
+        distance = nextSegment.GetClosestDistanceAlongPath(transform.position);
     }
 
     public void UpdateDistance(float deltaDistance)
     {
-        var newDistance = distance + deltaDistance;
+        segment = GetNextSegment(segment, deltaDistance);
 
-        if (distance >= segment.Length && segment.HasRight && deltaDistance > 0) {
-            segment = segment.rightSegment;
-            distance = segment.currentPath.path.GetClosestDistanceAlongPath(transform.position);
-        } else if (distance <= 0 && segment.HasLeft && deltaDistance < 0) {
-            segment = segment.leftSegment;
-            distance = segment.currentPath.path.GetClosestDistanceAlongPath(transform.position);
-        } else {
-            distance = newDistance;
-        }
+        distance = segment.GetClosestDistanceAlongPath(transform.position);
     }
 
     public Vector3 GetPosition(float nextStep = 0)
     {
-        var pos = segment.currentPath.path.GetPointAtDistance(distance + nextStep, endOfPath);
-        pos.y = 0;
-        return pos;
+        if (nextStep == 0)
+            return segment.GetPointAtDistance(distance);
+
+        var nextSegment = GetNextSegment(segment, nextStep * GetSegmentDirection());
+        var nextDistance = nextSegment.GetClosestDistanceAlongPath(transform.position);
+
+        return nextSegment.GetPointAtDistance(nextDistance + (nextStep * nextSegment.PathDirection));
     }
 
     public Vector3 GetNormal(float nextStep = 0)
-    {
-        return segment.currentPath.path.GetNormalAtDistance(distance + nextStep, endOfPath);
-    }
+        => segment.GetNormalAtDistance(distance + (nextStep * GetSegmentDirection()));
 
     public Vector3 GetDirection(float nextStep = 0)
-    {
-        return segment.currentPath.path.GetDirectionAtDistance(distance + nextStep, endOfPath);
-    }
+        => segment.GetDirectionAtDistance(distance + (nextStep * GetSegmentDirection()));
 
     public Quaternion GetRotation(float nextStep = 0)
+        => segment.GetRotationAtDistance(distance + (nextStep * GetSegmentDirection()));
+
+    public int GetSegmentDirection()
+        => segment.PathDirection;
+
+    PathSegment GetNextSegment(PathSegment s, float deltaDistance)
     {
-        return segment.currentPath.path.GetRotationAtDistance(distance + nextStep, endOfPath);
+        var isMoving = !Mathf.Approximately(deltaDistance, 0);
+        var isAtStart = Mathf.Approximately(distance, 0);
+        var isAtEnd = Mathf.Approximately(distance, s.Length);
+
+        if (
+            (s.inversed && isAtStart && isMoving && s.HasNext) ||
+            (!s.inversed && isAtEnd && isMoving && s.HasNext)
+        ) {
+            return s.nextSegment;
+        } else if (
+            (s.inversed && isAtEnd && isMoving && s.HasPrev) ||
+            (!s.inversed && isAtStart && isMoving && s.HasPrev)
+        ) {
+            return s.prevSegment;
+        }
+
+        return s;
     }
 }

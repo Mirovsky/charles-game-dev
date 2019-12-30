@@ -45,9 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPath: {fileID: 8308038995014657975}
-  rightSegment: {fileID: 0}
-  leftSegment: {fileID: 0}
-  rightConnectorCollider: {fileID: 3050740408066557285}
+  pathStart: {fileID: 4549254164835383753}
+  pathEnd: {fileID: 6338405873965637643}
+  nextSegment: {fileID: 0}
+  prevSegment: {fileID: 0}
+  inversed: 0
 --- !u!1 &3177724148717985771
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,10 +98,10 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: -1, y: 0, z: 0}
-      - {x: -0.9, y: 0, z: 0}
-      - {x: -0.1, y: 0, z: 0}
       - {x: 0, y: 0, z: 0}
+      - {x: 0, y: 0, z: 0}
+      - {x: -1, y: 0, z: 0}
+      - {x: -1, y: 0, z: 0}
       isClosed: 0
       space: 0
       controlMode: 0
@@ -112,7 +114,7 @@ MonoBehaviour:
       - 0
       - 0
       globalNormalsAngle: 0
-      flipNormals: 1
+      flipNormals: 0
     vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
@@ -130,7 +132,7 @@ MonoBehaviour:
     showPathOptions: 1
     showVertexPathDisplayOptions: 0
     showVertexPathOptions: 1
-    showNormals: 0
+    showNormals: 1
     showNormalsHelpInfo: 0
     showPoints: 1
     tabIndex: 0
@@ -142,11 +144,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4730647831800446962}
     m_Modifications:
-    - target: {fileID: 3288659095714499808, guid: de554992630f7844a84177653fddf60f,
-        type: 3}
-      propertyPath: m_Name
-      value: LeftConnector
-      objectReference: {fileID: 0}
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -202,6 +199,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3288659095714499808, guid: de554992630f7844a84177653fddf60f,
+        type: 3}
+      propertyPath: m_Name
+      value: Start
+      objectReference: {fileID: 0}
     - target: {fileID: 3428504843818934146, guid: de554992630f7844a84177653fddf60f,
         type: 3}
       propertyPath: direction
@@ -222,11 +224,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4730647831800446962}
     m_Modifications:
-    - target: {fileID: 3288659095714499808, guid: de554992630f7844a84177653fddf60f,
-        type: 3}
-      propertyPath: m_Name
-      value: RightConnector
-      objectReference: {fileID: 0}
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -282,17 +279,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3288659095714499808, guid: de554992630f7844a84177653fddf60f,
+        type: 3}
+      propertyPath: m_Name
+      value: End
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de554992630f7844a84177653fddf60f, type: 3}
 --- !u!4 &6338405873965637643 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
-    type: 3}
-  m_PrefabInstance: {fileID: 4750397372174081834}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &3050740408066557285 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 7762698331756583503, guid: de554992630f7844a84177653fddf60f,
     type: 3}
   m_PrefabInstance: {fileID: 4750397372174081834}
   m_PrefabAsset: {fileID: 0}
