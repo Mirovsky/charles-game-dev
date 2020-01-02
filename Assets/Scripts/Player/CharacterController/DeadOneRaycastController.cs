@@ -46,24 +46,33 @@ public class DeadOneRaycastController : MonoBehaviour
 
     void CheckCollisions(Vector3 direction, Vector3 normal)
     {
-        HorizontalCollisions(direction);
+        HorizontalCollisions(direction, normal);
         VerticalCollisions(direction, normal);
     }
 
-    void HorizontalCollisions(Vector3 direction)
+    void HorizontalCollisions(Vector3 direction, Vector3 normal)
     {
         var origin = transform.position + center;
-        var fwd = origin + direction * (radius + skinWidth);
-        var bwd = origin + direction * -(radius + skinWidth);
 
         var col = Collisions;
-        col.forward = Physics.Linecast(origin, fwd, collisionMask);
-        col.backward = Physics.Linecast(origin, bwd, collisionMask);
-        col.sides = col.forward | col.backward;
-        Collisions = col;
 
-        Debug.DrawLine(origin, fwd, Color.green, 1f);
-        Debug.DrawLine(origin, bwd, Color.yellow, 1f);
+        var fwd = direction * (radius + skinWidth);
+        for (int i = 0; i < 1; i++) {
+            var pos = origin + normal * i * radius;
+
+            col.forward |= Physics.Linecast(pos, pos + fwd, collisionMask);
+            Debug.DrawLine(pos, pos + fwd, Color.yellow);
+        }
+
+        for (int i = 0; i < 1; i++) {
+            var pos = origin + normal * i * radius;
+            
+            col.backward |= Physics.Linecast(pos, pos - fwd, collisionMask);
+            Debug.DrawLine(pos, pos - fwd, Color.green);
+        }
+        col.sides = col.forward | col.backward;
+
+        Collisions = col;
     }
 
     void VerticalCollisions(Vector3 direction, Vector3 normal)
