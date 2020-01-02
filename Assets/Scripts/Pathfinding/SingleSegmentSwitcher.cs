@@ -10,4 +10,6 @@ public class SingleSegmentSwitcher : AbstractSegmentSwitcher
     {
         return otherSegment;
     }
+
+    public override void RotateSwitcher(PathSegment currentSegment, float distance) { }
 }

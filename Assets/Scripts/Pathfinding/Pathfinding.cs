@@ -40,12 +40,14 @@ public class Pathfinding : MonoBehaviour
         if (nextSwitcher == null)
             return;
 
-        var nextSegment = nextSwitcher.GetNextSegment(segment);
+        var nextSegment = nextSwitcher.GetNextSegment(segment, force);
         if (nextSegment == null)
             return;
 
         segment = nextSegment;
         distance = nextSegment.GetClosestDistanceAlongPath(transform.position);
+
+        nextSwitcher.RotateSwitcher(segment, distance);
     }
 
     public void UpdateDistance(float deltaDistance)

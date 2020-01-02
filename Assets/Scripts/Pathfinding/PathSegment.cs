@@ -49,7 +49,7 @@ public class PathSegment : MonoBehaviour
 #if UNITY_EDITOR
     void OnDrawGizmos()
     {
-        if (currentPath == null)
+        if (currentPath == null || pathStart == null || pathEnd == null)
             return;
 
         var vPath = currentPath.path;

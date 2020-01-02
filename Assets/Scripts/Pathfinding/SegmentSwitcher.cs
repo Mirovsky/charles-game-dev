@@ -13,6 +13,9 @@ public class SegmentSwitcher : AbstractSegmentSwitcher
     [SerializeField, Help("The other segment, which you should be able to switch to and from.")]
     PathSegment otherSegment;
 
+    [SerializeField]
+    Transform arrow;
+
 
     public override PathSegment GetNextSegment(PathSegment currentSegment, bool force = false)
     {
@@ -25,5 +28,13 @@ public class SegmentSwitcher : AbstractSegmentSwitcher
                 return segment;
 
         return null;
+    }
+
+    public override void RotateSwitcher(PathSegment nextSegment, float distance)
+    {
+        if (nextSegment == null)
+            return;
+
+        arrow.rotation = nextSegment.GetRotationAtDistance(distance);
     }
 }

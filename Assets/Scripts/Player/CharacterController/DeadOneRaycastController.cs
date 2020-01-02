@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+ 
 public class DeadOneRaycastController : MonoBehaviour
 {
     public CollisionInfo Collisions;
@@ -15,18 +14,43 @@ public class DeadOneRaycastController : MonoBehaviour
     [SerializeField]
     LayerMask collisionMask = default;
 
+    SphereCollider sphereCollider;
 
     public void Move(Vector3 motion, Vector3 gravity, Vector3 direction, Vector3 normal, bool wantsToJump)
     {
         Collisions.Reset();
 
-        HorizontalCollisions(ref motion, direction);
-        VerticalCollisions(ref gravity, normal, direction, wantsToJump);
-
-        transform.Translate(motion + gravity);
+        var velocity = motion + gravity;
+        transform.Translate(velocity);
+        
+        ResolveCollisions();
+        CheckCollisions(direction, normal);
     }
 
-    void HorizontalCollisions(ref Vector3 moveAmount, Vector3 direction)
+    void Start()
+    {
+        sphereCollider = GetComponent<SphereCollider>();
+    }
+
+    void ResolveCollisions()
+    {
+        var overlaps = Physics.OverlapSphere(transform.position, radius, collisionMask, QueryTriggerInteraction.UseGlobal);
+        for (var i = 0; i < overlaps.Length; i++) {
+            if (Physics.ComputePenetration(sphereCollider, transform.position, transform.rotation, overlaps[i], overlaps[i].transform.position, overlaps[i].transform.rotation, out var dir, out var dist)) {
+                var penVector = dir * dist;
+
+                transform.position = transform.position + penVector;
+            }
+        }
+    }
+
+    void CheckCollisions(Vector3 direction, Vector3 normal)
+    {
+        HorizontalCollisions(direction);
+        VerticalCollisions(direction, normal);
+    }
+
+    void HorizontalCollisions(Vector3 direction)
     {
         var origin = transform.position + center;
         var fwd = origin + direction * (radius + skinWidth);
@@ -35,16 +59,14 @@ public class DeadOneRaycastController : MonoBehaviour
         var col = Collisions;
         col.forward = Physics.Linecast(origin, fwd, collisionMask);
         col.backward = Physics.Linecast(origin, bwd, collisionMask);
+        col.sides = col.forward | col.backward;
         Collisions = col;
 
         Debug.DrawLine(origin, fwd, Color.green, 1f);
         Debug.DrawLine(origin, bwd, Color.yellow, 1f);
-
-        if (col.forward || col.backward)
-            moveAmount = Vector3.zero;
     }
 
-    void VerticalCollisions(ref Vector3 gravity, Vector3 normal, Vector3 direction, bool wantsToJump)
+    void VerticalCollisions(Vector3 direction, Vector3 normal)
     {
         var origin = transform.position + center;
 
@@ -55,7 +77,7 @@ public class DeadOneRaycastController : MonoBehaviour
             var pos = origin + direction * i * radius;
 
             col.above |= Physics.Linecast(pos, pos + normalDistance, collisionMask);
-            Debug.DrawLine(pos, pos + normalDistance, Color.yellow, 1f);
+            Debug.DrawLine(pos, pos + normalDistance, Color.yellow);
         }
 
         var belowHitDistance = radius + skinWidth;
@@ -64,16 +86,10 @@ public class DeadOneRaycastController : MonoBehaviour
 
             col.below |= Physics.Linecast(pos, pos - normalDistance, out var belowHit, collisionMask);
             belowHitDistance = Mathf.Min(belowHitDistance, belowHit.distance);
-            Debug.DrawLine(pos, pos - normalDistance, Color.green, 1f);
+            Debug.DrawLine(pos, pos - normalDistance, Color.green);
         }
 
         Collisions = col;
-
-        if (col.above)
-            gravity = Vector3.zero;
-
-        if (col.below && !wantsToJump)
-            gravity = normal * (radius - belowHitDistance - skinWidth);
     }
 
     void OnDrawGizmosSelected()

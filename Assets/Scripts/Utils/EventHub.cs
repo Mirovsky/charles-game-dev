@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace OOO.Utils
 {
     public class EventHub
@@ -21,27 +22,21 @@ namespace OOO.Utils
 
         public void AddListener<T> (EventDelegate<T> listener) where T: GameEvent
         {
-            Delegate containedDelegate;
-            if (delegates.TryGetValue(typeof(T), out containedDelegate)) {
-
+            if (delegates.TryGetValue(typeof(T), out var containedDelegate)) {
                 delegates[typeof(T)] = Delegate.Combine(containedDelegate, listener);
-            } 
-            else {
+            }  else {
                 delegates[typeof(T)] = listener;
             }
         }
 
         public void RemoveListener<T> (EventDelegate<T> listener) where T: GameEvent
         {
-            Delegate containedDelagate;
-            if (delegates.TryGetValue(typeof(T), out containedDelagate)) {
-
-                Delegate current = Delegate.Remove(containedDelagate, listener);
+            if (delegates.TryGetValue(typeof(T), out var containedDelagate)) {
+                var current = Delegate.Remove(containedDelagate, listener);
 
                 if (current != null) {
                     delegates.Remove(typeof(T));
-                }
-                else {
+                } else {
                     delegates[typeof(T)] = current;
                 }
             }
