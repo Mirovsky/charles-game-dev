@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class KeyController : MonoBehaviour
 {
     static readonly string PLAYER_TAG = "Player_2D";
+
+    public KeyType keyType;
 
 
     void OnTriggerEnter(Collider other)

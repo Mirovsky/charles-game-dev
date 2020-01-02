@@ -12,11 +12,11 @@ public class DeadOneKeyCollector : MonoBehaviour
         if (!other.CompareTag(KEY_TAG))
             return;
 
-        HandleKeyCollision();
+        HandleKeyCollision(other.GetComponent<KeyController>());
     }
 
-    void HandleKeyCollision()
+    void HandleKeyCollision(KeyController kc)
     {
-        EventHub.Instance.FireEvent(new KeyCollectedEvent());   
+        EventHub.Instance.FireEvent(new KeyCollectedEvent() { keyType = kc.keyType });   
     }
 }

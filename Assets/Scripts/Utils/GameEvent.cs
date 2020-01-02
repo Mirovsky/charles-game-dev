@@ -12,6 +12,7 @@ namespace OOO.Utils
     /** Fired when player collects the key. */
     public class KeyCollectedEvent : GameEvent
     {
+        public KeyType keyType;
     }
 
     /** Fired when player (each of them) enters the exit area. */

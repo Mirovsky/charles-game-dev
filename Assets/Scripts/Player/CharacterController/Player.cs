@@ -44,14 +44,16 @@ public class Player : MonoBehaviour
     {
         yVelocity += gravity * Time.deltaTime;
 
-        /* if (controller.Collisions.below)
-            yVelocity = 0; */
+        if (controller.Collisions.below) {
+            yVelocity = 0;
+        }
 
         if (controller.Collisions.above)
             yVelocity = gravity * Time.deltaTime;
 
-        if (controller.Collisions.below && wantsToJump)
+        if (controller.Collisions.below && wantsToJump) {
             yVelocity = maxJumpVelocity;
+        }
 
         var normal = pathfinding.GetNormal().normalized;
         var direction = pathfinding.GetDirection().normalized;
