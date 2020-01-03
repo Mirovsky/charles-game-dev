@@ -4,7 +4,7 @@
             "typeInfo": {
                 "fullName": "UnityEditor.ShaderGraph.ColorShaderProperty"
             },
-            "JSONnodeData": "{\n    \"m_Name\": \"HandColor\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"b8e9ca5f-5f84-4c6f-81ec-2080572547c9\"\n    },\n    \"m_DefaultReferenceName\": \"Color_BD3B8D6E\",\n    \"m_OverrideReferenceName\": \"\",\n    \"m_Precision\": 0,\n    \"m_Value\": {\n        \"r\": 0.4575471878051758,\n        \"g\": 0.9481478929519653,\n        \"b\": 1.0,\n        \"a\": 0.0\n    },\n    \"m_ColorMode\": 0,\n    \"m_Hidden\": false\n}"
+            "JSONnodeData": "{\n    \"m_Name\": \"HandColor\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"b8e9ca5f-5f84-4c6f-81ec-2080572547c9\"\n    },\n    \"m_DefaultReferenceName\": \"Color_BD3B8D6E\",\n    \"m_OverrideReferenceName\": \"\",\n    \"m_Precision\": 0,\n    \"m_Value\": {\n        \"r\": 0.21622557938098908,\n        \"g\": 0.6666955351829529,\n        \"b\": 0.8603975772857666,\n        \"a\": 0.0\n    },\n    \"m_ColorMode\": 1,\n    \"m_Hidden\": false\n}"
         }
     ],
     "m_SerializableNodes": [
