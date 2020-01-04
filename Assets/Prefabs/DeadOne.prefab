@@ -286,7 +286,7 @@ MonoBehaviour:
     left: 0
     right: 0
   Velocity: {x: 0, y: 0, z: 0}
-  moveSpeed: 250
+  moveSpeed: 500
   groundedDampen: 0.1
   airbornDampen: 0.2
   jumpHeight: 3.5
@@ -328,7 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serverOnly: 0
   m_AssetId: 
-  m_SceneId: 3437601959
+  m_SceneId: 0
 --- !u!114 &7137666032947772796
 MonoBehaviour:
   m_ObjectHideFlags: 0
