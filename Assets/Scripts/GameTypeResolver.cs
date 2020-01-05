@@ -20,14 +20,12 @@ namespace OOO
         private void Awake()
         {
             if (Instance == null) {
+                Instance = this;
+
                 playerType = ParsePlayerType();
                 ip = ParseIP();
 
                 XRSettings.enabled = (playerType == PlayerType.VR);
-
-                Instance = this;
-                
-                EventHub.Instance.FireEvent(new GameTypeLoadedEvent());
                 
                 DontDestroyOnLoad(gameObject);
             } else if (Instance != this) {
