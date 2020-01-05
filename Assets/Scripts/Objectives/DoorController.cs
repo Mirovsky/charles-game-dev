@@ -1,10 +1,13 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 using OOO.Utils;
 
 
 public class DoorController : MonoBehaviour
 {
+    public Action onOpen;
+
     [SerializeField]
     KeyType requiredKey;
     [SerializeField]
@@ -37,6 +40,7 @@ public class DoorController : MonoBehaviour
         }
 
         if (collectedKeys == requiredKeysCount) {
+            onOpen?.Invoke();
             Destroy(gameObject);
         }
     }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{b192d783-3e5b-4933-9b16-7acc3e781488}">
+		<property name="assetPath">
+			<value>Effects/klic_random.MP3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.0563265306122447</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{18abd25c-75aa-444f-8ab1-66c77ba6f8c3}</destination>
+		</relationship>
+	</object>
+</objects>

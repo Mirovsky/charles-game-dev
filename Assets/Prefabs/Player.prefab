@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 7447710313142363379}
   - component: {fileID: 7447710313142363388}
   - component: {fileID: 2396328416803820382}
+  - component: {fileID: 8932384023579105232}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player_2D
@@ -473,3 +474,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2301b8e202091b4eb010cf00a3d9c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8932384023579105232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7447710313142363381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d1a33c0f3490c24388b0ae73c5c16d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementEventRef: event:/Sounds/Movement
+  jumpEventRef: event:/OneShots/Jump
