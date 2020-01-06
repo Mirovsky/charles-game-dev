@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 274474658664368657}
   - component: {fileID: 274474658671413299}
   - component: {fileID: 274474658664826315}
+  - component: {fileID: 995773309349609585}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -210,6 +211,19 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &995773309349609585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274474658664732209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: -1
 --- !u!1 &274474658664732211
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,6 +564,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 274474658664305493}
     m_Modifications:
+    - target: {fileID: 7308757851392008088, guid: 536ec4599aaad8f4f85cb578fc7961f3,
+        type: 3}
+      propertyPath: m_Name
+      value: VREnvironment
+      objectReference: {fileID: 0}
     - target: {fileID: 4655705147976974966, guid: 536ec4599aaad8f4f85cb578fc7961f3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -604,11 +623,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7308757851392008088, guid: 536ec4599aaad8f4f85cb578fc7961f3,
-        type: 3}
-      propertyPath: m_Name
-      value: VREnvironment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 536ec4599aaad8f4f85cb578fc7961f3, type: 3}

@@ -57,6 +57,7 @@ public class Player : MonoBehaviour
             yVelocity = gravity * Time.deltaTime;
 
         if (controller.Collisions.below && wantsToJump) {
+            onJump?.Invoke();
             yVelocity = maxJumpVelocity;
         }
 
