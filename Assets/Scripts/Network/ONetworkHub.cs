@@ -8,9 +8,9 @@ namespace OOO.Network
     [RequireComponent(typeof(NetworkManager))]
     public class ONetworkHub: MonoBehaviour
     {
-        private NetworkManager manager;
+        NetworkManager manager;
 
-        public void OnGUI() {
+        void Start() {
             manager = GetComponent<NetworkManager>();
 
             manager.networkAddress = GameTypeResolver.Instance.ip;

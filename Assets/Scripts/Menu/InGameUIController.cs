@@ -36,8 +36,12 @@ public class InGameUIController : MonoBehaviour
 
     void SwitchCurrent(GameObject next)
     {
-        current.SetActive(false);
+        if (current != null)
+            current.SetActive(false);
+        
         current = next;
-        current.SetActive(true);
+        
+        if (current != null)
+            current.SetActive(true);
     }
 }
