@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8676501958218186212}
   - component: {fileID: 496935859661805353}
   - component: {fileID: 5436433550960298636}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SegmentEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,10 +95,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPath: {fileID: 4236658443538863031}
-  rightSegment: {fileID: 0}
-  leftSegment: {fileID: 0}
-  rightConnectorCollider: {fileID: 7147833038481361077}
-  leftConnectorCollider: {fileID: 0}
+  pathStart: {fileID: 0}
+  pathEnd: {fileID: 0}
+  nextSegment: {fileID: 0}
+  prevSegment: {fileID: 0}
+  inversed: 0
 --- !u!65 &5436433550960298636
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -122,7 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8896718765264170270}
   - component: {fileID: 4236658443538863031}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,6 +211,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Connector
       objectReference: {fileID: 0}
+    - target: {fileID: 3288659095714499808, guid: de554992630f7844a84177653fddf60f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -270,12 +276,6 @@ PrefabInstance:
 --- !u!4 &2203059513869725147 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
-    type: 3}
-  m_PrefabInstance: {fileID: 614901079081341690}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &7147833038481361077 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 7762698331756583503, guid: de554992630f7844a84177653fddf60f,
     type: 3}
   m_PrefabInstance: {fileID: 614901079081341690}
   m_PrefabAsset: {fileID: 0}

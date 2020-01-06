@@ -44,6 +44,9 @@ public class Pathfinding : MonoBehaviour
         if (nextSegment == null)
             return;
 
+        if (nextSegment.multiPath == segment.multiPath)
+            return;
+
         segment = nextSegment;
         distance = nextSegment.GetClosestDistanceAlongPath(transform.position);
 
@@ -79,6 +82,9 @@ public class Pathfinding : MonoBehaviour
 
     public int GetSegmentDirection()
         => segment.PathDirection;
+
+    public PathSegment GetCurrentSegment()
+        => segment;
 
     PathSegment GetNextSegment(PathSegment s, float deltaDistance)
     {

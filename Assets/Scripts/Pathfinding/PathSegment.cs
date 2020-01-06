@@ -22,6 +22,8 @@ public class PathSegment : MonoBehaviour
     public PathSegment prevSegment;
     [HideInInspector]
     public bool inversed;
+    [HideInInspector]
+    public MultiPathDescriptor multiPath;
 
     public int PathDirection => inversed ? -1 : 1;
 
@@ -45,6 +47,14 @@ public class PathSegment : MonoBehaviour
     }
 
     public float GetClosestDistanceAlongPath(Vector3 p) => currentPath.path.GetClosestDistanceAlongPath(p);
+
+    void Start()
+    {
+        multiPath = GetComponentInParent<MultiPathDescriptor>();
+        if (multiPath == null) {
+            Debug.LogError($"PathSegment {name} exists without MultiPathDescriptor in hierarchy!");
+        }
+    }
 
 #if UNITY_EDITOR
     void OnDrawGizmos()
