@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using OOO.Utils;
 
 
@@ -7,6 +8,7 @@ public class ExitController : MonoBehaviour
     static readonly string PLAYER_2D = "Player_2D";
     static readonly string PLAYER_VR = "Player_VR";
 
+    public Action onOpen;
     public bool isOpen;
 
     void Awake()
@@ -24,6 +26,7 @@ public class ExitController : MonoBehaviour
 
     void ExitOpenEventHandler(ExitOpenEvent e)
     {
+        onOpen?.Invoke();
         // TODO: Figure out proper animation of exit appearing
         gameObject.SetActive(true);
     }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{d78185b1-2e4c-47a5-bf12-0333c4a339f8}">
+		<property name="assetPath">
+			<value>Sounds/platforma_random.MP3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>13.061224489795919</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{18abd25c-75aa-444f-8ab1-66c77ba6f8c3}</destination>
+		</relationship>
+	</object>
+</objects>

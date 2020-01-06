@@ -1,0 +1,551 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!200 &20000000
+ShaderVariantCollection:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: OooShaderVariants
+  m_Shaders:
+  - first: {fileID: 66, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: UNITY_SINGLE_PASS_STEREO
+        passType: 0
+  - first: {fileID: 109, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHABLEND_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _METALLICGLOSSMAP
+        passType: 8
+      - keywords: SHADOWS_DEPTH _PARALLAXMAP
+        passType: 8
+      - keywords: 
+        passType: 11
+  - first: {fileID: 64, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: SHADOWS_SINGLE_CASCADE SHADOWS_SPLIT_SPHERES
+        passType: 0
+  - first: {fileID: 103, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: _SUNDISK_SIMPLE
+        passType: 0
+      - keywords: UNITY_SINGLE_PASS_STEREO _SUNDISK_SIMPLE
+        passType: 0
+      - keywords: _SUNDISK_HIGH_QUALITY
+        passType: 0
+  - first: {fileID: 207, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: UNITY_SINGLE_PASS_STEREO
+        passType: 0
+  - first: {fileID: 9000, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9001, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9002, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9003, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9004, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9006, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 10720, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: ETC1_EXTERNAL_ALPHA
+        passType: 0
+  - first: {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: UNITY_UI_ALPHACLIP
+        passType: 0
+  - first: {fileID: 15104, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 15105, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: d6dae50ee9e1bfa4db75f19f99355220, type: 3}
+    second:
+      variants:
+      - keywords: _DEPTH_NO_MSAA
+        passType: 0
+  - first: {fileID: 4800000, guid: 0f854b35a0cf61a429bd5dcfea30eddd, type: 3}
+    second:
+      variants:
+      - keywords: _MAIN_LIGHT_SHADOWS
+        passType: 0
+      - keywords: _MAIN_LIGHT_SHADOWS _SHADOWS_SOFT
+        passType: 0
+      - keywords: UNITY_SINGLE_PASS_STEREO _MAIN_LIGHT_SHADOWS _SHADOWS_SOFT
+        passType: 0
+  - first: {fileID: 4800000, guid: 0406db5a14f94604a8c57ccfbc9f3b46, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: FOG_EXP2
+        passType: 0
+      - keywords: FOG_EXP UNITY_SINGLE_PASS_STEREO
+        passType: 0
+      - keywords: FOG_EXP2 UNITY_SINGLE_PASS_STEREO
+        passType: 0
+      - keywords: _COLORADDSUBDIFF_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: 0ef78d24e85a44f4da9d5b5eaa00e50b, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 2c459b89a7c8b1a4fbefe0d81341651c, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 382151503e2a43a4ebb7366d1632731d, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: BLOOM COLOR_GRADING_HDR_3D FINALPASS VIGNETTE
+        passType: 0
+      - keywords: FINALPASS STEREO_DOUBLEWIDE_TARGET
+        passType: 0
+      - keywords: BLOOM COLOR_GRADING_HDR_3D FINALPASS STEREO_DOUBLEWIDE_TARGET
+        passType: 0
+      - keywords: BLOOM COLOR_GRADING_HDR_3D FINALPASS STEREO_DOUBLEWIDE_TARGET VIGNETTE
+        passType: 0
+      - keywords: BLOOM_LOW COLOR_GRADING_HDR_3D FINALPASS STEREO_DOUBLEWIDE_TARGET
+          VIGNETTE
+        passType: 0
+  - first: {fileID: 4800000, guid: 50b406436c6214c49aaaa6011b71dde8, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 5bb6ef6f3e1b20348b4fdb01e4c404e2, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 5caf62d8bd7c44596ace77ef9eb8ea31, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 69c1f799e772cb6438f56c23efccb782, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: 
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS
+        passType: 13
+  - first: {fileID: 4800000, guid: 8516d7a69675844a7a0b7095af7c46af, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 13
+      - keywords: UNITY_SINGLE_PASS_STEREO
+        passType: 13
+      - keywords: _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: FOG_EXP UNITY_SINGLE_PASS_STEREO _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: FOG_EXP2 UNITY_SINGLE_PASS_STEREO _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: FOG_EXP2 _ADDITIONAL_LIGHTS _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _RECEIVE_SHADOWS_OFF
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: FOG_EXP2 _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _RECEIVE_SHADOWS_OFF
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: FOG_EXP UNITY_SINGLE_PASS_STEREO _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _RECEIVE_SHADOWS_OFF _SHADOWS_SOFT
+        passType: 13
+      - keywords: FOG_EXP2 UNITY_SINGLE_PASS_STEREO _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _RECEIVE_SHADOWS_OFF _SHADOWS_SOFT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _FLIPBOOKBLENDING_ON _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: _FADING_ON _FLIPBOOKBLENDING_ON _RECEIVE_SHADOWS_OFF _SOFTPARTICLES_ON
+        passType: 13
+      - keywords: FOG_EXP2 UNITY_SINGLE_PASS_STEREO _FADING_ON _FLIPBOOKBLENDING_ON
+          _RECEIVE_SHADOWS_OFF _SOFTPARTICLES_ON
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _FADING_ON _FLIPBOOKBLENDING_ON _RECEIVE_SHADOWS_OFF
+          _SOFTPARTICLES_ON
+        passType: 13
+      - keywords: FOG_EXP2 _ADDITIONAL_LIGHTS _FADING_ON _FLIPBOOKBLENDING_ON _RECEIVE_SHADOWS_OFF
+          _SOFTPARTICLES_ON
+        passType: 13
+      - keywords: _FADING_ON _FLIPBOOKBLENDING_ON _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _RECEIVE_SHADOWS_OFF _SHADOWS_SOFT _SOFTPARTICLES_ON
+        passType: 13
+      - keywords: FOG_EXP2 UNITY_SINGLE_PASS_STEREO _FADING_ON _FLIPBOOKBLENDING_ON
+          _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _RECEIVE_SHADOWS_OFF _SHADOWS_SOFT
+          _SOFTPARTICLES_ON
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _ALPHAMODULATE_ON _FADING_ON _FLIPBOOKBLENDING_ON
+          _RECEIVE_SHADOWS_OFF _SOFTPARTICLES_ON
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _COLOROVERLAY_ON _FADING_ON _FLIPBOOKBLENDING_ON
+          _RECEIVE_SHADOWS_OFF _SOFTPARTICLES_ON
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _COLORCOLOR_ON _FADING_ON _FLIPBOOKBLENDING_ON
+          _RECEIVE_SHADOWS_OFF _SOFTPARTICLES_ON
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _COLORADDSUBDIFF_ON _FADING_ON _FLIPBOOKBLENDING_ON
+          _RECEIVE_SHADOWS_OFF _SOFTPARTICLES_ON
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _ALPHAMODULATE_ON _COLORADDSUBDIFF_ON _FADING_ON
+          _FLIPBOOKBLENDING_ON _RECEIVE_SHADOWS_OFF _SOFTPARTICLES_ON
+        passType: 13
+  - first: {fileID: 4800000, guid: 8d2bb70cbf9db8d4da26e15b26e74248, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: _GLOSSINESS_FROM_BASE_ALPHA
+        passType: 8
+      - keywords: 
+        passType: 11
+      - keywords: 
+        passType: 13
+      - keywords: UNITY_SINGLE_PASS_STEREO
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _NORMALMAP
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED LIGHTMAP_ON _ADDITIONAL_LIGHTS _NORMALMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _NORMALMAP _SHADOWS_SOFT
+        passType: 13
+      - keywords: DIRLIGHTMAP_COMBINED LIGHTMAP_ON _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS
+          _MAIN_LIGHT_SHADOWS_CASCADE _NORMALMAP _SHADOWS_SOFT
+        passType: 13
+      - keywords: _GLOSSINESS_FROM_BASE_ALPHA
+        passType: 13
+      - keywords: UNITY_SINGLE_PASS_STEREO _GLOSSINESS_FROM_BASE_ALPHA
+        passType: 13
+      - keywords: _GLOSSINESS_FROM_BASE_ALPHA _SPECULAR_COLOR
+        passType: 13
+      - keywords: UNITY_SINGLE_PASS_STEREO _GLOSSINESS_FROM_BASE_ALPHA _SPECULAR_COLOR
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _GLOSSINESS_FROM_BASE_ALPHA _SPECULAR_COLOR
+        passType: 13
+      - keywords: _GLOSSINESS_FROM_BASE_ALPHA _NORMALMAP _SPECULAR_COLOR
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _GLOSSINESS_FROM_BASE_ALPHA _NORMALMAP _SPECULAR_COLOR
+        passType: 13
+      - keywords: _GLOSSINESS_FROM_BASE_ALPHA _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT _SPECULAR_COLOR
+        passType: 13
+      - keywords: UNITY_SINGLE_PASS_STEREO _GLOSSINESS_FROM_BASE_ALPHA _MAIN_LIGHT_SHADOWS
+          _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT _SPECULAR_COLOR
+        passType: 13
+      - keywords: _GLOSSINESS_FROM_BASE_ALPHA _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _NORMALMAP _SHADOWS_SOFT _SPECULAR_COLOR
+        passType: 13
+  - first: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        passType: 8
+      - keywords: 
+        passType: 13
+      - keywords: FOG_EXP2
+        passType: 13
+      - keywords: _EMISSION
+        passType: 13
+      - keywords: UNITY_SINGLE_PASS_STEREO
+        passType: 13
+      - keywords: FOG_EXP2 UNITY_SINGLE_PASS_STEREO
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS
+        passType: 13
+      - keywords: FOG_EXP2 _ADDITIONAL_LIGHTS
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _EMISSION
+        passType: 13
+      - keywords: FOG_EXP2 _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT
+        passType: 13
+      - keywords: FOG_EXP2 _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT
+        passType: 13
+      - keywords: _EMISSION _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT
+        passType: 13
+      - keywords: UNITY_SINGLE_PASS_STEREO _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: FOG_EXP UNITY_SINGLE_PASS_STEREO _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: FOG_EXP2 UNITY_SINGLE_PASS_STEREO _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: UNITY_SINGLE_PASS_STEREO _EMISSION _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: FOG_EXP2 _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: FOG_EXP2 UNITY_SINGLE_PASS_STEREO _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: FOG_EXP2 _ADDITIONAL_LIGHTS _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: FOG_EXP2 _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _RECEIVE_SHADOWS_OFF
+        passType: 13
+      - keywords: _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _RECEIVE_SHADOWS_OFF
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: FOG_EXP2 _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _RECEIVE_SHADOWS_OFF
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: UNITY_SINGLE_PASS_STEREO _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _RECEIVE_SHADOWS_OFF _SHADOWS_SOFT
+        passType: 13
+      - keywords: FOG_EXP UNITY_SINGLE_PASS_STEREO _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _RECEIVE_SHADOWS_OFF _SHADOWS_SOFT
+        passType: 13
+      - keywords: FOG_EXP2 UNITY_SINGLE_PASS_STEREO _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _RECEIVE_SHADOWS_OFF _SHADOWS_SOFT
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _RECEIVE_SHADOWS_OFF _SHADOWS_SOFT
+        passType: 13
+      - keywords: _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        passType: 13
+      - keywords: UNITY_SINGLE_PASS_STEREO _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+        passType: 13
+      - keywords: _SPECULAR_SETUP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _SPECULAR_SETUP
+        passType: 13
+      - keywords: FOG_EXP2 _ADDITIONAL_LIGHTS _SPECULAR_SETUP
+        passType: 13
+      - keywords: _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT _SPECULAR_SETUP
+        passType: 13
+      - keywords: FOG_EXP2 _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT
+          _SPECULAR_SETUP
+        passType: 13
+      - keywords: UNITY_SINGLE_PASS_STEREO _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT _SPECULAR_SETUP
+        passType: 13
+      - keywords: FOG_EXP UNITY_SINGLE_PASS_STEREO _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT _SPECULAR_SETUP
+        passType: 13
+      - keywords: FOG_EXP2 UNITY_SINGLE_PASS_STEREO _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT _SPECULAR_SETUP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _RECEIVE_SHADOWS_OFF _SPECULAR_SETUP
+        passType: 13
+      - keywords: _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _RECEIVE_SHADOWS_OFF
+          _SHADOWS_SOFT _SPECULAR_SETUP
+        passType: 13
+      - keywords: UNITY_SINGLE_PASS_STEREO _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A _SPECULAR_SETUP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A _SPECULAR_SETUP
+        passType: 13
+      - keywords: _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+          _SPECULAR_SETUP
+        passType: 13
+      - keywords: UNITY_SINGLE_PASS_STEREO _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A _SPECULAR_SETUP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A _SPECULAR_SETUP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _RECEIVE_SHADOWS_OFF _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+          _SPECULAR_SETUP
+        passType: 13
+      - keywords: _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _RECEIVE_SHADOWS_OFF
+          _SHADOWS_SOFT _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A _SPECULAR_SETUP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _RECEIVE_SHADOWS_OFF _SHADOWS_SOFT _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+          _SPECULAR_SETUP
+        passType: 13
+  - first: {fileID: 4800000, guid: c1e1d3119c6fd4646aea0b4b74cacc1a, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: cdbdb71de5f9c454b980f6d0e87f0afb, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: de7f3ac52268a194383c7d62c2a343c1, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: e260cfa7296ee7642b167f1eb5be5023, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 13
+  - first: {fileID: 4800000, guid: e8ce9961912f3214586fe8709b9012c1, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 4b9f3440d48c2f04c9c388365e070864, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: -6465566751694194690, guid: a419a54ffa802bd4bb133e9fd24b04bd,
+      type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: 
+        passType: 13
+      - keywords: FOG_EXP2
+        passType: 13
+      - keywords: UNITY_SINGLE_PASS_STEREO
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS
+        passType: 13
+      - keywords: FOG_EXP2 _ADDITIONAL_LIGHTS
+        passType: 13
+      - keywords: FOG_EXP2 _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+        passType: 13
+      - keywords: _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT
+        passType: 13
+      - keywords: FOG_EXP2 _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT
+        passType: 13
+      - keywords: UNITY_SINGLE_PASS_STEREO _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: FOG_EXP2 UNITY_SINGLE_PASS_STEREO _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: 46ded68d2930b544086189f50d9e9ea5,
+      type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: 
+        passType: 13
+      - keywords: FOG_EXP2
+        passType: 13
+      - keywords: UNITY_SINGLE_PASS_STEREO
+        passType: 13
+      - keywords: FOG_EXP2 UNITY_SINGLE_PASS_STEREO
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS
+        passType: 13
+      - keywords: FOG_EXP2 _ADDITIONAL_LIGHTS
+        passType: 13
+      - keywords: _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT
+        passType: 13
+      - keywords: FOG_EXP2 _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT
+        passType: 13
+      - keywords: UNITY_SINGLE_PASS_STEREO _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: FOG_EXP UNITY_SINGLE_PASS_STEREO _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: FOG_EXP2 UNITY_SINGLE_PASS_STEREO _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+          _SHADOWS_SOFT
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: c521fb9cb4a8fd645b8ca40935d52c15,
+      type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: FOG_EXP2
+        passType: 0
+      - keywords: FOG_EXP2 UNITY_SINGLE_PASS_STEREO
+        passType: 0
+      - keywords: 
+        passType: 8

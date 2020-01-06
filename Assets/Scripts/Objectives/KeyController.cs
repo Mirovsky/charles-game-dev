@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class KeyController : MonoBehaviour
 {
+    public Action onCollected;
+
     static readonly string PLAYER_TAG = "Player_2D";
 
     public KeyType keyType;
@@ -17,6 +20,7 @@ public class KeyController : MonoBehaviour
 
     void HandlePlayerCollision()
     {
+        onCollected?.Invoke();
         // Play collecting animation and then destroy
         Destroy(gameObject);
     }

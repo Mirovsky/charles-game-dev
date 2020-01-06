@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6893494262532167317}
   - component: {fileID: 7554183567326623181}
   - component: {fileID: 1202796066011539884}
+  - component: {fileID: -7486379060807029566}
   m_Layer: 0
   m_Name: Key
   m_TagString: Key
@@ -61,8 +62,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serverOnly: 0
-  m_AssetId: e7c217968a285994087f4b93a8da5d5f
-  m_SceneId: 0
+  m_AssetId: 
+  m_SceneId: 581075063
 --- !u!114 &7554183567326623181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,6 +91,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f21efef4080f8c4abe92cd030a09973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyType: {fileID: 0}
+--- !u!114 &-7486379060807029566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5165690054932769582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49985f66b8f4a4840a5f0a10875a15f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyCollectEventRef: event:/OneShots/KeyCollect
 --- !u!1 &6797255185642072127
 GameObject:
   m_ObjectHideFlags: 0

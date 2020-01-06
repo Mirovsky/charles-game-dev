@@ -1,8 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 
 public class Player : MonoBehaviour
 {
+    public Action<float> onMove;
+    public Action onJump;
+
+
     [Header("Jumping")]
     [SerializeField]
     float maxJumpHeight = default;
@@ -52,6 +57,7 @@ public class Player : MonoBehaviour
             yVelocity = gravity * Time.deltaTime;
 
         if (controller.Collisions.below && wantsToJump) {
+            onJump?.Invoke();
             yVelocity = maxJumpVelocity;
         }
 
@@ -77,6 +83,9 @@ public class Player : MonoBehaviour
         if (!controller.Collisions.sides) {
             pathfinding.UpdateDistance(step);
         }
+
+        var attr = controller.Collisions.sides ? 0 : Direction;
+        onMove?.Invoke(attr);
     }
 
     public float Direction { get; private set; }
