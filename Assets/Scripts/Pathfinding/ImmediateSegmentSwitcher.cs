@@ -15,6 +15,7 @@ public class ImmediateSegmentSwitcher : MonoBehaviour
             return;
 
         var pathfinding = other.GetComponent<Pathfinding>();
+
         pathfinding.SetNextSwitcher(switcher);
         pathfinding.TriggerAvailablePathSwitch();
     }
