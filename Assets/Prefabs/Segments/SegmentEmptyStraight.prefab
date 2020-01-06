@@ -98,10 +98,10 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: 0, y: 1, z: 0}
-      - {x: 0, y: 1, z: 0}
-      - {x: -5, y: 1, z: 0}
-      - {x: -5, y: 1, z: 0}
+      - {x: 0, y: 0, z: 0}
+      - {x: -1, y: 0, z: 0}
+      - {x: -4, y: 0, z: 0}
+      - {x: -5, y: 0, z: 0}
       isClosed: 0
       space: 0
       controlMode: 0
