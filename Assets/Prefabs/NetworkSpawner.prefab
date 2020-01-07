@@ -63,13 +63,10 @@ MonoBehaviour:
   syncInterval: 0.1
   playerPrefab: {fileID: 7447710313142363381, guid: 0455a227d5a284725b5d50918757809f,
     type: 3}
-  platforms: []
   mobileCamera: {fileID: 4182288405685184604, guid: 1cb131766d5bd46c7a7cb42d830b3995,
     type: 3}
-  mobileCameraTransform: {fileID: 0}
   vrCamera: {fileID: 4604301985217077056, guid: 0d2ed5d5f54675e4e89ec289a019664e,
     type: 3}
-  vrCameraTransform: {fileID: 0}
   leftHand: {fileID: 1723506367551182960, guid: 1ea1a1ec38a854bad9a53906b769ec28,
     type: 3}
   rightHand: {fileID: 4670533044216219965, guid: aaac9c3ae5ea74047bbe6845113d5e0a,

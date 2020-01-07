@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Mirror;
 using OOO.Base;
+using OOO.Camera;
+using TMPro;
+using UnityEngine.UIElements;
 
 
 namespace OOO.Network
@@ -57,6 +60,7 @@ namespace OOO.Network
          */
         void OnGameStart() {
             SpawnMobilePlayer();
+            StartTimer();
 
             if (isServer) {
                 //The server destroys both.
@@ -115,7 +119,23 @@ namespace OOO.Network
             }
         } */
 
-        
+        void StartTimer() {
+            if (IsMobilePlayer) {
+                //its server
+                RpcStartTimer();
+            }
+        }
+
+        [ClientRpc]
+        void RpcStartTimer() {
+            if (IsMobilePlayer && isLocalPlayer) {
+                mobileCamera.GetComponent<TimerTextHandler>().OnGameStart();
+            }
+            if (IsVrPlayer && isLocalPlayer) {
+                vrCamera.GetComponent<TimerTextHandler>().OnGameStart();
+            }
+        }
+
         [Client]
         void SpawnMobilePlayer() {
             if (IsMobilePlayer && isLocalPlayer) {
@@ -137,7 +157,7 @@ namespace OOO.Network
 
         void SpawnMobileCamera()
         {
-            Instantiate(mobileCamera);
+            mobileCamera = Instantiate(mobileCamera);
         }
 
         void SpawnVRCamera()

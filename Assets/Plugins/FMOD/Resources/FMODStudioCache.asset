@@ -15,8 +15,8 @@ MonoBehaviour:
   Path: event:/OneShots/DoorEnter
   guid: 6915369be4dd0a45a0216a3a72393c83
   Banks:
-  - {fileID: 9200115259414959913}
-  - {fileID: -3350846750285987318}
+  - {fileID: 7514597945966257689}
+  - {fileID: -3582777051742247295}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -127,8 +127,8 @@ MonoBehaviour:
   Path: event:/Sounds/Ambience
   guid: fe3448779a3e274ea96777170b062717
   Banks:
-  - {fileID: 9200115259414959913}
-  - {fileID: -3350846750285987318}
+  - {fileID: 7514597945966257689}
+  - {fileID: -3582777051742247295}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -502,8 +502,8 @@ MonoBehaviour:
   Path: event:/OneShots/ExitEnter
   guid: a484a973c8fa734c9a7c97c032013813
   Banks:
-  - {fileID: 9200115259414959913}
-  - {fileID: -3350846750285987318}
+  - {fileID: 7514597945966257689}
+  - {fileID: -3582777051742247295}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -534,6 +534,23 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 150
+--- !u!114 &-4609461922621859087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Movement/Speed
+  m_EditorClassIdentifier: 
+  Name: Speed
+  Min: -1
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-4596874424612262430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603,8 +620,8 @@ MonoBehaviour:
   Path: event:/OneShots/Jump
   guid: 7236d417dbcf2241a50313d8a4f62e29
   Banks:
-  - {fileID: 9200115259414959913}
-  - {fileID: -3350846750285987318}
+  - {fileID: 7514597945966257689}
+  - {fileID: -3582777051742247295}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -627,8 +644,8 @@ MonoBehaviour:
   Path: event:/OneShots/DoorOpen
   guid: b09c855227e0714982070bd70680e054
   Banks:
-  - {fileID: 9200115259414959913}
-  - {fileID: -3350846750285987318}
+  - {fileID: 7514597945966257689}
+  - {fileID: -3582777051742247295}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -653,6 +670,24 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-3582777051742247295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FmodProject/Ooo/Build/Mobile/Master.bank
+  SubDir: Build/Mobile
+  lastModified: 637140157990000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-3350846750285987318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,6 +742,26 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-2239295199987200716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: FmodProject/Ooo/Build/Desktop/Master.strings.bank
+  SubDir: Build/Desktop
+  lastModified: 637140157990000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Ooo
+    Value: 1388
+  Exists: 1
 --- !u!114 &-2227248397691873246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,13 +795,13 @@ MonoBehaviour:
   Path: event:/Sounds/Movement
   guid: 48bff94345454f4c9a0ffa72accfc2a7
   Banks:
-  - {fileID: 9200115259414959913}
-  - {fileID: -3350846750285987318}
+  - {fileID: 7514597945966257689}
+  - {fileID: -3582777051742247295}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 3814598292776978166}
+  - {fileID: -4609461922621859087}
   MinDistance: 1
   MaxDistance: 20
   Length: 4140
@@ -858,11 +913,11 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 9106799129048626576}
-  - {fileID: 9200115259414959913}
-  - {fileID: -170353064372661723}
-  - {fileID: -3350846750285987318}
-  - {fileID: 3041895737785167368}
+  - {fileID: -2239295199987200716}
+  - {fileID: 7514597945966257689}
+  - {fileID: 4452901319938242020}
+  - {fileID: -3582777051742247295}
+  - {fileID: 7203535417298478511}
   EditorEvents:
   - {fileID: -1759256287596937934}
   - {fileID: -4467672294555711895}
@@ -876,11 +931,11 @@ MonoBehaviour:
   - {fileID: 2075635922896225556}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 9200115259414959913}
-  - {fileID: -3350846750285987318}
+  - {fileID: 7514597945966257689}
+  - {fileID: -3582777051742247295}
   StringsBanks:
-  - {fileID: 9106799129048626576}
-  stringsBankWriteTime: 637140020992398012
+  - {fileID: -2239295199987200716}
+  stringsBankWriteTime: 637140157990000000
   cacheVersion: 3
 --- !u!114 &311172009739408422
 MonoBehaviour:
@@ -1011,13 +1066,13 @@ MonoBehaviour:
   Path: event:/Sounds/PlatformMovement
   guid: b30ab0353e12fe4e99f72b2da306a4c8
   Banks:
-  - {fileID: 9200115259414959913}
-  - {fileID: -3350846750285987318}
+  - {fileID: 7514597945966257689}
+  - {fileID: -3582777051742247295}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 4620363086560123163}
+  - {fileID: 7884001213070843914}
   MinDistance: 1
   MaxDistance: 20
   Length: 1308
@@ -1108,8 +1163,8 @@ MonoBehaviour:
   Path: event:/OneShots/Land
   guid: cb42bc53f6c4d4459fefa3d26a4d1fa7
   Banks:
-  - {fileID: 9200115259414959913}
-  - {fileID: -3350846750285987318}
+  - {fileID: 7514597945966257689}
+  - {fileID: -3582777051742247295}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1308,6 +1363,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Speed
   Min: -1
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &4452901319938242020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/UI.bank
+  m_EditorClassIdentifier: 
+  Path: FmodProject/Ooo/Build/Desktop/UI.bank
+  SubDir: Build/Desktop
+  lastModified: 637140157990000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &4494806021688618882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/PlatformMovement/PlatformSpeed
+  m_EditorClassIdentifier: 
+  Name: PlatformSpeed
+  Min: 0
   Max: 1
   Default: 0
   Exists: 0
@@ -1537,8 +1627,8 @@ MonoBehaviour:
   Path: event:/OneShots/KeyCollect
   guid: 9ef14d4f27c2114cb2bf2541fea381ae
   Banks:
-  - {fileID: 9200115259414959913}
-  - {fileID: -3350846750285987318}
+  - {fileID: 7514597945966257689}
+  - {fileID: -3582777051742247295}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1600,6 +1690,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &7203535417298478511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/UI.bank
+  m_EditorClassIdentifier: 
+  Path: FmodProject/Ooo/Build/Mobile/UI.bank
+  SubDir: Build/Mobile
+  lastModified: 637140157990000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &7444827839112132049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1615,8 +1723,8 @@ MonoBehaviour:
   Path: event:/UI/Click
   guid: 16146fd1d868fc4da0b4a0d0a0fc0ef3
   Banks:
-  - {fileID: -170353064372661723}
-  - {fileID: 3041895737785167368}
+  - {fileID: 4452901319938242020}
+  - {fileID: 7203535417298478511}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1641,6 +1749,41 @@ MonoBehaviour:
   lastModified: 637138172554049602
   LoadResult: 0
   FileSizes: []
+  Exists: 0
+--- !u!114 &7514597945966257689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FmodProject/Ooo/Build/Desktop/Master.bank
+  SubDir: Build/Desktop
+  lastModified: 637140157990000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &7531838873925786850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Movement/Speed
+  m_EditorClassIdentifier: 
+  Name: Speed
+  Min: -1
+  Max: 1
+  Default: 0
   Exists: 0
 --- !u!114 &7745037348913105185
 MonoBehaviour:
@@ -1700,6 +1843,23 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &7884001213070843914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/PlatformMovement/PlatformSpeed
+  m_EditorClassIdentifier: 
+  Name: PlatformSpeed
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &8021259490259505379
 MonoBehaviour:
   m_ObjectHideFlags: 0
