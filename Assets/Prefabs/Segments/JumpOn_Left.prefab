@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3961381558462423464}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1857607100689499346}
@@ -49,9 +49,9 @@ MonoBehaviour:
     _bezierPath:
       points:
       - {x: 0, y: 0, z: 0}
-      - {x: 1, y: 0, z: 0}
-      - {x: -9, y: 0, z: 0}
-      - {x: -10, y: 0, z: 0}
+      - {x: -1, y: 0, z: 0}
+      - {x: -14, y: 0, z: 0}
+      - {x: -15, y: 0, z: 0}
       isClosed: 0
       space: 0
       controlMode: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 2600808668198948734}
   - component: {fileID: 968411281648513136}
   m_Layer: 9
-  m_Name: FallOn
+  m_Name: JumpOn_Right 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -308,7 +308,7 @@ PrefabInstance:
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
@@ -378,7 +378,7 @@ PrefabInstance:
     - target: {fileID: 2305811304790416961, guid: 42053a15b3b79074990795cd4c9e7ba0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2305811304790416961, guid: 42053a15b3b79074990795cd4c9e7ba0,
         type: 3}
