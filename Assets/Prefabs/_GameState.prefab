@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2994489099643372401}
   - component: {fileID: 2994489099643372407}
   - component: {fileID: 2994489099643372402}
+  - component: {fileID: -545526075594663311}
   m_Layer: 0
   m_Name: _GameState
   m_TagString: Untagged
@@ -46,8 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serverOnly: 0
-  m_AssetId: 
-  m_SceneId: 692799643
+  m_AssetId: 3b0c31a17f3d47845a4be38546ffba50
+  m_SceneId: 0
 --- !u!114 &2994489099643372407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,3 +83,16 @@ MonoBehaviour:
   playersInsideExit: 0
   mobileInsideExit: 0
   vrInsideExit: 0
+  levelData: {fileID: 0}
+--- !u!114 &-545526075594663311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2994489099643372403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c776cc3bd9e356648a92047e606e8cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

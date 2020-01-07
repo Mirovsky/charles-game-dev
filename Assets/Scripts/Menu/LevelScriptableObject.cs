@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using FMODUnity;
 
 
 [CreateAssetMenu(menuName = "OOO/LevelScriptableObject")]
@@ -9,4 +10,6 @@ public class LevelScriptableObject : ScriptableObject
 
     public LevelScriptableObject nextLevel;
 
+    [EventRef]
+    public string levelAmbience;
 }

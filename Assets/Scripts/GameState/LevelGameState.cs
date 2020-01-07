@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Mirror;
 using OOO.Base;
 using OOO.Utils;
@@ -20,6 +18,9 @@ public class LevelGameState : BaseNetworkBehaviour
     public bool mobileInsideExit;
     [SyncVar]
     public bool vrInsideExit;
+
+    [Header("Level")]
+    public LevelScriptableObject levelData;
 
 
     void Awake()
