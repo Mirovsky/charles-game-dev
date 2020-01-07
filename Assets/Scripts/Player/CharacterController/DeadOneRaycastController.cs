@@ -18,13 +18,14 @@ public class DeadOneRaycastController : MonoBehaviour
 
     public void Move(Vector3 motion, Vector3 gravity, Vector3 direction, Vector3 normal, bool wantsToJump)
     {
+        var prevBelow = Collisions.below;
         Collisions.Reset();
 
         var velocity = motion + gravity;
         transform.Translate(velocity);
         
         ResolveCollisions();
-        CheckCollisions(direction, normal);
+        CheckCollisions(direction, normal, prevBelow);
     }
 
     void Start()
@@ -44,10 +45,10 @@ public class DeadOneRaycastController : MonoBehaviour
         }
     }
 
-    void CheckCollisions(Vector3 direction, Vector3 normal)
+    void CheckCollisions(Vector3 direction, Vector3 normal, bool prevBelow)
     {
         HorizontalCollisions(direction, normal);
-        VerticalCollisions(direction, normal);
+        VerticalCollisions(direction, normal, prevBelow);
     }
 
     void HorizontalCollisions(Vector3 direction, Vector3 normal)
@@ -75,7 +76,7 @@ public class DeadOneRaycastController : MonoBehaviour
         Collisions = col;
     }
 
-    void VerticalCollisions(Vector3 direction, Vector3 normal)
+    void VerticalCollisions(Vector3 direction, Vector3 normal, bool prevBelow)
     {
         var origin = transform.position + center;
 
@@ -97,7 +98,7 @@ public class DeadOneRaycastController : MonoBehaviour
             belowHitDistance = Mathf.Min(belowHitDistance, belowHit.distance);
             Debug.DrawLine(pos, pos - normalDistance, Color.green);
         }
-
+        col.landed = !prevBelow && col.below;
         Collisions = col;
     }
 
@@ -114,6 +115,7 @@ public class DeadOneRaycastController : MonoBehaviour
         public bool below, above;
         public bool forward, backward;
         public bool sides;
+        public bool landed;
 
         public void Reset()
         {
@@ -122,6 +124,7 @@ public class DeadOneRaycastController : MonoBehaviour
             below = above = false;
             forward = backward = false;
             sides = false;
+            landed = false;
         }
     }
 }

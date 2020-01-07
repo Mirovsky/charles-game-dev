@@ -13,6 +13,9 @@ public class PlayerSoundController : MonoBehaviour
     [SerializeField]
     [EventRef]
     string jumpEventRef;
+    [SerializeField]
+    [EventRef]
+    string landEventRef;
 
     Player player;
     
@@ -25,6 +28,7 @@ public class PlayerSoundController : MonoBehaviour
 
         player.onMove += OnMove;
         player.onJump += OnJump;
+        player.onLand += OnLand;
 
         movementEvent = RuntimeManager.CreateInstance(movementEventRef);
         movementEvent.start();
@@ -36,6 +40,7 @@ public class PlayerSoundController : MonoBehaviour
 
         player.onMove -= OnMove;
         player.onJump -= OnJump;
+        player.onLand -= OnLand;
     }
 
     void OnMove(float dist)
@@ -50,4 +55,8 @@ public class PlayerSoundController : MonoBehaviour
         RuntimeManager.PlayOneShot(jumpEventRef, transform.position);
     }
 
+    void OnLand()
+    {
+        RuntimeManager.PlayOneShot(landEventRef, transform.position);
+    }
 }

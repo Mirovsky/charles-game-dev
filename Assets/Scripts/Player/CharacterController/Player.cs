@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public Action<float> onMove;
     public Action onJump;
+    public Action onLand;
 
 
     [Header("Jumping")]
@@ -49,9 +50,8 @@ public class Player : MonoBehaviour
     {
         yVelocity += gravity * Time.deltaTime;
 
-        if (controller.Collisions.below) {
+        if (controller.Collisions.below)
             yVelocity = 0;
-        }
 
         if (controller.Collisions.above)
             yVelocity = gravity * Time.deltaTime;
@@ -60,6 +60,9 @@ public class Player : MonoBehaviour
             onJump?.Invoke();
             yVelocity = maxJumpVelocity;
         }
+
+        if (controller.Collisions.landed)
+            onLand?.Invoke();
 
         var normal = pathfinding.GetNormal().normalized;
         var direction = pathfinding.GetDirection().normalized;
