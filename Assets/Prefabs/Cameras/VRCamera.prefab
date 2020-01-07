@@ -189,6 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3788692454268074029}
+  - component: {fileID: 5976263475524478998}
   m_Layer: 0
   m_Name: VRCamera
   m_TagString: Untagged
@@ -205,12 +206,26 @@ Transform:
   m_GameObject: {fileID: 4604301985217077056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -2, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 3874787643975001345}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5976263475524478998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604301985217077056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0840b7a21080c0845b58406e3da9244a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minScale: 0
+  maxScale: 0
 --- !u!1001 &3893682842290007830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -241,6 +256,81 @@ PrefabInstance:
     - target: {fileID: 274474658664368663, guid: 5129efb8d9d02486c9253a9cac7c8531,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403854103089383800, guid: 5129efb8d9d02486c9253a9cac7c8531,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403854103089383800, guid: 5129efb8d9d02486c9253a9cac7c8531,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403854103089383800, guid: 5129efb8d9d02486c9253a9cac7c8531,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403854103089383800, guid: 5129efb8d9d02486c9253a9cac7c8531,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403854103089383800, guid: 5129efb8d9d02486c9253a9cac7c8531,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888075383033201379, guid: 5129efb8d9d02486c9253a9cac7c8531,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888075383033201379, guid: 5129efb8d9d02486c9253a9cac7c8531,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888075383033201379, guid: 5129efb8d9d02486c9253a9cac7c8531,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888075383033201379, guid: 5129efb8d9d02486c9253a9cac7c8531,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888075383033201379, guid: 5129efb8d9d02486c9253a9cac7c8531,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6785605104687632688, guid: 5129efb8d9d02486c9253a9cac7c8531,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6785605104687632688, guid: 5129efb8d9d02486c9253a9cac7c8531,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6785605104687632688, guid: 5129efb8d9d02486c9253a9cac7c8531,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6785605104687632688, guid: 5129efb8d9d02486c9253a9cac7c8531,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6785605104687632688, guid: 5129efb8d9d02486c9253a9cac7c8531,
+        type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

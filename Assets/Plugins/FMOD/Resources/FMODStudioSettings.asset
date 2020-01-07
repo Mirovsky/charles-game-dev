@@ -16,7 +16,7 @@ MonoBehaviour:
   HasSourceProject: 0
   HasPlatforms: 1
   sourceProjectPath: 
-  sourceBankPath: FmodProject
+  sourceBankPath: FmodProject\Ooo\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
     Value: 0
   LiveUpdateSettings:
   - Platform: 1
-    Value: 1
+    Value: 0
   - Platform: 2
     Value: 0
   - Platform: 20
@@ -60,7 +60,7 @@ MonoBehaviour:
     Value: 0
   BankDirectorySettings:
   - Platform: 2
-    Value: Ooo
+    Value: Desktop
   VirtualChannelSettings:
   - Platform: 1
     Value: 1024
@@ -77,10 +77,8 @@ MonoBehaviour:
     Value: 32
   Plugins: []
   MasterBanks:
-  - Build/Desktop/Master
-  - Build/Mobile/Master
+  - Master
   Banks:
-  - Build/Desktop/UI
-  - Build/Mobile/UI
+  - UI
   BanksToLoad: []
   LiveUpdatePort: 9264
