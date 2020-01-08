@@ -763,6 +763,7 @@ GameObject:
   - component: {fileID: 4670533044219396975}
   - component: {fileID: -4632610012747761786}
   - component: {fileID: 1615046785650547444}
+  - component: {fileID: 3990406171279770328}
   m_Layer: 0
   m_Name: HandRight
   m_TagString: Untagged
@@ -836,6 +837,20 @@ MonoBehaviour:
   m_controller: 2
   m_animator: {fileID: 4719923738982366271}
   m_defaultGrabPose: {fileID: 11437176, guid: 35525acb4c3b75c4a8c4dc2c117427be, type: 3}
+--- !u!114 &3990406171279770328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4670533044216219965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43452afbfa05fa645a063180673f2e1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleVariable: {fileID: 11400000, guid: 44526a182dd2ff94387caeb7b7c6a5ea, type: 2}
+  tr: {fileID: 4670533044216512819}
 --- !u!1 &4670533044216220427
 GameObject:
   m_ObjectHideFlags: 0

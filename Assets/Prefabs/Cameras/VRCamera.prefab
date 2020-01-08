@@ -190,6 +190,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3788692454268074029}
   - component: {fileID: 358230308266533960}
+  - component: {fileID: 5446025736521511247}
+  - component: {fileID: 7980012692419750130}
   m_Layer: 0
   m_Name: VRCamera
   m_TagString: Untagged
@@ -224,8 +226,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0840b7a21080c0845b58406e3da9244a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minScale: 0
-  maxScale: 0
+  scaleLimits: {x: 10, y: 50}
+  positionVariable: {fileID: 11400000, guid: b6200a118fe0873469919219e50dbeb7, type: 2}
+  scaleVariable: {fileID: 11400000, guid: 44526a182dd2ff94387caeb7b7c6a5ea, type: 2}
+--- !u!114 &5446025736521511247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604301985217077056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6aabfba6582af429df6545d378f13a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionVariable: {fileID: 11400000, guid: b6200a118fe0873469919219e50dbeb7, type: 2}
+  tr: {fileID: 3788692454268074029}
+--- !u!114 &7980012692419750130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604301985217077056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43452afbfa05fa645a063180673f2e1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleVariable: {fileID: 11400000, guid: 44526a182dd2ff94387caeb7b7c6a5ea, type: 2}
+  tr: {fileID: 3788692454268074029}
 --- !u!1001 &3893682842290007830
 PrefabInstance:
   m_ObjectHideFlags: 0

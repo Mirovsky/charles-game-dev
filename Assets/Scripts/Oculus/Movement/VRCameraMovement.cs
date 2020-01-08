@@ -1,13 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
 
 public class VRCameraMovement : MonoBehaviour
 {
     [SerializeField]
-    float minScale;
+    Vector2 scaleLimits;
+
     [SerializeField]
-    float maxScale;
+    Vector3Variable positionVariable;
+    [SerializeField]
+    Vector3Variable scaleVariable;
 
     Transform cameraTransform;
 
@@ -55,14 +57,9 @@ public class VRCameraMovement : MonoBehaviour
     {
         var delta = prevCenter - center;
 
-        var position = cameraTransform.position;
-        position += delta * 15f;
-        cameraTransform.position = position;
-    }
-
-    void Rotate()
-    {
-
+        var position = positionVariable.value;
+        position += delta * scaleVariable.value.x;
+        positionVariable.value = position;
     }
 
     void Scale()
@@ -75,17 +72,19 @@ public class VRCameraMovement : MonoBehaviour
 
     void ScaleAround(Transform target, Vector3 pivot, Vector3 newScale)
     {
-        var a = target.localPosition;
+        var a = positionVariable.value;
         var b = pivot;
 
         var c = a - b;
+
+        newScale = Vector3Clamp(newScale, scaleLimits.x, scaleLimits.y);
 
         float resultScale = newScale.x / target.transform.localScale.x;
 
         Vector3 finalPosition = b + c * resultScale;
 
-        target.localScale = newScale;
-        target.localPosition = finalPosition;
+        scaleVariable.value = newScale;
+        positionVariable.value = finalPosition;
     }
 
     Vector3 Vector3Clamp(Vector3 v, float min, float max)

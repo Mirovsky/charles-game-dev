@@ -70,9 +70,7 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  m_Positions: []
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -308,8 +306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serverOnly: 0
-  m_AssetId: 
-  m_SceneId: 278993809
+  m_AssetId: b8be49b2ec16b47cd94eb41859d8e8e9
+  m_SceneId: 0
 --- !u!114 &4155263043732916148
 MonoBehaviour:
   m_ObjectHideFlags: 0
