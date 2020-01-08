@@ -3,26 +3,34 @@ using Mirror;
 using TMPro;
 using UnityEngine;
 
+
 namespace OOO.Camera
 {
     /** Attached to the Camera obj*/
     public class TimerTextHandler: MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI countdownTimerText;
+        public Action onCountdownElapsed;
+
+        [SerializeField]
+        TextMeshProUGUI countdownTimerText;
 
         /* in seconds */
-        private const double totalTime = 120;
+        private double totalTime = 120;
         
         private double startTime = 0;
         private bool hasStarted = false;
         
-        public void OnGameStart() {
-            // vrTimerTextField = vTextField;
+        public void OnGameStart()
+        {
             hasStarted = true;
             startTime = NetworkTime.time;
         }
 
-        private void Start() {
+        void Start()
+        {
+            var gameState = FindObjectOfType<LevelGameState>();
+            totalTime = gameState.levelData.timeLimit;
+
             countdownTimerText.text = "--:--";
         }
 
@@ -45,6 +53,8 @@ namespace OOO.Camera
                 }
                 else {
                     countdownTimerText.text = "00:00";
+
+                    onCountdownElapsed?.Invoke();
                 }
             }
         }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{83ae472a-28bc-495d-9998-124d407380aa}">
+		<property name="assetPath">
+			<value>Sounds/ambience_barevnej_final_final.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>336.096</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{18abd25c-75aa-444f-8ab1-66c77ba6f8c3}</destination>
+		</relationship>
+	</object>
+</objects>

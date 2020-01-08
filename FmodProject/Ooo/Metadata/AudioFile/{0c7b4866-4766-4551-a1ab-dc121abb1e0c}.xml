@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{0c7b4866-4766-4551-a1ab-dc121abb1e0c}">
+		<property name="assetPath">
+			<value>Sounds/ambience_modrej_final.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>280.464</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{18abd25c-75aa-444f-8ab1-66c77ba6f8c3}</destination>
+		</relationship>
+	</object>
+</objects>

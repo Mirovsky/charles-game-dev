@@ -16,3 +16,4 @@ MonoBehaviour:
   scenePath: 
   nextLevel: {fileID: 0}
   levelAmbience: event:/Sounds/Ambience
+  timeLimit: 120

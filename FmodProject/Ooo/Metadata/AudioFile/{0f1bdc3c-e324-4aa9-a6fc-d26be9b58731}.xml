@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{0f1bdc3c-e324-4aa9-a6fc-d26be9b58731}">
+		<property name="assetPath">
+			<value>Sounds/animace_lizatko vrtulka_duhovej.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>18.858666666666668</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{18abd25c-75aa-444f-8ab1-66c77ba6f8c3}</destination>
+		</relationship>
+	</object>
+</objects>

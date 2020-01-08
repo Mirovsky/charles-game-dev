@@ -633,6 +633,7 @@ GameObject:
   - component: {fileID: 963149697561967595}
   - component: {fileID: 963149697561967594}
   - component: {fileID: 5223948154195653124}
+  - component: {fileID: 411754075484100539}
   m_Layer: 5
   m_Name: LevelProgress
   m_TagString: Untagged
@@ -735,6 +736,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectedKeys: {fileID: 963149697528435902}
   requiredKeys: {fileID: 963149697696221236}
+--- !u!114 &411754075484100539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963149697561967589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b591b4268bd747f5ae16ab96a5fb9ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countdownTimerText: {fileID: 963149698302707555}
 --- !u!1 &963149697696221238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,7 +1136,7 @@ GameObject:
   - component: {fileID: 963149697956410727}
   - component: {fileID: 7892854737038590575}
   m_Layer: 0
-  m_Name: InGameUI
+  m_Name: InGameMobileUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1158,9 +1172,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc5583f65b5eba459f6dda967ed7c8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelProgress: {fileID: 0}
-  gameOver: {fileID: 0}
-  levelComplete: {fileID: 0}
+  levelProgress: {fileID: 963149697561967589}
+  gameOver: {fileID: 8055001965606784005}
+  levelComplete: {fileID: 7142792993280185587}
 --- !u!1 &963149698302707581
 GameObject:
   m_ObjectHideFlags: 0

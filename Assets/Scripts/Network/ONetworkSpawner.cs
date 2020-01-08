@@ -111,14 +111,6 @@ namespace OOO.Network
             }
         }
 
-        /* [Command]
-        void CmdSpawnPlatforms() {
-            foreach (var platform in platforms) {
-                var player = Instantiate(platform);
-                NetworkServer.SpawnWithClientAuthority(player, connectionToClient);
-            }
-        } */
-
         void StartTimer() {
             if (IsMobilePlayer) {
                 //its server
@@ -129,10 +121,10 @@ namespace OOO.Network
         [ClientRpc]
         void RpcStartTimer() {
             if (IsMobilePlayer && isLocalPlayer) {
-                mobileCamera.GetComponent<TimerTextHandler>().OnGameStart();
+                mobileCamera.GetComponentInChildren<TimerTextHandler>().OnGameStart();
             }
             if (IsVrPlayer && isLocalPlayer) {
-                vrCamera.GetComponent<TimerTextHandler>().OnGameStart();
+                vrCamera.GetComponentInChildren<TimerTextHandler>().OnGameStart();
             }
         }
 

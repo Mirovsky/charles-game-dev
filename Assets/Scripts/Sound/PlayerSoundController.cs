@@ -5,7 +5,7 @@ using FMODUnity;
 [RequireComponent(typeof(Player))]
 public class PlayerSoundController : MonoBehaviour
 {
-    const string speedParam = "Speed";
+    const string SPEED_PARAM = "Speed";
 
     [SerializeField]
     [EventRef]
@@ -47,7 +47,7 @@ public class PlayerSoundController : MonoBehaviour
     {
         movementEvent.set3DAttributes(RuntimeUtils.To3DAttributes(transform));
 
-        movementEvent.setParameterByName(speedParam, dist);
+        movementEvent.setParameterByName(SPEED_PARAM, dist);
     }
 
     void OnJump()
