@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1440,6 +1440,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2305811304790416960, guid: 086c2b3d9ff02204a86fc31d5ce5f06f,
+        type: 3}
+      propertyPath: m_Name
+      value: ShortImmediateSegmentSwitcher
+      objectReference: {fileID: 0}
     - target: {fileID: 2305811304790416961, guid: 086c2b3d9ff02204a86fc31d5ce5f06f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1494,11 +1499,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 2305811304790416960, guid: 086c2b3d9ff02204a86fc31d5ce5f06f,
-        type: 3}
-      propertyPath: m_Name
-      value: ShortImmediateSegmentSwitcher
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 086c2b3d9ff02204a86fc31d5ce5f06f, type: 3}
@@ -2740,12 +2740,12 @@ PrefabInstance:
     - target: {fileID: 8929232466385498537, guid: c4bf7d753e1218448aa74f484d299db2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.4277287
+      value: 6.6653075
       objectReference: {fileID: 0}
     - target: {fileID: 8929232466385498537, guid: c4bf7d753e1218448aa74f484d299db2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6456103
+      value: -0.6693682
       objectReference: {fileID: 0}
     - target: {fileID: 8929232466385498537, guid: c4bf7d753e1218448aa74f484d299db2,
         type: 3}
@@ -3325,17 +3325,17 @@ PrefabInstance:
     - target: {fileID: 8838386470151208397, guid: 66f677f0901eb1f45844064eb3be33e9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0000037195623
+      value: 0.00000007957442
       objectReference: {fileID: 0}
     - target: {fileID: 8838386470151208397, guid: 66f677f0901eb1f45844064eb3be33e9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.44371
+      value: 4.88383
       objectReference: {fileID: 0}
     - target: {fileID: 8838386470151208397, guid: 66f677f0901eb1f45844064eb3be33e9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.527607
+      value: -1.6343607
       objectReference: {fileID: 0}
     - target: {fileID: 8838386470151208397, guid: 66f677f0901eb1f45844064eb3be33e9,
         type: 3}
@@ -3992,12 +3992,12 @@ PrefabInstance:
     - target: {fileID: 8838386470151208397, guid: 66f677f0901eb1f45844064eb3be33e9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.15700352
+      value: -0.15700288
       objectReference: {fileID: 0}
     - target: {fileID: 8838386470151208397, guid: 66f677f0901eb1f45844064eb3be33e9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.47368425
+      value: -1.6882877
       objectReference: {fileID: 0}
     - target: {fileID: 8838386470151208397, guid: 66f677f0901eb1f45844064eb3be33e9,
         type: 3}
@@ -4012,7 +4012,7 @@ PrefabInstance:
     - target: {fileID: 8838386470151208397, guid: 66f677f0901eb1f45844064eb3be33e9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000002014466
+      value: -0.0000024963729
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66f677f0901eb1f45844064eb3be33e9, type: 3}
@@ -4098,6 +4098,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2305811304790416960, guid: 42053a15b3b79074990795cd4c9e7ba0,
+        type: 3}
+      propertyPath: m_Name
+      value: ImmediateSegmentSwitcher (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 2305811304790416961, guid: 42053a15b3b79074990795cd4c9e7ba0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4152,11 +4157,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2305811304790416960, guid: 42053a15b3b79074990795cd4c9e7ba0,
-        type: 3}
-      propertyPath: m_Name
-      value: ImmediateSegmentSwitcher (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42053a15b3b79074990795cd4c9e7ba0, type: 3}
@@ -4988,6 +4988,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1722356795}
     m_Modifications:
+    - target: {fileID: 2305811304790416960, guid: 086c2b3d9ff02204a86fc31d5ce5f06f,
+        type: 3}
+      propertyPath: m_Name
+      value: ImmediateSegmentSwitcher_Short
+      objectReference: {fileID: 0}
     - target: {fileID: 2305811304790416961, guid: 086c2b3d9ff02204a86fc31d5ce5f06f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5042,11 +5047,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2305811304790416960, guid: 086c2b3d9ff02204a86fc31d5ce5f06f,
-        type: 3}
-      propertyPath: m_Name
-      value: ImmediateSegmentSwitcher_Short
       objectReference: {fileID: 0}
     - target: {fileID: 2305811304790416963, guid: 086c2b3d9ff02204a86fc31d5ce5f06f,
         type: 3}
@@ -5607,6 +5607,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1722356795}
     m_Modifications:
+    - target: {fileID: 2305811304790416960, guid: 086c2b3d9ff02204a86fc31d5ce5f06f,
+        type: 3}
+      propertyPath: m_Name
+      value: ImmediateSegmentSwitcher_Short (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 2305811304790416961, guid: 086c2b3d9ff02204a86fc31d5ce5f06f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5661,11 +5666,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -179.99998
-      objectReference: {fileID: 0}
-    - target: {fileID: 2305811304790416960, guid: 086c2b3d9ff02204a86fc31d5ce5f06f,
-        type: 3}
-      propertyPath: m_Name
-      value: ImmediateSegmentSwitcher_Short (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2305811304790416963, guid: 086c2b3d9ff02204a86fc31d5ce5f06f,
         type: 3}
@@ -5958,7 +5958,7 @@ PrefabInstance:
     - target: {fileID: 3921325462844933597, guid: dca0b0384f0a47d4e9d8282e52660616,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3921325462844933597, guid: dca0b0384f0a47d4e9d8282e52660616,
         type: 3}
@@ -6082,17 +6082,17 @@ PrefabInstance:
     - target: {fileID: 2006089248539760491, guid: fffeea0029d1f954ebaae907893f9a4f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0048905225
+      value: -0.0048905388
       objectReference: {fileID: 0}
     - target: {fileID: 2006089248539760491, guid: fffeea0029d1f954ebaae907893f9a4f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.8723376
+      value: -1.0445826
       objectReference: {fileID: 0}
     - target: {fileID: 2006089248539760491, guid: fffeea0029d1f954ebaae907893f9a4f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0013347152
+      value: 0.0013346295
       objectReference: {fileID: 0}
     - target: {fileID: 2006089248539760491, guid: fffeea0029d1f954ebaae907893f9a4f,
         type: 3}
