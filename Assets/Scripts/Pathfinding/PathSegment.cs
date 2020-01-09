@@ -9,7 +9,6 @@ using UnityEditor;
 public class PathSegment : MonoBehaviour
 {
     const EndOfPathInstruction endOfPath = EndOfPathInstruction.Stop;
-    const float ARROW_SIZE = 1f;
 
     public PathCreator currentPath;
 
@@ -55,46 +54,4 @@ public class PathSegment : MonoBehaviour
             Debug.LogError($"PathSegment {name} exists without MultiPathDescriptor in hierarchy!");
         }
     }
-
-#if UNITY_EDITOR
-    void OnDrawGizmos()
-    {
-        if (currentPath == null || pathStart == null || pathEnd == null)
-            return;
-
-        var vPath = currentPath.path;
-
-        DrawLine(vPath);
-        DrawDistance(vPath);
-    }
-
-    void DrawLine(VertexPath vPath)
-    {
-        Gizmos.color = Color.black;
-        for (int i = 0; i < vPath.NumPoints - 1; i++)
-        {
-            Gizmos.DrawLine(vPath.GetPoint(i) + vPath.GetNormal(i) * ARROW_SIZE, vPath.GetPoint(i + 1) + vPath.GetNormal(i + 1) * ARROW_SIZE);
-        }
-
-        var length = vPath.length;
-
-        var startDirection = vPath.GetDirection(0);
-        var endDirection = vPath.GetDirection(length);
-
-        Gizmos.DrawWireSphere(pathStart.position + startDirection * .5f, .05f);
-        Gizmos.DrawWireSphere(pathEnd.position - endDirection * .5f, .05f);
-    }
-
-    void DrawDistance(VertexPath vPath)
-    {
-        var start = 0;
-        var length = vPath.length;
-
-        var startDirection = vPath.GetDirection(0);
-        var endDirection = vPath.GetDirection(length);
-
-        Handles.Label(pathStart.position + startDirection * .5f, start.ToString());
-        Handles.Label(pathEnd.position - endDirection *.5f, length.ToString());
-    }
-#endif
 }
