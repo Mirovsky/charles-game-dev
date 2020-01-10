@@ -304,6 +304,8 @@ namespace PathCreationEditor {
         #region Scene GUI
 
         void OnSceneGUI () {
+            return;
+
             if (!globalDisplaySettings.visibleBehindObjects) {
                 Handles.zTest = UnityEngine.Rendering.CompareFunction.LessEqual;
             }
@@ -312,6 +314,7 @@ namespace PathCreationEditor {
 
             using (var check = new EditorGUI.ChangeCheckScope ()) {
                 handlesStartCol = Handles.color;
+
                 switch (data.tabIndex) {
                     case bezierPathTab:
                         if (eventType != EventType.Repaint && eventType != EventType.Layout) {
@@ -341,7 +344,7 @@ namespace PathCreationEditor {
         }
 
         void DrawVertexPathSceneEditor () {
-
+            
             Color bezierCol = globalDisplaySettings.bezierPath;
             bezierCol.a *= .5f;
 

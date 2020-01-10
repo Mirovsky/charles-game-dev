@@ -13,31 +13,31 @@ public class Pathfinding : MonoBehaviour
 
     void Awake()
     {
-        segment = FindObjectOfType<DefaultMultiPathDescriptor>()
+        /* segment = FindObjectOfType<DefaultMultiPathDescriptor>()
             .DefaultMultiPath
-            .StartingSegment;
+            .StartingSegment; */
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("PathSwitcher")) {
+        /* if (other.CompareTag("PathSwitcher")) {
             nextSwitcher = other.GetComponent<AbstractSegmentSwitcher>();
-        }
+        } */
     }
 
     void OnTriggerExit(Collider other)
     {
-        nextSwitcher = null;
+        // nextSwitcher = null;
     }
 
     public void SetNextSwitcher(AbstractSegmentSwitcher switcher)
     {
-        nextSwitcher = switcher;
+        // nextSwitcher = switcher;
     }
 
     public void TriggerAvailablePathSwitch(bool force = false)
     {
-        if (nextSwitcher == null)
+        /* if (nextSwitcher == null)
             return;
 
         var nextSegment = nextSwitcher.GetNextSegment(segment, force);
@@ -50,47 +50,52 @@ public class Pathfinding : MonoBehaviour
         segment = nextSegment;
         distance = nextSegment.GetClosestDistanceAlongPath(transform.position);
 
-        nextSwitcher.RotateSwitcher(segment, distance);
+        nextSwitcher.RotateSwitcher(segment, distance); */
     }
 
     public void UpdateDistance(float deltaDistance)
     {
-        segment = GetNextSegment(segment, deltaDistance);
+        // segment = GetNextSegment(segment, deltaDistance);
 
-        distance = segment.GetClosestDistanceAlongPath(transform.position);
+        // distance = segment.GetClosestDistanceAlongPath(transform.position);
     }
 
     public Vector3 GetPosition(float nextStep = 0)
     {
-        if (nextStep == 0)
+        /* if (nextStep == 0)
             return segment.GetPointAtDistance(distance);
 
         var nextSegment = GetNextSegment(segment, nextStep * GetSegmentDirection());
         var nextDistance = nextSegment.GetClosestDistanceAlongPath(transform.position);
 
-        return nextSegment.GetPointAtDistance(nextDistance + (nextStep * nextSegment.PathDirection));
+        return nextSegment.GetPointAtDistance(nextDistance + (nextStep * nextSegment.PathDirection)); */
+
+        return Vector3.zero;
     }
 
     public Vector3 GetNormal(float nextStep = 0)
-        => segment.GetNormalAtDistance(distance + (nextStep * GetSegmentDirection()));
+        => Vector3.zero; // segment.GetNormalAtDistance(distance + (nextStep * GetSegmentDirection()));
 
     public Vector3 GetDirection(float nextStep = 0)
-        => segment.GetDirectionAtDistance(distance + (nextStep * GetSegmentDirection()));
+        => Vector3.zero;
+    // => segment.GetDirectionAtDistance(distance + (nextStep * GetSegmentDirection()));
 
     public Quaternion GetRotation(float nextStep = 0)
-        => segment.GetRotationAtDistance(distance + (nextStep * GetSegmentDirection()));
+        => Quaternion.identity;
+    // => segment.GetRotationAtDistance(distance + (nextStep * GetSegmentDirection()));
 
     public int GetSegmentDirection()
-        => segment.PathDirection;
+        => 1;
+        // => segment.PathDirection;
 
     public PathSegment GetCurrentSegment()
-        => segment;
+        => null;
 
     PathSegment GetNextSegment(PathSegment s, float deltaDistance)
     {
-        var isMoving = !Mathf.Approximately(deltaDistance, 0);
-        var isAtStart = Mathf.Approximately(distance, 0);
-        var isAtEnd = Mathf.Approximately(distance, s.Length);
+        /* var isMoving = !Mathf.Approximately(deltaDistance, 0);
+        var isAtStart = (distance) < 0;
+        var isAtEnd = (distance) > s.Length;
 
         if (
             (s.inversed && isAtStart && isMoving && s.HasNext) ||
@@ -104,6 +109,8 @@ public class Pathfinding : MonoBehaviour
             return s.prevSegment;
         }
 
-        return s;
+        return s; */
+
+        return null;
     }
 }

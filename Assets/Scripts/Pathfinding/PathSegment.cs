@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using PathCreation;
+using BezierSolution;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -8,29 +8,26 @@ using UnityEditor;
 
 public class PathSegment : MonoBehaviour
 {
-    const EndOfPathInstruction endOfPath = EndOfPathInstruction.Stop;
-
-    public PathCreator currentPath;
+    public BezierSpline spline;
 
     public Transform pathStart;
     public Transform pathEnd;
 
-    [HideInInspector]
     public PathSegment nextSegment;
-    [HideInInspector]
     public PathSegment prevSegment;
-    [HideInInspector]
     public bool inversed;
-    [HideInInspector]
     public MultiPathDescriptor multiPath;
 
-    public int PathDirection => inversed ? -1 : 1;
+    public bool processed;
 
-    public float Length => currentPath.path.length;
+    public int PathDirection => inversed ? -1 : 1;
 
     public bool HasNext => nextSegment != null;
 
     public bool HasPrev => prevSegment != null;
+    
+
+    public float Length => currentPath.path.length;
 
     public Vector3 GetPointAtDistance(float d) => currentPath.path.GetPointAtDistance(d, endOfPath);
 

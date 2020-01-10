@@ -1,6 +1,5 @@
-﻿
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using BezierSolution;
 
 
 public class MultiPathDescriptor : MonoBehaviour
@@ -11,7 +10,8 @@ public class MultiPathDescriptor : MonoBehaviour
     public PathSegment StartingSegment => startingSegment;
 
 
-    void Awake() => ConnectPathSegments();
+    void Awake()
+        => ConnectPathSegments();
 
     void ConnectPathSegments()
     {
@@ -26,7 +26,7 @@ public class MultiPathDescriptor : MonoBehaviour
         while (segment != null) {
             var shouldBeInversed = false;
             var next = GetSegment(segments, segment, true, segment.inversed);
-            
+
             if (next == null) {
                 next = GetSegment(segments, segment, false, segment.inversed);
                 shouldBeInversed = true;
@@ -41,6 +41,44 @@ public class MultiPathDescriptor : MonoBehaviour
 
             segment = next;
         }
+
+        var splineObject = new GameObject("MultipathSpline");
+        var spline = splineObject.AddComponent<BezierSpline>();
+        var splineTransform = splineObject.transform;
+        splineTransform.SetParent(transform);
+
+        segment = startingSegment;
+        while (segment != null) {
+            if (segment.processed) {
+                spline.loop = true;
+                break;
+            }
+
+            var isLastSegment = (segment.nextSegment == null);
+            var s = segment.spline;
+            if (segment.inversed) {
+                var end = isLastSegment ? -1 : 0;
+
+                for (var i = s.Count - 1; i > end; i--) {
+                    Vector3 temp = s[i].precedingControlPointLocalPosition;
+                    s[i].precedingControlPointLocalPosition = s[i].followingControlPointLocalPosition;
+                    s[i].followingControlPointLocalPosition = temp;
+
+                    s[i].transform.SetParent(splineTransform);
+                }
+            } else {
+                var end = isLastSegment ? s.Count : s.Count - 1;
+
+                for (var i = 0; i < end; i++)
+                    s[i].transform.SetParent(splineTransform);
+            }
+
+            Destroy(segment.spline.gameObject);
+            segment.processed = true;
+            segment = segment.nextSegment;
+        }
+
+        spline.Refresh();
     }
 
     PathSegment GetSegment(PathSegment[] segments, PathSegment current, bool fromStart = true, bool startPos = false)

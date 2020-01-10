@@ -72,18 +72,18 @@ namespace PathCreation {
 #if UNITY_EDITOR
 
         // Draw the path when path objected is not selected (if enabled in settings)
-        void OnDrawGizmos () {
-
+        void OnDrawGizmos()
+        {
             // Only draw path gizmo if the path object is not selected
             // (editor script is resposible for drawing when selected)
             GameObject selectedObj = UnityEditor.Selection.activeGameObject;
             if (selectedObj != gameObject) {
 
                 if (path != null) {
-                    path.UpdateTransform (transform);
+                    path.UpdateTransform(transform);
 
                     if (globalEditorDisplaySettings == null) {
-                        globalEditorDisplaySettings = GlobalDisplaySettings.Load ();
+                        globalEditorDisplaySettings = GlobalDisplaySettings.Load();
                     }
 
                     if (globalEditorDisplaySettings.visibleWhenNotSelected) {
@@ -99,7 +99,7 @@ namespace PathCreation {
                                     break;
                                 }
                             }
-                            Gizmos.DrawLine (path.GetPoint (i), path.GetPoint (nextI));
+                            Gizmos.DrawLine(path.GetPoint(i), path.GetPoint(nextI));
                         }
                     }
                 }
