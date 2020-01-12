@@ -159,7 +159,7 @@ public class MultiPathDescriptor : MonoBehaviour
         }
 
         if (isLastSegment && isLastPoint) {
-            firstPoint.ControlFirstWorld = inversed ? p.ControlSecondWorld : p.ControlFirstWorld;
+            firstPoint.ControlFirstWorld = inversed ? p.ControlFirstWorld : p.ControlFirstWorld;
 
             return;
         }
