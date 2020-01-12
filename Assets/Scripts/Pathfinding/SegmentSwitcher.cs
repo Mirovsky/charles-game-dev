@@ -9,28 +9,28 @@ public class SegmentSwitcher : AbstractSegmentSwitcher
     bool switchOnLeave;
 
     [SerializeField, Help("Segment on which this switcher sits.")]
-    PathSegment segment;
+    MultiPathDescriptor currentPath;
     [SerializeField, Help("The other segment, which you should be able to switch to and from.")]
-    PathSegment otherSegment;
+    MultiPathDescriptor otherPath;
 
     [SerializeField]
     Transform arrow;
 
 
-    public override PathSegment GetNextSegment(PathSegment currentSegment, bool force = false)
+    public override MultiPathDescriptor GetNextPath(MultiPathDescriptor currentSegment, bool force = false)
     {
-        if (currentSegment == segment)
+        if (currentSegment == currentPath)
             if (switchOnLeave || force)
-                return otherSegment;
+                return otherPath;
 
-        if (currentSegment == otherSegment)
+        if (currentSegment == otherPath)
             if (switchOnEnter || force)
-                return segment;
+                return currentPath;
 
         return null;
     }
 
-    public override void RotateSwitcher(PathSegment nextSegment, float distance)
+    public override void RotateSwitcher(MultiPathDescriptor nextSegment, float distance)
     {
         if (nextSegment == null)
             return;
