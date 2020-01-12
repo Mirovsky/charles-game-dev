@@ -3,7 +3,7 @@
 
 public abstract class AbstractSegmentSwitcher : MonoBehaviour
 {
-    public abstract PathSegment GetNextSegment(PathSegment currentSegment, bool force = false);
+    public abstract MultiPathDescriptor GetNextPath(MultiPathDescriptor currentSegment, bool force = false);
 
-    public abstract void RotateSwitcher(PathSegment currentSegment, float distance);
+    public abstract void RotateSwitcher(MultiPathDescriptor currentSegment, float distance);
 }
