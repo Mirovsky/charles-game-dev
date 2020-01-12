@@ -52,6 +52,7 @@ MonoBehaviour:
   nextSegment: {fileID: 0}
   prevSegment: {fileID: 0}
   inversed: 0
+  multiPath: {fileID: 0}
 --- !u!1 &3177724148717985771
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,8 +103,8 @@ MonoBehaviour:
       points:
       - {x: 0, y: 0, z: 0}
       - {x: -1, y: 0, z: 0}
-      - {x: -4, y: 0, z: 0}
-      - {x: -5, y: 0, z: 0}
+      - {x: -9, y: 0, z: 0}
+      - {x: -10, y: 0, z: 0}
       isClosed: 0
       space: 0
       controlMode: 0
@@ -240,11 +241,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2522343274996350682}
     m_Modifications:
-    - target: {fileID: 2305811304790416960, guid: 42053a15b3b79074990795cd4c9e7ba0,
-        type: 3}
-      propertyPath: m_Name
-      value: ImmediateSegmentSwitcher
-      objectReference: {fileID: 0}
     - target: {fileID: 2305811304790416961, guid: 42053a15b3b79074990795cd4c9e7ba0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -300,6 +296,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2305811304790416960, guid: 42053a15b3b79074990795cd4c9e7ba0,
+        type: 3}
+      propertyPath: m_Name
+      value: ImmediateSegmentSwitcher
+      objectReference: {fileID: 0}
     - target: {fileID: 4008384208999735620, guid: 42053a15b3b79074990795cd4c9e7ba0,
         type: 3}
       propertyPath: otherSegment
@@ -328,7 +329,7 @@ PrefabInstance:
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 1592664250635665185, guid: de554992630f7844a84177653fddf60f,
         type: 3}
@@ -395,11 +396,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2522343274996350682}
     m_Modifications:
-    - target: {fileID: 469831759863137164, guid: 1a1e0ed1093cc8b4799e74e82c67405b,
-        type: 3}
-      propertyPath: m_Name
-      value: SegmentEnd
-      objectReference: {fileID: 0}
     - target: {fileID: 1234873912353804236, guid: 1a1e0ed1093cc8b4799e74e82c67405b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -454,6 +450,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 469831759863137164, guid: 1a1e0ed1093cc8b4799e74e82c67405b,
+        type: 3}
+      propertyPath: m_Name
+      value: SegmentEnd
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a1e0ed1093cc8b4799e74e82c67405b, type: 3}

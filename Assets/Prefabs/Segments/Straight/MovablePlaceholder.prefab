@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 2600808668198948734}
   - component: {fileID: 968411281648513136}
   m_Layer: 9
-  m_Name: SegmentStraight01
+  m_Name: MovablePlaceholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,8 +147,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 84b8d5d6398c58448a88d18f4954f3e0, type: 2}
-  - {fileID: 2100000, guid: 90a866f8b1540b34c91442282eb6e7c6, type: 2}
+  - {fileID: 2100000, guid: 2f1554a3b9847fd42845c33f4128acb1, type: 2}
+  - {fileID: 2100000, guid: 2f1554a3b9847fd42845c33f4128acb1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
