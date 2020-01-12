@@ -40,3 +40,5 @@ sysinfo.txt
 
 .DS_Store
 FmodProject/Ooo/.cache
+Assets/StreamingAssets/Build
+fmod_editor.log
