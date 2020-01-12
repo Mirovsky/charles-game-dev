@@ -35,6 +35,6 @@ public class SegmentSwitcher : AbstractSegmentSwitcher
         if (nextSegment == null)
             return;
 
-        // arrow.rotation = nextSegment.GetRotationAtDistance(distance);
+        arrow.rotation = nextSegment.GetRotationAtDistance(distance);
     }
 }

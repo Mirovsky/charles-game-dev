@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
     void ConfirmMove(float step)
     {
         if (!controller.Collisions.sides && !Mathf.Approximately(step, 0f))
-            pathfinding.UpdateDistance(step);
+            pathfinding.UpdateDistance();
 
         var attr = controller.Collisions.sides ? 0 : Direction;
         onMove?.Invoke(attr);

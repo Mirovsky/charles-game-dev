@@ -42,6 +42,9 @@ public class MultiPathDescriptor : MonoBehaviour
     public Vector3 GetClosestPointAndDistanceByPoint(Vector3 worldPosition, out float distance)
         => math.CalcPositionByClosestPoint(worldPosition, out distance);
 
+    public Quaternion GetRotationAtDistance(float distance)
+        => Quaternion.LookRotation(GetTangent(distance), GetNormal(distance));
+
 
     void Awake()
     {

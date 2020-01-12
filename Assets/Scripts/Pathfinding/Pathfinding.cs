@@ -41,18 +41,18 @@ public class Pathfinding : MonoBehaviour
         if (nextSwitcher == null)
             return;
 
-        path = nextSwitcher.GetNextPath(path, force);
+        var nextPath = nextSwitcher.GetNextPath(path, force);
+        if (nextPath == null)
+            return;
+
+        path = nextPath;
         path.GetClosestPointAndDistanceByPoint(transform.position, out distance);
 
         nextSwitcher.RotateSwitcher(path, distance);
     }
 
-    public void UpdateDistance(float deltaDistance)
-    {
-        path.GetClosestPointAndDistanceByPoint(transform.position, out distance);
-
-        Debug.Log($"{distance}");
-    }
+    public void UpdateDistance()
+        => path.GetClosestPointAndDistanceByPoint(transform.position, out distance);
 
     public Vector3 GetPosition(float nextStep = 0)
         => path.GetPoint(distance + nextStep);
