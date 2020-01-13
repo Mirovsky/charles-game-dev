@@ -117,7 +117,7 @@ public class MultiPathDescriptor : MonoBehaviour
                 }
             }
 
-            Destroy(segment.spline.gameObject);
+            // Destroy(segment.spline.gameObject);
             segment.processed = true;
             segment = segment.nextSegment;
 
@@ -148,7 +148,7 @@ public class MultiPathDescriptor : MonoBehaviour
             return;
         }
 
-        if (isFirstPoint) {
+        if (isFirstPoint && !isFirstSegment) {
             lastPoint.ControlSecondWorld = inversed ? p.ControlFirstWorld : p.ControlSecondWorld;
 
             return;
@@ -159,9 +159,11 @@ public class MultiPathDescriptor : MonoBehaviour
         }
 
         if (isLastSegment && isLastPoint) {
-            firstPoint.ControlFirstWorld = inversed ? p.ControlFirstWorld : p.ControlFirstWorld;
+            firstPoint.ControlFirstWorld = p.ControlFirstWorld;
 
-            return;
+            if (isClosed) {
+                return;
+            }
         }
 
         AddSplinePoint(p, originalCurve, ref lastPoint);

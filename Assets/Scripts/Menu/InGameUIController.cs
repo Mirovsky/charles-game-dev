@@ -30,7 +30,6 @@ public class InGameUIController : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         ShowLevelProgress();
     }
 
