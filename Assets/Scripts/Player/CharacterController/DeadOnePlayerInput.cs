@@ -29,5 +29,5 @@ public class DeadOnePlayerInput : MonoBehaviour
         => player.OnJumpInputDown();
 
     void OnSwitchPerformed(InputAction.CallbackContext ctx)
-        => pathfinding.TriggerAvailablePathSwitch(true);
+        => player.OnSwitchDown();
 }

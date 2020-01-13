@@ -92,12 +92,25 @@ public class Player : MonoBehaviour
 
     public float Direction { get; private set; }
 
-    public void SetDirectionalInput (float d) {
+    public void SetDirectionalInput (float d)
+    {
         Direction = d;
     }
 
-    public void OnJumpInputDown() {
+    public void OnJumpInputDown()
+    {
         wantsToJump = true;
+    }
+
+    public void OnSwitchDown()
+    {
+        var currentPos = pathfinding.GetPosition();
+
+        pathfinding.TriggerAvailablePathSwitch(true);
+
+        var nextPos = pathfinding.GetPosition();
+
+        controller.Move(nextPos - currentPos, Vector3.zero, Vector3.zero, Vector3.zero, false);
     }
 
     [System.Serializable]
