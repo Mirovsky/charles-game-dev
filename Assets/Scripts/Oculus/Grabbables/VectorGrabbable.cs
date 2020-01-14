@@ -64,4 +64,11 @@ public class VectorGrabbable : BaseGrabbable
         Vector3 AV = value - a;
         return Vector3.Dot(AV, AB) / Vector3.Dot(AB, AB);
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        Debug.DrawLine(transform.position - directionCap * maxDistance, transform.position + directionCap * maxDistance, Color.red);
+    }
+#endif
 }
