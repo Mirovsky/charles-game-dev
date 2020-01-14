@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2747889521998607105}
   - component: {fileID: 8439463802930810872}
   m_Layer: 0
-  m_Name: jednokrychle__ jemna_bezokraju_1
+  m_Name: BlockStraight01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,8 +57,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d18eeb10587780a4c8a18d23db71328e, type: 2}
-  - {fileID: 2100000, guid: b519127e8cf20304db3621d36c552c0a, type: 2}
+  - {fileID: 2100000, guid: 771d2f397530dbd46bf98814a69f67b3, type: 2}
+  - {fileID: 2100000, guid: 8fda8274f50ff29408b0747f20084dc3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

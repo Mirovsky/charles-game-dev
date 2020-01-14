@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6626801892227296305}
   - component: {fileID: 633785297004646600}
   m_Layer: 0
-  m_Name: zatacka_L_duha
+  m_Name: BlockTurnLarge12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,9 +58,9 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: fa450fcb10f0786468c28b8a37b65e0f, type: 2}
+  - {fileID: 2100000, guid: 0fca66e8cf67b4d4f878e1b44c7d8a44, type: 2}
+  - {fileID: 2100000, guid: 0fca66e8cf67b4d4f878e1b44c7d8a44, type: 2}
   - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
