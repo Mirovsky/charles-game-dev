@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5489936850233831456}
   - component: {fileID: 2237344608290360537}
   m_Layer: 0
-  m_Name: zatacka_S_ultrabarvy
+  m_Name: BlockTurn10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,8 +57,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d1292c1bce662ae47ad492fe97cc5cde, type: 2}
-  - {fileID: 2100000, guid: d1292c1bce662ae47ad492fe97cc5cde, type: 2}
+  - {fileID: 2100000, guid: f01c3485ac2f7844daa7dca6fffff954, type: 2}
+  - {fileID: 2100000, guid: f01c3485ac2f7844daa7dca6fffff954, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

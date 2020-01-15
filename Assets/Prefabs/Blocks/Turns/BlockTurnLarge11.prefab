@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1559305189043378907}
   - component: {fileID: 5088868179125560866}
   m_Layer: 0
-  m_Name: zatacka_L_barvy
+  m_Name: BlockTurnLarge11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,9 +57,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: a474926b469cecc45a91f2d1bc8c89ee, type: 2}
+  - {fileID: 2100000, guid: 0fca66e8cf67b4d4f878e1b44c7d8a44, type: 2}
+  - {fileID: 2100000, guid: b519127e8cf20304db3621d36c552c0a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
