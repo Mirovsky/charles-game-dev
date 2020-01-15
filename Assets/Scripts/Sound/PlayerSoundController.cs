@@ -32,11 +32,16 @@ public class PlayerSoundController : MonoBehaviour
 
         movementEvent = RuntimeManager.CreateInstance(movementEventRef);
         movementEvent.start();
+
+        OnMove(0);
     }
 
     void OnDestroy()
     {
         movementEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+
+        if (player == null)
+            return;
 
         player.onMove -= OnMove;
         player.onJump -= OnJump;

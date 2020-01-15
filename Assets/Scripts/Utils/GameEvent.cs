@@ -32,4 +32,20 @@ namespace OOO.Utils
     public class ExitOpenEvent : GameEvent
     {
     }
+
+    public class LevelCompleteEvent : GameEvent
+    {
+    }
+
+    public class GameOverEvent : GameEvent
+    {
+        public enum GameOverReason
+        {
+            TIME_UP,
+            FALL,
+            UNKNOWN
+        }
+
+        public GameOverReason gameOverReasong = GameOverReason.UNKNOWN;
+    }
 }

@@ -51,7 +51,7 @@ namespace OOO.Network
         /** The local player is connected and we can setup the cameras and platforms. */
         void OnEnvironmentSetup() {
             SpawnCamera();
-            SpawnNetworkedObjects();
+            AssignNetworkedIdentity();
         }
         
         /**
@@ -79,7 +79,7 @@ namespace OOO.Network
         }
         
         [Client]
-        void SpawnNetworkedObjects() {
+        void AssignNetworkedIdentity() {
             var networkedObjects = FindObjectsOfType<ONetworkedObject>();
 
             if (IsVrPlayer && isLocalPlayer) {
@@ -120,12 +120,12 @@ namespace OOO.Network
 
         [ClientRpc]
         void RpcStartTimer() {
-            if (IsMobilePlayer && isLocalPlayer) {
+            /* if (IsMobilePlayer && isLocalPlayer) {
                 mobileCamera.GetComponentInChildren<TimerTextHandler>().OnGameStart();
             }
             if (IsVrPlayer && isLocalPlayer) {
                 vrCamera.GetComponentInChildren<TimerTextHandler>().OnGameStart();
-            }
+            } */
         }
 
         [Client]

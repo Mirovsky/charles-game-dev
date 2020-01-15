@@ -15,6 +15,8 @@ public class PlayerNetworkController : BaseNetworkBehaviour
     DeadOnePlayerInput playerInput = default;
     [SerializeField]
     DeadOneKeyCollector keyCollector = default;
+    [SerializeField]
+    PlayerSoundController soundController = default;
 
 
     void Awake()
@@ -22,11 +24,14 @@ public class PlayerNetworkController : BaseNetworkBehaviour
         if (IsMobilePlayer)
             return;
 
+        gameObject.tag = "Untagged";
+
+        Destroy(soundController);
         Destroy(characterController);
         Destroy(playerInput);
-        Destroy(player);
         Destroy(pathfinding);
         Destroy(cameraObject);
         Destroy(keyCollector);
+        Destroy(player);
     }
 }

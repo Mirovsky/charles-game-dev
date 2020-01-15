@@ -40,7 +40,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7447710311615283091}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7447710311615283102
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -279,7 +279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7447710313142363377}
   - component: {fileID: 7447710313142363390}
-  - component: {fileID: -4643613537125336299}
+  - component: {fileID: 4750775976847501505}
   - component: {fileID: 7447710313142363376}
   - component: {fileID: 4644768351756780275}
   - component: {fileID: 3694151272642121123}
@@ -304,7 +304,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7447710313142363381}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7447710312186190964}
@@ -325,9 +325,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serverOnly: 0
-  m_AssetId: 
+  m_AssetId: 0455a227d5a284725b5d50918757809f
   m_SceneId: 0
---- !u!114 &-4643613537125336299
+--- !u!114 &4750775976847501505
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -340,8 +340,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
-  compressRotation: 1
+  syncInterval: 0.016
+  compressRotation: 0
 --- !u!114 &7447710313142363376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,6 +362,7 @@ MonoBehaviour:
   pathfinding: {fileID: 7447710313142363388}
   playerInput: {fileID: 7447710313142363379}
   keyCollector: {fileID: 2396328416803820382}
+  soundController: {fileID: 8932384023579105232}
 --- !u!54 &4644768351756780275
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -389,7 +390,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3628520863619077348
 MonoBehaviour:
@@ -412,7 +413,7 @@ MonoBehaviour:
     sides: 0
     landed: 0
   center: {x: 0, y: 0, z: 0}
-  radius: 0.8
+  radius: 0.5
   skinWidth: 0.05
   collisionMask:
     serializedVersion: 2
@@ -430,7 +431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxJumpHeight: 3.5
-  timeToJumpApex: 0.4
+  timeToJumpApex: 0.3
   accelerationTimeAirborne: 0.2
   accelerationTimeGrounded: 0.05
   moveSpeed: 15
@@ -460,7 +461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a1b0b168111f9b46a1c53b967befffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segment: {fileID: 0}
+  path: {fileID: 0}
   nextSwitcher: {fileID: 0}
   distance: 0
 --- !u!114 &2396328416803820382

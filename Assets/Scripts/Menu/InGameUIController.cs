@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using OOO;
+using OOO.Utils;
 
 
 public class InGameUIController : MonoBehaviour
@@ -31,6 +32,9 @@ public class InGameUIController : MonoBehaviour
             return;
         }
         ShowLevelProgress();
+
+        EventHub.Instance.AddListener<LevelCompleteEvent>(OnLevelCompleteEvent);
+        EventHub.Instance.AddListener<GameOverEvent>(OnGameOverEvent);
     }
 
     void SwitchCurrent(GameObject next)
@@ -42,5 +46,15 @@ public class InGameUIController : MonoBehaviour
         
         if (current != null)
             current.SetActive(true);
+    }
+
+    void OnLevelCompleteEvent(LevelCompleteEvent e)
+    {
+        ShowLevelComplete();
+    }
+
+    void OnGameOverEvent(GameOverEvent e)
+    {
+        ShowGameOver();
     }
 }

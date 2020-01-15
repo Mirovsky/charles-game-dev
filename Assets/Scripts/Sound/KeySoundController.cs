@@ -21,6 +21,9 @@ public class KeySoundController : MonoBehaviour
 
     void OnDestroy()
     {
+        if (keyController == null)
+            return;
+
         keyController.onCollected -= OnCollected;    
     }
 

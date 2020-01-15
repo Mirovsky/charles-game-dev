@@ -2,6 +2,7 @@ using System;
 using Mirror;
 using TMPro;
 using UnityEngine;
+using OOO.Utils;
 
 
 namespace OOO.Camera
@@ -50,11 +51,12 @@ namespace OOO.Camera
                     else {
                         countdownTimerText.text = minutes + ":" + seconds;
                     }
-                }
-                else {
+                } else {
                     countdownTimerText.text = "00:00";
 
-                    onCountdownElapsed?.Invoke();
+                    EventHub.Instance.FireEvent(
+                        new GameOverEvent() { gameOverReasong = GameOverEvent.GameOverReason.TIME_UP }
+                    );
                 }
             }
         }

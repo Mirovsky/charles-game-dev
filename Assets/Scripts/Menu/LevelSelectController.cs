@@ -9,11 +9,22 @@ public class LevelSelectController : MonoBehaviour
     NetworkManager networkManager;
     [SerializeField]
     EventSystem eventSystem;
-    
+ 
 
     public void PlayLevel(LevelScriptableObject level)
     {
         eventSystem.enabled = false;
-        networkManager.ServerChangeScene(level.scenePath);
+
+        ChangeScene(level.scenePath);
+    }
+
+    void ChangeScene(string path)
+    {
+        networkManager.ServerChangeScene(path);
+    }
+
+    void Start()
+    {
+        networkManager = NetworkManager.singleton;
     }
 }

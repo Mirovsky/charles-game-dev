@@ -67,6 +67,14 @@ public class LevelGameState : BaseNetworkBehaviour
         }
 
         playersInsideExit = mobileInsideExit && vrInsideExit;
+        if (playersInsideExit) {
+            TriggerLevelComplete();
+        }
+    }
+
+    void TriggerLevelComplete()
+    {
+        EventHub.Instance.FireEvent(new LevelCompleteEvent());
     }
 
     void SetupEventListeners()

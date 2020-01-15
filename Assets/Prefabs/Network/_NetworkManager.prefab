@@ -9,9 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8255845169316844174}
-  - component: {fileID: 8255845169316844172}
-  - component: {fileID: 8255845169316844173}
-  - component: {fileID: 8255845169316844175}
+  - component: {fileID: 118826826985941547}
+  - component: {fileID: -5111113571651741679}
   m_Layer: 0
   m_Name: _NetworkManager
   m_TagString: Untagged
@@ -33,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8255845169316844172
+--- !u!114 &118826826985941547
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,17 +41,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 8255845169316844169}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fe6f8d12e814888b88b006225e8b893, type: 3}
+  m_Script: {fileID: 11500000, guid: 60e2e81c30a33da48a62b17788fca6ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
-  runInBackground: 1
-  startOnHeadless: 1
-  serverTickRate: 30
-  showDebugMessages: 1
-  offlineScene: 
-  onlineScene: 
-  transport: {fileID: 8255845169316844175}
+  runInBackground: 0
+  startOnHeadless: 0
+  serverTickRate: 60
+  showDebugMessages: 0
+  offlineScene: Loading
+  onlineScene: RoomScene
+  transport: {fileID: -5111113571651741679}
   networkAddress: localhost
   maxConnections: 4
   authenticator: {fileID: 0}
@@ -60,10 +59,16 @@ MonoBehaviour:
     type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
-  spawnPrefabs:
-  - {fileID: 7463824193384340258, guid: f4cce8ee18a42e64e996accfd7ee0627, type: 3}
-  - {fileID: 5207338766985461210, guid: 55413ec7ee17d4d95a3a867b6200d092, type: 3}
---- !u!114 &8255845169316844173
+  spawnPrefabs: []
+  showRoomGUI: 0
+  minPlayers: 2
+  roomPlayerPrefab: {fileID: 7024924019216982721, guid: 259b32e42bf06da4d85e7f68bd7f6600,
+    type: 3}
+  RoomScene: RoomScene
+  GameplayScene: MainMenu
+  roomSlots: []
+  allPlayersReady: 0
+--- !u!114 &-5111113571651741679
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,19 +77,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8255845169316844169}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1dc2b8282f84fb7bdc4124c5ea7cf0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8255845169316844175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8255845169316844169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5671dcb80f9d69240b71f5612676a3fd, type: 3}
+  m_Script: {fileID: 11500000, guid: c7424c1070fad4ba2a7a96b02fbeb4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnClientConnected:
@@ -111,28 +104,7 @@ MonoBehaviour:
   OnServerDisconnected:
     m_PersistentCalls:
       m_Calls: []
-  clientAddress: 127.0.0.1
-  serverIPv4BindAddress: 0.0.0.0
-  serverIPv6BindAddress: '::'
   port: 7777
-  useUpnP: 1
-  maxConnections: 20
-  ipv6Enabled: 1
-  channels: 0204010300
-  authCode: 
-  updateTime: 15
-  pingInterval: 1000
-  disconnectTimeout: 5000
-  reconnectDelay: 500
-  maxConnectAttempts: 10
-  simulatePacketLoss: 0
-  simulationPacketLossChance: 10
-  simulateLatency: 0
-  simulationMinLatency: 30
-  simulationMaxLatency: 100
-  onClientSocketError:
-    m_PersistentCalls:
-      m_Calls: []
-  onServerSocketError:
-    m_PersistentCalls:
-      m_Calls: []
+  NoDelay: 1
+  serverMaxMessageSize: 16384
+  clientMaxMessageSize: 16384

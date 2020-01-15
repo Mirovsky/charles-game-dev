@@ -1,17 +1,13 @@
 using Mirror;
-using OOO.Base;
-using OOO.Utils;
 using UnityEngine;
 
 namespace OOO.Network
 {
-    [RequireComponent(typeof(NetworkManager))]
     public class ONetworkHub: MonoBehaviour
     {
-        NetworkManager manager;
 
         void Start() {
-            manager = GetComponent<NetworkManager>();
+            var manager = NetworkManager.singleton;
 
             manager.networkAddress = GameTypeResolver.Instance.ip;
 
