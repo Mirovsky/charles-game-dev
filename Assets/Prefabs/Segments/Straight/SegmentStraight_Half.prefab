@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3194839786078049365}
   - component: {fileID: 4429639155413649214}
   m_Layer: 0
-  m_Name: End
+  m_Name: Path[1]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 1348629160312407506}
   - component: {fileID: 2413525197131748866}
   m_Layer: 0
-  m_Name: Start
+  m_Name: Path[0]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
