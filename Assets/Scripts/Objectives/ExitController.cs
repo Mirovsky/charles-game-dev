@@ -15,7 +15,7 @@ public class ExitController : BaseNetworkBehaviour
 
     public bool isOpen;
 
-    public override void OnStartServer()
+    public override void OnStartClient()
     {
         if (IsVrPlayer)
             return;
@@ -74,8 +74,6 @@ public class ExitController : BaseNetworkBehaviour
     [ClientRpc]
     void ToggleExitVisibility(bool visibility)
     {
-        Debug.Log($"asdfasdf {visibility}");
-
         gameObject.SetActive(visibility);
     }
 }

@@ -11,7 +11,7 @@ public class SceneLoader : MonoBehaviour
     string mainMenuScene;
 
     LevelGameState gameState;
-    ONetworkRoomManager networkManager;
+    NetworkManager networkManager;
 
     public void OpenMenu()
     {
@@ -35,7 +35,7 @@ public class SceneLoader : MonoBehaviour
 
     void Start()
     {
-        networkManager = NetworkManager.singleton as ONetworkRoomManager;
+        networkManager = NetworkManager.singleton;
         gameState = FindObjectOfType<LevelGameState>();
     }
 }

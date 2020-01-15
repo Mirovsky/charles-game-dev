@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
 
     bool wantsToJump;
 
+    LevelGameState gameState;
+
 
     void Start()
     {
@@ -41,17 +43,19 @@ public class Player : MonoBehaviour
 
         gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+
+        gameState = FindObjectOfType<LevelGameState>();
     }
 
     void Update()
     {
+        if (gameState == null || gameState.paused)
+            return;
+
         yVelocity += gravity * Time.deltaTime;
 
         if (collisions.Collisions.below)
             yVelocity = 0;
-
-        if (collisions.Collisions.above)
-            yVelocity = gravity * Time.deltaTime;
 
         if (collisions.Collisions.below && wantsToJump)
             yVelocity = maxJumpVelocity;
@@ -83,16 +87,25 @@ public class Player : MonoBehaviour
 
     public void SetDirectionalInput (float d)
     {
+        if (gameState == null || gameState.paused)
+            return;
+
         Direction = d;
     }
 
     public void OnJumpInputDown()
     {
+        if (gameState == null || gameState.paused)
+            return;
+
         wantsToJump = true;
     }
 
     public void OnSwitchDown()
     {
+        if (gameState == null || gameState.paused)
+            return;
+
         var currentPos = pathfinding.GetPosition();
 
         pathfinding.TriggerAvailablePathSwitch(true);
