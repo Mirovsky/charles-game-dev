@@ -17,18 +17,18 @@ public class PlayerSoundController : MonoBehaviour
     [EventRef]
     string landEventRef;
 
-    Player player;
+    DeadOneCollisionsController collisions;
     
     FMOD.Studio.EventInstance movementEvent;
 
 
     void Start()
     {
-        player = GetComponent<Player>();
+        collisions = GetComponent<DeadOneCollisionsController>();
 
-        player.onMove += OnMove;
-        player.onJump += OnJump;
-        player.onLand += OnLand;
+        collisions.onMove += OnMove;
+        collisions.onJump += OnJump;
+        collisions.onLand += OnLand;
 
         movementEvent = RuntimeManager.CreateInstance(movementEventRef);
         movementEvent.start();
@@ -40,19 +40,19 @@ public class PlayerSoundController : MonoBehaviour
     {
         movementEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 
-        if (player == null)
+        if (collisions == null)
             return;
 
-        player.onMove -= OnMove;
-        player.onJump -= OnJump;
-        player.onLand -= OnLand;
+        collisions.onMove -= OnMove;
+        collisions.onJump -= OnJump;
+        collisions.onLand -= OnLand;
     }
 
     void OnMove(float dist)
     {
         movementEvent.set3DAttributes(RuntimeUtils.To3DAttributes(transform));
 
-        movementEvent.setParameterByName(SPEED_PARAM, dist);
+        movementEvent.setParameterByName(SPEED_PARAM, collisions.Collisions.below ? dist : 0);
     }
 
     void OnJump()

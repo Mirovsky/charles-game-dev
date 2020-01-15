@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Action<float> onMove;
-    public Action onJump;
-    public Action onLand;
-
-
     [Header("Jumping")]
     [SerializeField]
     float maxJumpHeight = default;
@@ -31,6 +26,7 @@ public class Player : MonoBehaviour
     float gravity;
 
     DeadOneRaycastController controller;
+    DeadOneCollisionsController collisions;
 
     float maxJumpVelocity;
     float yVelocity;
@@ -41,6 +37,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         controller = GetComponent<DeadOneRaycastController>();
+        collisions = GetComponent<DeadOneCollisionsController>();
 
         gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
@@ -50,19 +47,14 @@ public class Player : MonoBehaviour
     {
         yVelocity += gravity * Time.deltaTime;
 
-        if (controller.Collisions.below)
+        if (collisions.Collisions.below)
             yVelocity = 0;
 
-        if (controller.Collisions.above)
+        if (collisions.Collisions.above)
             yVelocity = gravity * Time.deltaTime;
 
-        if (controller.Collisions.below && wantsToJump) {
-            onJump?.Invoke();
+        if (collisions.Collisions.below && wantsToJump)
             yVelocity = maxJumpVelocity;
-        }
-
-        if (controller.Collisions.landed)
-            onLand?.Invoke();
 
         var normal = pathfinding.GetNormal().normalized;
         var direction = pathfinding.GetDirection().normalized;
@@ -83,11 +75,8 @@ public class Player : MonoBehaviour
 
     void ConfirmMove(float step)
     {
-        if (!controller.Collisions.sides && !Mathf.Approximately(step, 0f))
+        if (!collisions.Collisions.sides && !Mathf.Approximately(step, 0f))
             pathfinding.UpdateDistance();
-
-        var attr = controller.Collisions.sides ? 0 : Direction;
-        onMove?.Invoke(attr);
     }
 
     public float Direction { get; private set; }
@@ -111,12 +100,5 @@ public class Player : MonoBehaviour
         var nextPos = pathfinding.GetPosition();
 
         controller.Move(nextPos - currentPos, Vector3.zero, Vector3.zero, Vector3.zero, false);
-    }
-
-    [System.Serializable]
-    public struct CollisionInfo
-    {
-        public bool below, above;
-        public bool left, right, sides;
     }
 }
