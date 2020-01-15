@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using OOO.Base;
+﻿using OOO.Base;
+
 
 class ONetworkedObject : BaseNetworkBehaviour
 {

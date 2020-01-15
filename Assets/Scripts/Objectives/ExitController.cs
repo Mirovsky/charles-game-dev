@@ -13,9 +13,19 @@ public class ExitController : BaseNetworkBehaviour
     public Action onOpen;
     public Action onEnter;
 
+
     public bool isOpen;
 
-    public override void OnStartClient()
+    [SerializeField]
+    GameObject exitObject;
+
+
+    public override void OnStartAuthority()
+    {
+        Initialize();
+    }
+
+    public void Initialize()
     {
         if (IsVrPlayer)
             return;
@@ -23,7 +33,7 @@ public class ExitController : BaseNetworkBehaviour
         EventHub.Instance.AddListener<ExitOpenEvent>(ExitOpenEventHandler);
 
         // Trigger only after all keys are collected
-        ToggleExitVisibility(false);
+        CmdTriggerVisibilityChange(false);
     }
 
     void OnDestroy()
@@ -34,8 +44,8 @@ public class ExitController : BaseNetworkBehaviour
     void ExitOpenEventHandler(ExitOpenEvent e)
     {
         onOpen?.Invoke();
-        // TODO: Figure out proper animation of exit appearing
-        ToggleExitVisibility(true);
+
+        CmdTriggerVisibilityChange(true);
     }
 
     void OnTriggerEnter(Collider other)
@@ -71,8 +81,14 @@ public class ExitController : BaseNetworkBehaviour
         }
     }
 
+    [Command]
+    void CmdTriggerVisibilityChange(bool visibility)
+    {
+        RpcToggleExitVisibility(visibility);
+    }
+
     [ClientRpc]
-    void ToggleExitVisibility(bool visibility)
+    void RpcToggleExitVisibility(bool visibility)
     {
         gameObject.SetActive(visibility);
     }

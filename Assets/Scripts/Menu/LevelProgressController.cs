@@ -22,6 +22,9 @@ public class LevelProgressController : MonoBehaviour
     {
         gameState = FindObjectOfType<LevelGameState>();
 
+        if (gameState == null)
+            return;
+
         requiredKeys.text = gameState.levelKeysCount.ToString();
         UpdateCollectedKeys();
 

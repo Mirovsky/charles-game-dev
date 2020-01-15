@@ -116,8 +116,7 @@ namespace OOO.Network
 
         void StartTimer() {
             if (IsMobilePlayer) {
-                //its server
-                RpcStartTimer();
+                // RpcStartTimer();
             }
         }
 
@@ -127,9 +126,9 @@ namespace OOO.Network
                 mobileCamera.GetComponentInChildren<TimerTextHandler>().OnGameStart();
             }
 
-            if (IsVrPlayer && isLocalPlayer) {
+            /* if (IsVrPlayer && isLocalPlayer) {
                 vrCamera.GetComponentInChildren<TimerTextHandler>().OnGameStart();
-            }
+            } */
         }
 
         [Client]
@@ -158,6 +157,9 @@ namespace OOO.Network
 
         void SpawnVRCamera()
         {
+            Debug.Log("SPAWNING VR CAMERA!");
+
+
             vrCamera = Instantiate(vrCamera);
 
             leftHand = Instantiate(leftHand);

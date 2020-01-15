@@ -10,7 +10,7 @@ public class AmbienceSoundController : MonoBehaviour
     {
         levelGameState = FindObjectOfType<LevelGameState>();
 
-        if (levelGameState.levelData == null) {
+        if (levelGameState == null || levelGameState.levelData == null) {
             Debug.LogWarning("Missing assigned LevelScriptableObject for this level!");
             enabled = false;
             return;
