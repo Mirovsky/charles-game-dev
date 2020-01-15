@@ -6,10 +6,10 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class @PlayerInputActions : IInputActionCollection, IDisposable
+public class PlayerInputActions : IInputActionCollection, IDisposable
 {
     private InputActionAsset asset;
-    public @PlayerInputActions()
+    public PlayerInputActions()
     {
         asset = InputActionAsset.FromJson(@"{
     ""name"": ""DefaultControls"",
@@ -414,8 +414,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
-        private @PlayerInputActions m_Wrapper;
-        public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        private PlayerInputActions m_Wrapper;
+        public PlayerActions(PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Slam => m_Wrapper.m_Player_Slam;
@@ -431,46 +431,46 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
-                @Slam.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlam;
-                @Slam.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlam;
-                @Slam.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlam;
-                @Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
-                @Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
-                @Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
-                @Switch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
-                @Switch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
-                @Switch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
-                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
-                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
-                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                Slam.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlam;
+                Slam.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlam;
+                Slam.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlam;
+                Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                Switch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
+                Switch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
+                Switch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
+                Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Jump.started += instance.OnJump;
-                @Jump.performed += instance.OnJump;
-                @Jump.canceled += instance.OnJump;
-                @Movement.started += instance.OnMovement;
-                @Movement.performed += instance.OnMovement;
-                @Movement.canceled += instance.OnMovement;
-                @Slam.started += instance.OnSlam;
-                @Slam.performed += instance.OnSlam;
-                @Slam.canceled += instance.OnSlam;
-                @Dash.started += instance.OnDash;
-                @Dash.performed += instance.OnDash;
-                @Dash.canceled += instance.OnDash;
-                @Switch.started += instance.OnSwitch;
-                @Switch.performed += instance.OnSwitch;
-                @Switch.canceled += instance.OnSwitch;
-                @Pause.started += instance.OnPause;
-                @Pause.performed += instance.OnPause;
-                @Pause.canceled += instance.OnPause;
+                Jump.started += instance.OnJump;
+                Jump.performed += instance.OnJump;
+                Jump.canceled += instance.OnJump;
+                Movement.started += instance.OnMovement;
+                Movement.performed += instance.OnMovement;
+                Movement.canceled += instance.OnMovement;
+                Slam.started += instance.OnSlam;
+                Slam.performed += instance.OnSlam;
+                Slam.canceled += instance.OnSlam;
+                Dash.started += instance.OnDash;
+                Dash.performed += instance.OnDash;
+                Dash.canceled += instance.OnDash;
+                Switch.started += instance.OnSwitch;
+                Switch.performed += instance.OnSwitch;
+                Switch.canceled += instance.OnSwitch;
+                Pause.started += instance.OnPause;
+                Pause.performed += instance.OnPause;
+                Pause.canceled += instance.OnPause;
             }
         }
     }
