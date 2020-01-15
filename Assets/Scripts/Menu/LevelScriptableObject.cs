@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using FMODUnity;
+using Mirror;
 
 
 [CreateAssetMenu(menuName = "OOO/LevelScriptableObject")]
 public class LevelScriptableObject : ScriptableObject
 {
     public string levelIdentifier;
+    [Scene]
     public string scenePath;
 
     public LevelScriptableObject nextLevel;

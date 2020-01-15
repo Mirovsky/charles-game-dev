@@ -27,15 +27,19 @@ public class LevelGameState : BaseNetworkBehaviour
     public bool paused;
 
 
-    void Awake()
+    public override void OnStartLocalPlayer()
     {
+        base.OnStartLocalPlayer();
+
         SetupEventListeners();
 
         levelKeysCount = FindObjectsOfType<KeyController>().Length;
     }
 
-    void OnDestroy()
+    public override void OnNetworkDestroy()
     {
+        base.OnNetworkDestroy();
+
         RemoveEventListeners();
     }
 

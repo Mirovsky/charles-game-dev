@@ -2,7 +2,7 @@
 using FMODUnity;
 
 
-[RequireComponent(typeof(Player))]
+[RequireComponent(typeof(DeadOneCollisionsController))]
 public class PlayerSoundController : MonoBehaviour
 {
     const string SPEED_PARAM = "Speed";

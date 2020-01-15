@@ -24,6 +24,7 @@ namespace OOO.Camera
         
         private double startTime = 0;
         private bool hasStarted = false;
+        bool initialized;
 
         bool wasPaused;
         [SerializeField]
@@ -40,13 +41,20 @@ namespace OOO.Camera
         void Start()
         {
             gameState = FindObjectOfType<LevelGameState>();
+            if (gameState == null || gameState.levelData == null)
+                return;
+
             totalTime = gameState.levelData.timeLimit;
 
             countdownTimerText.text = "--:--";
+            initialized = true;
         }
 
         void Update()
         {
+            if (!initialized)
+                return;
+
             if (hasStarted) {
                 if (!wasPaused && gameState.paused) {
                     pausedTime = NetworkTime.time;
