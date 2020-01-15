@@ -55,20 +55,30 @@ public class Pathfinding : MonoBehaviour
         => path.GetClosestPointAndDistanceByPoint(transform.position, out distance);
 
     public Vector3 GetPosition(float nextStep = 0)
-        => path.GetPoint(distance + nextStep);
+        => path.GetPoint(ModDistance(distance + nextStep));
 
     public Vector3 GetNormal(float nextStep = 0)
-        => path.GetNormal(distance + nextStep);
+        => path.GetNormal(ModDistance(distance + nextStep));
 
     public Vector3 GetDirection(float nextStep = 0)
-        => path.GetTangent(distance + nextStep);
+        => path.GetTangent(ModDistance(distance + nextStep));
     
     public Quaternion GetRotation(float nextStep = 0)
         => Quaternion.LookRotation(
-            path.GetTangent(distance + nextStep),
-            path.GetNormal(distance + nextStep)
-        );
+            path.GetTangent(ModDistance(distance + nextStep)),
+            path.GetNormal(ModDistance(distance + nextStep))
+    );
 
-    public PathSegment GetCurrentSegment()
-        => null;
+    float ModDistance(float dist)
+    {
+        var length = path.Length;
+
+        if (dist > length)
+            dist -= length;
+
+        if (dist < 0)
+            dist += length;
+
+        return dist;
+    }
 }

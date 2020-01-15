@@ -22,6 +22,7 @@ public class DeadOneRaycastController : MonoBehaviour
         Collisions.Reset();
 
         var velocity = motion + gravity;
+        var prev = transform.position;
         transform.Translate(velocity);
         
         ResolveCollisions();

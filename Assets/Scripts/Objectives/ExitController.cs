@@ -9,6 +9,8 @@ public class ExitController : MonoBehaviour
     static readonly string PLAYER_VR = "Player_VR";
 
     public Action onOpen;
+    public Action onEnter;
+
     public bool isOpen;
 
     void Awake()

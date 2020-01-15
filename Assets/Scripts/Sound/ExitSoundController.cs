@@ -13,13 +13,16 @@ public class ExitSoundController : MonoBehaviour
 
     void Start()
     {
-        // exitController = GetComponent<ExitController>();
-        // exitController.onOpen += OnOpen;
+        exitController = GetComponent<ExitController>();
+        exitController.onOpen += OnOpen;
     }
 
     void OnDestroy()
     {
-        // exitController.onOpen -= OnOpen;
+        if (exitController == null)
+            return;
+
+        exitController.onOpen -= OnOpen;
     }
 
     void OnOpen()
