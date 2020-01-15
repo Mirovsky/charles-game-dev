@@ -14,12 +14,22 @@ namespace OOO.Camera
 
         [SerializeField]
         TextMeshProUGUI countdownTimerText;
+        [SerializeField]
+        double elapsed;
+
+        LevelGameState gameState;
 
         /* in seconds */
         private double totalTime = 120;
         
         private double startTime = 0;
         private bool hasStarted = false;
+
+        bool wasPaused;
+        [SerializeField]
+        double pausedTime;
+        [SerializeField]
+        double pausedAmount;
         
         public void OnGameStart()
         {
@@ -29,7 +39,7 @@ namespace OOO.Camera
 
         void Start()
         {
-            var gameState = FindObjectOfType<LevelGameState>();
+            gameState = FindObjectOfType<LevelGameState>();
             totalTime = gameState.levelData.timeLimit;
 
             countdownTimerText.text = "--:--";
@@ -38,7 +48,24 @@ namespace OOO.Camera
         void Update()
         {
             if (hasStarted) {
-                var elapsed = (NetworkTime.time - startTime);
+                if (!wasPaused && gameState.paused) {
+                    pausedTime = NetworkTime.time;
+                    wasPaused = true;
+
+                    return;
+                }
+
+                if (wasPaused && !gameState.paused) {
+                    pausedAmount += (NetworkTime.time - pausedTime);
+                    wasPaused = false;
+
+                    return;
+                }
+
+                if (gameState.paused)
+                    return;
+
+                elapsed = (NetworkTime.time - startTime - pausedAmount);
 
                 if (totalTime > elapsed) {
                     var remaining =(int) (totalTime - elapsed);

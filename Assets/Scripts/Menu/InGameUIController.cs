@@ -11,6 +11,8 @@ public class InGameUIController : MonoBehaviour
     GameObject gameOver;
     [SerializeField]
     GameObject levelComplete;
+    [SerializeField]
+    GameObject gamePause;
 
     GameObject current;
 
@@ -23,11 +25,15 @@ public class InGameUIController : MonoBehaviour
     public void ShowLevelComplete()
         => SwitchCurrent(levelComplete);
 
+    public void ShowGamePause()
+        => SwitchCurrent(gamePause);
+
     void Start()
     {
         var playerType = GameTypeResolver.Instance.playerType;
 
-        if (playerType != PlayerType.MOBILE) {
+        var gameState = FindObjectOfType<LevelGameState>();
+        if (playerType != PlayerType.MOBILE || gameState == null) {
             Destroy(gameObject);
             return;
         }
@@ -35,6 +41,7 @@ public class InGameUIController : MonoBehaviour
 
         EventHub.Instance.AddListener<LevelCompleteEvent>(OnLevelCompleteEvent);
         EventHub.Instance.AddListener<GameOverEvent>(OnGameOverEvent);
+        EventHub.Instance.AddListener<GamePauseEvent>(OnGamePause);
     }
 
     void SwitchCurrent(GameObject next)
@@ -56,5 +63,14 @@ public class InGameUIController : MonoBehaviour
     void OnGameOverEvent(GameOverEvent e)
     {
         ShowGameOver();
+    }
+
+    void OnGamePause(GamePauseEvent e)
+    {
+        if (e.state) {
+            ShowGamePause();
+        } else {
+            ShowLevelProgress();
+        }
     }
 }

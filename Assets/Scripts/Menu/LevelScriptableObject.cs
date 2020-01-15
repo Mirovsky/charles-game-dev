@@ -13,6 +13,6 @@ public class LevelScriptableObject : ScriptableObject
     [EventRef]
     public string levelAmbience;
 
-    [Help("Time required for level")]
+    [Help("Time required for level (in seconds)")]
     public double timeLimit;
 }

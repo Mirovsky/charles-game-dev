@@ -11,8 +11,6 @@ public class LevelPlay : MonoBehaviour
     [Header("UI")]
     [SerializeField]
     Button playButton;
-    [SerializeField]
-    GameObject locked;
 
     [Header("")]
     [SerializeField]
@@ -21,13 +19,7 @@ public class LevelPlay : MonoBehaviour
 
     void Awake()
     {
-        var isLocked = Persistence.IsLevelLocked(level.levelIdentifier);
-
-        locked.SetActive(false);
-        // playButton.interactable = !isLocked;
-
-        // if (!isLocked)
-            playButton.onClick.AddListener(PlayLevel);
+        playButton.onClick.AddListener(PlayLevel);
     }
 
     void PlayLevel()

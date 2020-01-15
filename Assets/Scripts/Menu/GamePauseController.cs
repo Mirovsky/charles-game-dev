@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using TMPro;
 using OOO.Utils;
 
-
-public class LevelProgressController : MonoBehaviour
+public class GamePauseController : MonoBehaviour
 {
     [SerializeField]
     TextMeshProUGUI collectedKeys;
@@ -13,9 +14,9 @@ public class LevelProgressController : MonoBehaviour
     LevelGameState gameState;
 
 
-    public void TriggerPause()
+    public void TriggerUnpause()
     {
-        EventHub.Instance.FireEvent(new GamePauseEvent() { state = true });
+        EventHub.Instance.FireEvent(new GamePauseEvent() { state = false });
     }
 
     void Start()

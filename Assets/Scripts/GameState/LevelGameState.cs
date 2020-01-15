@@ -22,6 +22,10 @@ public class LevelGameState : BaseNetworkBehaviour
     [Header("Level")]
     public LevelScriptableObject levelData;
 
+    [Header("Pause")]
+    [SyncVar]
+    public bool paused;
+
 
     void Awake()
     {
@@ -66,15 +70,26 @@ public class LevelGameState : BaseNetworkBehaviour
             }
         }
 
-        playersInsideExit = mobileInsideExit && vrInsideExit;
-        if (playersInsideExit) {
+        playersInsideExit = mobileInsideExit;
+        if (playersInsideExit)
             TriggerLevelComplete();
-        }
     }
 
     void TriggerLevelComplete()
     {
         EventHub.Instance.FireEvent(new LevelCompleteEvent());
+
+        paused = true;
+    }
+
+    void GamePauseEventHandler(GamePauseEvent e)
+    {
+        paused = e.state;
+    }
+
+    void GameOverEventHandler(GameOverEvent e)
+    {
+        paused = true;
     }
 
     void SetupEventListeners()
@@ -83,6 +98,8 @@ public class LevelGameState : BaseNetworkBehaviour
 
         hub.AddListener<KeyCollectedEvent>(KeyCollectedEventHandler);
         hub.AddListener<ExitOccupancyChangeEvent>(ExitOccupancyChangeEventHandler);
+        hub.AddListener<GamePauseEvent>(GamePauseEventHandler);
+        hub.AddListener<GameOverEvent>(GameOverEventHandler);
     }
 
     void RemoveEventListeners()
@@ -91,5 +108,7 @@ public class LevelGameState : BaseNetworkBehaviour
 
         hub.RemoveListener<KeyCollectedEvent>(KeyCollectedEventHandler);
         hub.RemoveListener<ExitOccupancyChangeEvent>(ExitOccupancyChangeEventHandler);
+        hub.RemoveListener<GamePauseEvent>(GamePauseEventHandler);
+        hub.RemoveListener<GameOverEvent>(GameOverEventHandler);
     }
 }

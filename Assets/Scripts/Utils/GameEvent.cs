@@ -48,4 +48,9 @@ namespace OOO.Utils
 
         public GameOverReason gameOverReasong = GameOverReason.UNKNOWN;
     }
+
+    public class GamePauseEvent : GameEvent
+    {
+        public bool state;
+    }
 }

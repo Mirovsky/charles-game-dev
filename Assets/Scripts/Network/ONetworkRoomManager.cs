@@ -19,8 +19,6 @@ public class ONetworkRoomManager : NetworkRoomManager
         NetworkServer.AddPlayerForConnection(conn, player);
     }
 
-    bool showStartButton;
-
     public override void OnRoomServerPlayersReady()
     {
         base.OnRoomServerPlayersReady();

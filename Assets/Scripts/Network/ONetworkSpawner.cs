@@ -120,12 +120,13 @@ namespace OOO.Network
 
         [ClientRpc]
         void RpcStartTimer() {
-            /* if (IsMobilePlayer && isLocalPlayer) {
+            if (IsMobilePlayer && isLocalPlayer) {
                 mobileCamera.GetComponentInChildren<TimerTextHandler>().OnGameStart();
             }
+
             if (IsVrPlayer && isLocalPlayer) {
                 vrCamera.GetComponentInChildren<TimerTextHandler>().OnGameStart();
-            } */
+            }
         }
 
         [Client]

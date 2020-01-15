@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 358230308266533960}
   - component: {fileID: 5446025736521511247}
   - component: {fileID: 7980012692419750130}
+  - component: {fileID: 3747474001566820526}
   m_Layer: 0
   m_Name: VRCamera
   m_TagString: Untagged
@@ -257,6 +258,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleVariable: {fileID: 11400000, guid: 44526a182dd2ff94387caeb7b7c6a5ea, type: 2}
   tr: {fileID: 3788692454268074029}
+--- !u!114 &3747474001566820526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604301985217077056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b591b4268bd747f5ae16ab96a5fb9ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countdownTimerText: {fileID: 5823798658234750861}
+  elapsed: 0
+  pausedTime: 0
+  pausedAmount: 0
 --- !u!1001 &3893682842290007830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -401,3 +418,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3893682842290007830}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5823798658234750861 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7411634075204597915, guid: 5129efb8d9d02486c9253a9cac7c8531,
+    type: 3}
+  m_PrefabInstance: {fileID: 3893682842290007830}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
