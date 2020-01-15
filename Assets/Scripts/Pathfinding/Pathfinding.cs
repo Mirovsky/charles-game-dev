@@ -71,8 +71,11 @@ public class Pathfinding : MonoBehaviour
 
     float ModDistance(float dist)
     {
+        if (path == null)
+            return 0;
+
         if (!path.Closed)
-            Mathf.Clamp(dist, 0, path.Length);
+            return Mathf.Clamp(dist, 0, path.Length);
 
         var length = path.Length;
 

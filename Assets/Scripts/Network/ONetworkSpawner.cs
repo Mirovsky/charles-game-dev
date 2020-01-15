@@ -5,7 +5,7 @@ using Mirror;
 using OOO.Base;
 using OOO.Camera;
 using TMPro;
-using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 
 namespace OOO.Network
@@ -38,20 +38,23 @@ namespace OOO.Network
 
 
         public override void OnStartLocalPlayer() {
+            var sceneName = SceneManager.GetActiveScene().name;
+            var spawnAvailable = sceneName == "RoomScene" || sceneName == "MainMenu" || sceneName == "Loading";
+            if (spawnAvailable) {
+                SpawnCamera();
+                return;
+            }
+
             OnEnvironmentSetup();
         }
-
-        void Update() {
-            if (Keyboard.current.qKey.wasPressedThisFrame) {
-                OnGameStart();
-            }
-        }
-        
 
         /** The local player is connected and we can setup the cameras and platforms. */
         void OnEnvironmentSetup() {
             SpawnCamera();
             AssignNetworkedIdentity();
+            OnGameStart();
+
+            FindObjectOfType<LevelGameState>().Initialize();
         }
         
         /**

@@ -26,7 +26,6 @@ public class MovingPlatformSoundController : MonoBehaviour
     {
         movingInstance.set3DAttributes(RuntimeUtils.To3DAttributes(transform));
 
-        Debug.Log(platformGrabbable.velocity);
         movingInstance.setParameterByName(VELOCITY_PARAM, platformGrabbable.velocity);
     }
 

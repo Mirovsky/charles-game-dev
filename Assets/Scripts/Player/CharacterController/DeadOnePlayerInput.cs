@@ -24,7 +24,7 @@ public class DeadOnePlayerInput : MonoBehaviour
 
     void Update()
     {
-        if (gameState.paused)
+        if (gameState == null || gameState.paused)
             return;
 
         player.SetDirectionalInput(playerInput.Player.Movement.ReadValue<float>());
@@ -32,7 +32,7 @@ public class DeadOnePlayerInput : MonoBehaviour
 
     void OnJumpPerformed(InputAction.CallbackContext ctx)
     {
-        if (gameState.paused)
+        if (gameState == null || gameState.paused)
             return;
 
         player.OnJumpInputDown();

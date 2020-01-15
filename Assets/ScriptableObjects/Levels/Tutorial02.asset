@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999a825b8099d604baf90a21e246f75a, type: 3}
   m_Name: Tutorial02
   m_EditorClassIdentifier: 
-  levelIdentifier: level02
+  levelIdentifier: tutorial02
   scenePath: Tutorial_2
   nextLevel: {fileID: 11400000, guid: e99abb2be3b055b44b76974a0570682b, type: 2}
   levelAmbience: event:/Sounds/Ambience/AmbienceBlue

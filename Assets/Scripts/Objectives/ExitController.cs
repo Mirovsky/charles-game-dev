@@ -1,9 +1,11 @@
 ﻿using System;
 using UnityEngine;
+using Mirror;
+using OOO.Base;
 using OOO.Utils;
 
 
-public class ExitController : MonoBehaviour
+public class ExitController : BaseNetworkBehaviour
 {
     static readonly string PLAYER_2D = "Player_2D";
     static readonly string PLAYER_VR = "Player_VR";
@@ -13,12 +15,15 @@ public class ExitController : MonoBehaviour
 
     public bool isOpen;
 
-    void Awake()
+    public override void OnStartServer()
     {
+        if (IsVrPlayer)
+            return;
+
         EventHub.Instance.AddListener<ExitOpenEvent>(ExitOpenEventHandler);
 
         // Trigger only after all keys are collected
-        gameObject.SetActive(false);
+        ToggleExitVisibility(false);
     }
 
     void OnDestroy()
@@ -30,11 +35,14 @@ public class ExitController : MonoBehaviour
     {
         onOpen?.Invoke();
         // TODO: Figure out proper animation of exit appearing
-        gameObject.SetActive(true);
+        ToggleExitVisibility(true);
     }
 
     void OnTriggerEnter(Collider other)
     {
+        if (IsVrPlayer)
+            return;
+
         var e = new ExitOccupancyChangeEvent() { type = ExitOccupancyChangeEvent.Type.ENTER };
 
         SetPlayerType(other, ref e);
@@ -44,6 +52,9 @@ public class ExitController : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        if (IsVrPlayer)
+            return;
+
         var e = new ExitOccupancyChangeEvent() { type = ExitOccupancyChangeEvent.Type.LEAVE };
 
         SetPlayerType(other, ref e);
@@ -58,5 +69,13 @@ public class ExitController : MonoBehaviour
         } else if (other.CompareTag(PLAYER_VR)) {
             e.playerType = OOO.PlayerType.VR;
         }
+    }
+
+    [ClientRpc]
+    void ToggleExitVisibility(bool visibility)
+    {
+        Debug.Log($"asdfasdf {visibility}");
+
+        gameObject.SetActive(visibility);
     }
 }
