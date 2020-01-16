@@ -6,7 +6,8 @@ public class AmbienceSoundController : MonoBehaviour
     LevelGameState levelGameState;
     FMOD.Studio.EventInstance ambienceInstance;
 
-    void Start()
+
+    public void OnGameStart()
     {
         levelGameState = FindObjectOfType<LevelGameState>();
 

@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2305811304790416961}
-  - component: {fileID: 8768367608234480337}
-  - component: {fileID: 5016183830643155430}
   - component: {fileID: 2305811304790416963}
   - component: {fileID: 2305811304790416962}
   - component: {fileID: 4008384208999735620}
@@ -35,37 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8768367608234480337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2305811304790416960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serverOnly: 0
-  m_AssetId: 086c2b3d9ff02204a86fc31d5ce5f06f
-  m_SceneId: 0
---- !u!114 &5016183830643155430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2305811304790416960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 346ae1b08862a9e4f9cdc479b5ede645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  switcher: {fileID: 4008384208999735620}
-  immediateSwitcher: {fileID: 2305811304790416962}
 --- !u!65 &2305811304790416963
 BoxCollider:
   m_ObjectHideFlags: 0
