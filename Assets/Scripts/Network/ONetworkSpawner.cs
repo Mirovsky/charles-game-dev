@@ -48,13 +48,19 @@ namespace OOO.Network
             OnEnvironmentSetup();
         }
 
+        public override void OnStartAuthority()
+        {
+            Debug.Log("Start Authority");
+        }
+
         /** The local player is connected and we can setup the cameras and platforms. */
         void OnEnvironmentSetup() {
             SpawnCamera();
             AssignNetworkedIdentity();
-            OnGameStart();
 
             FindObjectOfType<LevelGameState>().Initialize();
+            
+            OnGameStart();
         }
         
         /**
@@ -64,6 +70,7 @@ namespace OOO.Network
         void OnGameStart() {
             SpawnMobilePlayer();
             StartTimer();
+            StartMusic();
 
             if (isServer) {
                 //The server destroys both.
@@ -114,21 +121,42 @@ namespace OOO.Network
             }
         }
 
-        void StartTimer() {
+        void StartTimer()
+        {
             if (IsMobilePlayer) {
-                // RpcStartTimer();
+                RpcStartTimer();
+            }
+        }
+
+        void StartMusic()
+        {
+            if (IsMobilePlayer) {
+                RpcStartMusic();
             }
         }
 
         [ClientRpc]
-        void RpcStartTimer() {
+        void RpcStartTimer()
+        {
             if (IsMobilePlayer && isLocalPlayer) {
                 mobileCamera.GetComponentInChildren<TimerTextHandler>().OnGameStart();
             }
 
-            /* if (IsVrPlayer && isLocalPlayer) {
+            if (IsVrPlayer && isLocalPlayer) {
                 vrCamera.GetComponentInChildren<TimerTextHandler>().OnGameStart();
-            } */
+            }
+        }
+
+        [ClientRpc]
+        void RpcStartMusic()
+        {
+            if (IsMobilePlayer && isLocalPlayer) {
+                mobileCamera.GetComponentInChildren<AmbienceSoundController>().OnGameStart();
+            }
+
+            if (IsVrPlayer && isLocalPlayer) {
+                vrCamera.GetComponentInChildren<AmbienceSoundController>().OnGameStart();
+            }
         }
 
         [Client]
@@ -157,9 +185,6 @@ namespace OOO.Network
 
         void SpawnVRCamera()
         {
-            Debug.Log("SPAWNING VR CAMERA!");
-
-
             vrCamera = Instantiate(vrCamera);
 
             leftHand = Instantiate(leftHand);

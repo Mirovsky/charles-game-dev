@@ -36,18 +36,19 @@ namespace OOO.Camera
         {
             hasStarted = true;
             startTime = NetworkTime.time;
-        }
 
-        void Start()
-        {
             gameState = FindObjectOfType<LevelGameState>();
-            if (gameState == null || gameState.levelData == null)
+            if (gameState == null || gameState.levelData == null) {
+                Debug.Log($"Missing game state!");
                 return;
+            }
 
             totalTime = gameState.levelData.timeLimit;
 
             countdownTimerText.text = "--:--";
             initialized = true;
+
+            Debug.Log("Timer started");
         }
 
         void Update()
