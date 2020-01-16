@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 2600808668198948734}
   - component: {fileID: 968411281648513136}
   m_Layer: 9
-  m_Name: SegmentStraight_Cube
+  m_Name: SegmentStraight_Cube_half
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -336,8 +336,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 1, z: 2}
-  m_Center: {x: -1, y: -0.5, z: 0}
+  m_Size: {x: 1, y: 1, z: 2}
+  m_Center: {x: -0.5, y: -0.5, z: 0}
 --- !u!1001 &586349705886808526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -408,7 +408,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 3d4e83a228c2a9d4eb65f75722100fc6,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d4e83a228c2a9d4eb65f75722100fc6, type: 3}
