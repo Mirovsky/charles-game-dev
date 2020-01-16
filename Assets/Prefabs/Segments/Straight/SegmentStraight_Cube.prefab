@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1080124340592216028}
   - component: {fileID: 5881746084532116842}
   m_Layer: 0
-  m_Name: Start
+  m_Name: Path[0]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 7586472412615180216}
   - component: {fileID: 1188452385304237021}
   m_Layer: 0
-  m_Name: End
+  m_Name: Path[1]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,7 +90,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5726178432966944935}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: -2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1537859662997755818}
