@@ -12,7 +12,17 @@ public class AxisLineDrawer : MonoBehaviour
 
     void Start()
     {
-        axisLineRenderer.SetPositions(new Vector3[] { grabbable.clampLeft, grabbable.clampRight });    
+        var left = grabbable.clampLeft;
+        var right = grabbable.clampRight;
+
+        axisLineRenderer.positionCount = 5;
+        axisLineRenderer.SetPositions(new Vector3[] {
+            left,
+            Vector3.Lerp(left, right, 0.25f),
+            Vector3.Lerp(left, right, 0.5f),
+            Vector3.Lerp(left, right, 0.7f),
+            right
+        });    
     }
 
 
