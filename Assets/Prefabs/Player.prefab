@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ee08ed6d34f255e49915b651ffb12d8c, type: 2}
+  - {fileID: 2100000, guid: 13d42ff621a014c00b46d7fcb8aebf32, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serverOnly: 0
-  m_AssetId: 0455a227d5a284725b5d50918757809f
+  m_AssetId: 
   m_SceneId: 0
 --- !u!114 &4750775976847501505
 MonoBehaviour:
@@ -397,7 +397,6 @@ MonoBehaviour:
   pathfinding: {fileID: 7447710313142363388}
   playerInput: {fileID: 7447710313142363379}
   keyCollector: {fileID: 2396328416803820382}
-  soundController: {fileID: 8932384023579105232}
 --- !u!54 &4644768351756780275
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -446,7 +445,6 @@ MonoBehaviour:
     forward: 0
     backward: 0
     sides: 0
-    landed: 0
   center: {x: 0, y: 0, z: 0}
   radius: 0.5
   skinWidth: 0.05
