@@ -226,7 +226,7 @@ PrefabInstance:
     - target: {fileID: 7255063739685473288, guid: 2da641b0784505742b11d97d4a78cd1f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7255063739685473288, guid: 2da641b0784505742b11d97d4a78cd1f,
         type: 3}
@@ -1347,6 +1347,11 @@ PrefabInstance:
       propertyPath: m_SceneId
       value: 3080002607
       objectReference: {fileID: 0}
+    - target: {fileID: -5841831246318130753, guid: 327dbe81bf14fe341b555cb33f49efc3,
+        type: 3}
+      propertyPath: grabbable
+      value: 
+      objectReference: {fileID: 215247492}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 327dbe81bf14fe341b555cb33f49efc3, type: 3}
 --- !u!114 &215247491 stripped
@@ -1359,6 +1364,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a842d5f7c196024b8626955f32914a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &215247492 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2757829994855333753, guid: 327dbe81bf14fe341b555cb33f49efc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 215247490}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1404de1ff5504e50b94e735fb990968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &221454974
@@ -1931,6 +1948,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 497305681}
     m_Modifications:
+    - target: {fileID: 7642904709982269475, guid: efdf1a5913ca6e0449612a8daa990be0,
+        type: 3}
+      propertyPath: m_Name
+      value: SegmentStraight_Cube
+      objectReference: {fileID: 0}
     - target: {fileID: 7255063739685473288, guid: efdf1a5913ca6e0449612a8daa990be0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1985,11 +2007,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642904709982269475, guid: efdf1a5913ca6e0449612a8daa990be0,
-        type: 3}
-      propertyPath: m_Name
-      value: SegmentStraight_Cube
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efdf1a5913ca6e0449612a8daa990be0, type: 3}
@@ -3031,7 +3048,7 @@ PrefabInstance:
     - target: {fileID: 7255063739685473288, guid: 2da641b0784505742b11d97d4a78cd1f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7255063739685473288, guid: 2da641b0784505742b11d97d4a78cd1f,
         type: 3}
@@ -5251,6 +5268,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 91018331}
     m_Modifications:
+    - target: {fileID: 7642904709982269475, guid: efdf1a5913ca6e0449612a8daa990be0,
+        type: 3}
+      propertyPath: m_Name
+      value: SegmentStraight_Cube (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 7255063739685473288, guid: efdf1a5913ca6e0449612a8daa990be0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5305,11 +5327,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642904709982269475, guid: efdf1a5913ca6e0449612a8daa990be0,
-        type: 3}
-      propertyPath: m_Name
-      value: SegmentStraight_Cube (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efdf1a5913ca6e0449612a8daa990be0, type: 3}
@@ -6216,7 +6233,7 @@ PrefabInstance:
     - target: {fileID: 7255063739685473288, guid: 2da641b0784505742b11d97d4a78cd1f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7255063739685473288, guid: 2da641b0784505742b11d97d4a78cd1f,
         type: 3}
@@ -7688,8 +7705,25 @@ PrefabInstance:
       propertyPath: m_SceneId
       value: 518342722
       objectReference: {fileID: 0}
+    - target: {fileID: -7080516459389913552, guid: 2b242b761af29404abebd032580e6422,
+        type: 3}
+      propertyPath: grabbable
+      value: 
+      objectReference: {fileID: 1410517447}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b242b761af29404abebd032580e6422, type: 3}
+--- !u!114 &1410517447 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2757829994855333753, guid: 2b242b761af29404abebd032580e6422,
+    type: 3}
+  m_PrefabInstance: {fileID: 1410517446}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1404de1ff5504e50b94e735fb990968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1438315642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8968,6 +9002,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 91018331}
     m_Modifications:
+    - target: {fileID: 7642904709982269475, guid: efdf1a5913ca6e0449612a8daa990be0,
+        type: 3}
+      propertyPath: m_Name
+      value: SegmentStraight_Cube (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 7255063739685473288, guid: efdf1a5913ca6e0449612a8daa990be0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9023,11 +9062,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7642904709982269475, guid: efdf1a5913ca6e0449612a8daa990be0,
-        type: 3}
-      propertyPath: m_Name
-      value: SegmentStraight_Cube (1)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efdf1a5913ca6e0449612a8daa990be0, type: 3}
 --- !u!4 &1598581945 stripped
@@ -9043,6 +9077,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 91018331}
     m_Modifications:
+    - target: {fileID: 7642904709982269475, guid: efdf1a5913ca6e0449612a8daa990be0,
+        type: 3}
+      propertyPath: m_Name
+      value: SegmentStraight_Cube
+      objectReference: {fileID: 0}
     - target: {fileID: 7255063739685473288, guid: efdf1a5913ca6e0449612a8daa990be0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9097,11 +9136,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642904709982269475, guid: efdf1a5913ca6e0449612a8daa990be0,
-        type: 3}
-      propertyPath: m_Name
-      value: SegmentStraight_Cube
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efdf1a5913ca6e0449612a8daa990be0, type: 3}
@@ -9317,7 +9351,7 @@ PrefabInstance:
     - target: {fileID: 7255063739685473288, guid: 2da641b0784505742b11d97d4a78cd1f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7255063739685473288, guid: 2da641b0784505742b11d97d4a78cd1f,
         type: 3}
@@ -9742,6 +9776,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 497305681}
     m_Modifications:
+    - target: {fileID: 7642904709982269475, guid: efdf1a5913ca6e0449612a8daa990be0,
+        type: 3}
+      propertyPath: m_Name
+      value: SegmentStraight_Cube (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 7255063739685473288, guid: efdf1a5913ca6e0449612a8daa990be0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9796,11 +9835,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642904709982269475, guid: efdf1a5913ca6e0449612a8daa990be0,
-        type: 3}
-      propertyPath: m_Name
-      value: SegmentStraight_Cube (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efdf1a5913ca6e0449612a8daa990be0, type: 3}
@@ -11504,6 +11538,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 497305681}
     m_Modifications:
+    - target: {fileID: 7642904709982269475, guid: efdf1a5913ca6e0449612a8daa990be0,
+        type: 3}
+      propertyPath: m_Name
+      value: SegmentStraight_Cube (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 7255063739685473288, guid: efdf1a5913ca6e0449612a8daa990be0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11558,11 +11597,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642904709982269475, guid: efdf1a5913ca6e0449612a8daa990be0,
-        type: 3}
-      propertyPath: m_Name
-      value: SegmentStraight_Cube (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efdf1a5913ca6e0449612a8daa990be0, type: 3}
@@ -11638,6 +11672,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230369606522366514, guid: fffeea0029d1f954ebaae907893f9a4f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fffeea0029d1f954ebaae907893f9a4f, type: 3}
@@ -12276,8 +12315,25 @@ PrefabInstance:
       propertyPath: m_SceneId
       value: 579063655
       objectReference: {fileID: 0}
+    - target: {fileID: -5841831246318130753, guid: 327dbe81bf14fe341b555cb33f49efc3,
+        type: 3}
+      propertyPath: grabbable
+      value: 
+      objectReference: {fileID: 2145111032}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 327dbe81bf14fe341b555cb33f49efc3, type: 3}
+--- !u!114 &2145111032 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2757829994855333753, guid: 327dbe81bf14fe341b555cb33f49efc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2145111031}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1404de1ff5504e50b94e735fb990968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2757829994118264480 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2757829994855333734, guid: 2b242b761af29404abebd032580e6422,
