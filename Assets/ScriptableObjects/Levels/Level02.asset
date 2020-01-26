@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level02
   m_EditorClassIdentifier: 
   levelIdentifier: level02
-  scenePath: Level03
-  nextLevel: {fileID: 11400000}
+  scenePath: Level02
+  nextLevel: {fileID: 11400000, guid: 54e44f465108dfa49ac369f61a43fae9, type: 2}
   levelAmbience: event:/Sounds/Ambience/AmbienceColored
   timeLimit: 120

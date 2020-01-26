@@ -81,7 +81,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   isOpen: 0
-  exitObject: {fileID: 0}
+  exitObject: {fileID: 6673012115425136265}
 --- !u!114 &8476494958499043323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,11 +115,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3921325462844933597}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 6af57660a03315a4b916543618581ecb,
-        type: 3}
-      propertyPath: m_Name
-      value: DODECAHEDRON
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6af57660a03315a4b916543618581ecb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -195,8 +190,19 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b16b9c699de852a48b603851404aa2a2, type: 2}
+    - target: {fileID: -927199367670048503, guid: 6af57660a03315a4b916543618581ecb,
+        type: 3}
+      propertyPath: m_Name
+      value: DODECAHEDRON
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6af57660a03315a4b916543618581ecb, type: 3}
+--- !u!1 &6673012115425136265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 6af57660a03315a4b916543618581ecb,
+    type: 3}
+  m_PrefabInstance: {fileID: 3439237460574623616}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7692171189377957018 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 6af57660a03315a4b916543618581ecb,

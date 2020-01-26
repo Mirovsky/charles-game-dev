@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level03
   m_EditorClassIdentifier: 
   levelIdentifier: level03
-  scenePath: Level04
+  scenePath: Level03
   nextLevel: {fileID: 0}
   levelAmbience: event:/Sounds/Ambience/AmbienceColored
   timeLimit: 120
