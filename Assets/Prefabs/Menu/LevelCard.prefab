@@ -363,5 +363,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: {fileID: 0}
   playButton: {fileID: 8048610487860482147}
-  locked: {fileID: 0}
   levelSelectController: {fileID: 0}
