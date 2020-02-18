@@ -20,20 +20,12 @@ public class ExitController : BaseNetworkBehaviour
     GameObject exitObject;
 
 
-    public override void OnStartAuthority()
+    public void Start()
     {
-        Initialize();
-    }
-
-    public void Initialize()
-    {
-        if (IsVrPlayer)
-            return;
-
         EventHub.Instance.AddListener<ExitOpenEvent>(ExitOpenEventHandler);
 
         // Trigger only after all keys are collected
-        CmdTriggerVisibilityChange(false);
+        TriggerVisibilityChange(false);
     }
 
     void OnDestroy()
@@ -45,14 +37,11 @@ public class ExitController : BaseNetworkBehaviour
     {
         onOpen?.Invoke();
 
-        CmdTriggerVisibilityChange(true);
+        TriggerVisibilityChange(true);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (IsVrPlayer)
-            return;
-
         var e = new ExitOccupancyChangeEvent() { type = ExitOccupancyChangeEvent.Type.ENTER };
 
         SetPlayerType(other, ref e);
@@ -62,9 +51,6 @@ public class ExitController : BaseNetworkBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (IsVrPlayer)
-            return;
-
         var e = new ExitOccupancyChangeEvent() { type = ExitOccupancyChangeEvent.Type.LEAVE };
 
         SetPlayerType(other, ref e);
@@ -81,14 +67,7 @@ public class ExitController : BaseNetworkBehaviour
         }
     }
 
-    [Command]
-    void CmdTriggerVisibilityChange(bool visibility)
-    {
-        RpcToggleExitVisibility(visibility);
-    }
-
-    [ClientRpc]
-    void RpcToggleExitVisibility(bool visibility)
+    void TriggerVisibilityChange(bool visibility)
     {
         gameObject.SetActive(visibility);
     }

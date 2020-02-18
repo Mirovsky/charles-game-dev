@@ -19,7 +19,7 @@ public class PlayerNetworkController : BaseNetworkBehaviour
 
     void Awake()
     {
-        if (IsMobilePlayer)
+        /* if (IsMobilePlayer)
             return;
 
         Destroy(characterController);
@@ -27,6 +27,6 @@ public class PlayerNetworkController : BaseNetworkBehaviour
         Destroy(pathfinding);
         Destroy(cameraObject);
         Destroy(keyCollector);
-        Destroy(player);
+        Destroy(player); */
     }
 }

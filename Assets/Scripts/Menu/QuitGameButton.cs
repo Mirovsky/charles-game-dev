@@ -17,8 +17,6 @@ public class QuitGameButton : MonoBehaviour
 
     void OnClick()
     {
-        Debug.Log("quit");
-
         Application.Quit();
     }
 }

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Mirror;
 using OOO.Base;
 using OOO.Utils;
 
@@ -7,25 +6,25 @@ using OOO.Utils;
 public class LevelGameState : BaseNetworkBehaviour
 {
     [Header("Keys")]
-    [SyncVar]
     public int collectedKeys;
     public int levelKeysCount;
 
     [Header("Exit")]
-    [SyncVar]
     public bool playersInsideExit;
-    [SyncVar]
     public bool mobileInsideExit;
-    [SyncVar]
     public bool vrInsideExit;
 
     [Header("Level")]
     public LevelScriptableObject levelData;
 
     [Header("Pause")]
-    [SyncVar]
     public bool paused;
 
+    [Header("Timer")]
+    double startTime = 0;
+    bool wasPaused;
+    double pausedTime;
+    double pausedAmount;
 
     public void Initialize()
     {
@@ -34,10 +33,13 @@ public class LevelGameState : BaseNetworkBehaviour
         levelKeysCount = FindObjectsOfType<KeyController>().Length;
     }
 
-    public override void OnNetworkDestroy()
-    {
-        base.OnNetworkDestroy();
+    public bool HasStarted { get; private set; }
 
+    public double ElapsedTime { get; private set; }
+    public double TotalTime { get; private set; }
+
+    void OnDestroy()
+    {
         RemoveEventListeners();
     }
 
@@ -92,6 +94,8 @@ public class LevelGameState : BaseNetworkBehaviour
     void GameOverEventHandler(GameOverEvent e)
     {
         paused = true;
+
+        FindObjectOfType<InGameUIController>().OnGameEnd();
     }
 
     void SetupEventListeners()
@@ -112,5 +116,39 @@ public class LevelGameState : BaseNetworkBehaviour
         hub.RemoveListener<ExitOccupancyChangeEvent>(ExitOccupancyChangeEventHandler);
         hub.RemoveListener<GamePauseEvent>(GamePauseEventHandler);
         hub.RemoveListener<GameOverEvent>(GameOverEventHandler);
+    }
+
+    void Update()
+    {
+        if (HasStarted)
+        {
+            if (!wasPaused && paused)
+            {
+                pausedTime = Time.time;
+                wasPaused = true;
+
+                return;
+            }
+
+            if (wasPaused && !paused)
+            {
+                pausedAmount += (Time.time - pausedTime);
+                wasPaused = false;
+
+                return;
+            }
+
+            if (paused)
+                return;
+
+            ElapsedTime = (Time.time - startTime - pausedAmount);
+
+            if (TotalTime <= ElapsedTime)
+            {
+                EventHub.Instance.FireEvent(
+                    new GameOverEvent() { gameOverReasong = GameOverEvent.GameOverReason.TIME_UP }
+                );
+            }
+        }
     }
 }

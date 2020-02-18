@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8255845169316844174}
-  - component: {fileID: 118826826985941547}
-  - component: {fileID: -5111113571651741679}
   m_Layer: 0
   m_Name: _NetworkManager
   m_TagString: Untagged
@@ -32,79 +30,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &118826826985941547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8255845169316844169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60e2e81c30a33da48a62b17788fca6ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dontDestroyOnLoad: 1
-  runInBackground: 0
-  startOnHeadless: 0
-  serverTickRate: 60
-  showDebugMessages: 0
-  offlineScene: Loading
-  onlineScene: RoomScene
-  transport: {fileID: -5111113571651741679}
-  networkAddress: localhost
-  maxConnections: 4
-  authenticator: {fileID: 0}
-  playerPrefab: {fileID: 8562489253924319924, guid: 3ed2a5b9d57a141e3a7ff483ac9bb529,
-    type: 3}
-  autoCreatePlayer: 1
-  playerSpawnMethod: 0
-  spawnPrefabs: []
-  showRoomGUI: 0
-  minPlayers: 2
-  roomPlayerPrefab: {fileID: 7024924019216982721, guid: 259b32e42bf06da4d85e7f68bd7f6600,
-    type: 3}
-  RoomScene: RoomScene
-  GameplayScene: MainMenu
-  roomSlots: []
-  allPlayersReady: 0
---- !u!114 &-5111113571651741679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8255845169316844169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7424c1070fad4ba2a7a96b02fbeb4bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnClientConnected:
-    m_PersistentCalls:
-      m_Calls: []
-  OnClientDataReceived:
-    m_PersistentCalls:
-      m_Calls: []
-  OnClientError:
-    m_PersistentCalls:
-      m_Calls: []
-  OnClientDisconnected:
-    m_PersistentCalls:
-      m_Calls: []
-  OnServerConnected:
-    m_PersistentCalls:
-      m_Calls: []
-  OnServerDataReceived:
-    m_PersistentCalls:
-      m_Calls: []
-  OnServerError:
-    m_PersistentCalls:
-      m_Calls: []
-  OnServerDisconnected:
-    m_PersistentCalls:
-      m_Calls: []
-  port: 7777
-  NoDelay: 1
-  serverMaxMessageSize: 16384
-  clientMaxMessageSize: 16384

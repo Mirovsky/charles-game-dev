@@ -9,9 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2757829994855333758}
-  - component: {fileID: 2757829994855333755}
-  - component: {fileID: 2757829994855333756}
-  - component: {fileID: 2757829994855333757}
   - component: {fileID: 2757829994855333735}
   - component: {fileID: 2757829994855333752}
   - component: {fileID: 2757829994855333753}
@@ -46,51 +43,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &2757829994855333755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2757829994855333759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serverOnly: 0
-  m_AssetId: 
-  m_SceneId: 537424232
---- !u!114 &2757829994855333756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2757829994855333759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29e7194cd50a0124db91657ed92d5c28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  authority: 1
---- !u!114 &2757829994855333757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2757829994855333759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.016
-  compressRotation: 3
 --- !u!54 &2757829994855333735
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -132,8 +84,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1404de1ff5504e50b94e735fb990968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
   _allowOffhandGrab: 1
   _snapPosition: 0
   _snapOrientation: 0
@@ -287,6 +237,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2757829994855333758}
     m_Modifications:
+    - target: {fileID: 7642904709982269475, guid: efdf1a5913ca6e0449612a8daa990be0,
+        type: 3}
+      propertyPath: m_Name
+      value: SegmentStraight_Cube (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 7255063739685473288, guid: efdf1a5913ca6e0449612a8daa990be0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -342,11 +297,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7642904709982269475, guid: efdf1a5913ca6e0449612a8daa990be0,
-        type: 3}
-      propertyPath: m_Name
-      value: SegmentStraight_Cube (2)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efdf1a5913ca6e0449612a8daa990be0, type: 3}
 --- !u!4 &4948061568072318938 stripped
@@ -362,6 +312,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2757829994855333758}
     m_Modifications:
+    - target: {fileID: 909771367232542865, guid: 052b27959f62c8b48ba48a082b3b7a5d,
+        type: 3}
+      propertyPath: m_Name
+      value: EmptyStraight (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 2522343274996350682, guid: 052b27959f62c8b48ba48a082b3b7a5d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -417,20 +372,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 909771367232542865, guid: 052b27959f62c8b48ba48a082b3b7a5d,
+    - target: {fileID: 1677599123336501813, guid: 052b27959f62c8b48ba48a082b3b7a5d,
         type: 3}
-      propertyPath: m_Name
-      value: EmptyStraight (1)
+      propertyPath: m_LocalPosition.x
+      value: -12.988706
       objectReference: {fileID: 0}
     - target: {fileID: 6955126561122381564, guid: 052b27959f62c8b48ba48a082b3b7a5d,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677599123336501813, guid: 052b27959f62c8b48ba48a082b3b7a5d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -12.988706
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 052b27959f62c8b48ba48a082b3b7a5d, type: 3}
@@ -459,6 +409,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2757829994855333758}
     m_Modifications:
+    - target: {fileID: 7642904709982269475, guid: efdf1a5913ca6e0449612a8daa990be0,
+        type: 3}
+      propertyPath: m_Name
+      value: SegmentStraight_Cube
+      objectReference: {fileID: 0}
     - target: {fileID: 7255063739685473288, guid: efdf1a5913ca6e0449612a8daa990be0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -514,11 +469,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7642904709982269475, guid: efdf1a5913ca6e0449612a8daa990be0,
-        type: 3}
-      propertyPath: m_Name
-      value: SegmentStraight_Cube
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efdf1a5913ca6e0449612a8daa990be0, type: 3}
 --- !u!4 &6659947465282848420 stripped
@@ -534,6 +484,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2757829994855333758}
     m_Modifications:
+    - target: {fileID: 2305811304790416960, guid: 42053a15b3b79074990795cd4c9e7ba0,
+        type: 3}
+      propertyPath: m_Name
+      value: ImmediateSegmentSwitcher
+      objectReference: {fileID: 0}
     - target: {fileID: 2305811304790416961, guid: 42053a15b3b79074990795cd4c9e7ba0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -589,11 +544,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2305811304790416960, guid: 42053a15b3b79074990795cd4c9e7ba0,
-        type: 3}
-      propertyPath: m_Name
-      value: ImmediateSegmentSwitcher
-      objectReference: {fileID: 0}
     - target: {fileID: 2305811304790416963, guid: 42053a15b3b79074990795cd4c9e7ba0,
         type: 3}
       propertyPath: m_Size.x
@@ -614,6 +564,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2757829994855333758}
     m_Modifications:
+    - target: {fileID: 909771367232542865, guid: 052b27959f62c8b48ba48a082b3b7a5d,
+        type: 3}
+      propertyPath: m_Name
+      value: EmptyStraight
+      objectReference: {fileID: 0}
     - target: {fileID: 2522343274996350682, guid: 052b27959f62c8b48ba48a082b3b7a5d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -669,11 +624,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 909771367232542865, guid: 052b27959f62c8b48ba48a082b3b7a5d,
-        type: 3}
-      propertyPath: m_Name
-      value: EmptyStraight
-      objectReference: {fileID: 0}
     - target: {fileID: 6955126561122381564, guid: 052b27959f62c8b48ba48a082b3b7a5d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -694,6 +644,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2757829994855333758}
     m_Modifications:
+    - target: {fileID: 7642904709982269475, guid: efdf1a5913ca6e0449612a8daa990be0,
+        type: 3}
+      propertyPath: m_Name
+      value: SegmentStraight_Cube (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 7255063739685473288, guid: efdf1a5913ca6e0449612a8daa990be0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -748,11 +703,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642904709982269475, guid: efdf1a5913ca6e0449612a8daa990be0,
-        type: 3}
-      propertyPath: m_Name
-      value: SegmentStraight_Cube (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efdf1a5913ca6e0449612a8daa990be0, type: 3}

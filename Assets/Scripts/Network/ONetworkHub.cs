@@ -7,7 +7,7 @@ namespace OOO.Network
     {
 
         void Start() {
-            var manager = NetworkManager.singleton;
+            /* var manager = NetworkManager.singleton;
 
             manager.networkAddress = GameTypeResolver.Instance.ip;
 
@@ -26,7 +26,7 @@ namespace OOO.Network
                 if (startClient) {
                     manager.StartClient();
                 }
-            }
+            } */
         }
     }
 }

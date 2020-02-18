@@ -240,6 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 68426758}
   - component: {fileID: 68426755}
+  - component: {fileID: 68426756}
   m_Layer: 0
   m_Name: _NetworkHub
   m_TagString: Untagged
@@ -259,6 +260,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1dc2b8282f84fb7bdc4124c5ea7cf0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &68426756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68426754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6918f268bd86f8f4c8806bf1a0b84844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scenePath: MainMenu
+  mobileCamera: {fileID: 4182288405685184604, guid: 1cb131766d5bd46c7a7cb42d830b3995,
+    type: 3}
+  vrCamera: {fileID: 4604301985217077056, guid: 0d2ed5d5f54675e4e89ec289a019664e,
+    type: 3}
+  leftHand: {fileID: 1723506367551182960, guid: 1ea1a1ec38a854bad9a53906b769ec28,
+    type: 3}
+  rightHand: {fileID: 4670533044216219965, guid: aaac9c3ae5ea74047bbe6845113d5e0a,
+    type: 3}
 --- !u!4 &68426758
 Transform:
   m_ObjectHideFlags: 0
@@ -267,7 +289,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68426754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 780.4083, y: 363.9608, z: -144.625}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

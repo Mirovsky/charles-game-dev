@@ -15,85 +15,46 @@ namespace OOO.Camera
         [SerializeField]
         TextMeshProUGUI countdownTimerText;
         [SerializeField]
-        double elapsed;
-
         LevelGameState gameState;
 
-        /* in seconds */
-        private double totalTime = 120;
-        
-        private double startTime = 0;
-        private bool hasStarted = false;
-        bool initialized;
-
-        bool wasPaused;
-        [SerializeField]
-        double pausedTime;
-        [SerializeField]
-        double pausedAmount;
-        
         public void OnGameStart()
         {
-            hasStarted = true;
-            startTime = NetworkTime.time;
-
             gameState = FindObjectOfType<LevelGameState>();
             if (gameState == null || gameState.levelData == null) {
                 Debug.Log($"Missing game state!");
                 return;
             }
 
-            totalTime = gameState.levelData.timeLimit;
-
             countdownTimerText.text = "--:--";
-            initialized = true;
-
-            Debug.Log("Timer started");
         }
 
         void Update()
         {
-            if (!initialized)
+            if (gameState == null)
                 return;
 
-            if (hasStarted) {
-                if (!wasPaused && gameState.paused) {
-                    pausedTime = NetworkTime.time;
-                    wasPaused = true;
+            if (gameState.TotalTime > gameState.ElapsedTime)
+            {
+                var remaining = (int)(gameState.TotalTime - gameState.ElapsedTime);
+                var minutes = remaining / 60;
+                var seconds = (remaining % 60);
 
-                    return;
+                if (seconds < 10)
+                {
+                    countdownTimerText.text = minutes + ":" + "0" + seconds;
                 }
-
-                if (wasPaused && !gameState.paused) {
-                    pausedAmount += (NetworkTime.time - pausedTime);
-                    wasPaused = false;
-
-                    return;
+                else
+                {
+                    countdownTimerText.text = minutes + ":" + seconds;
                 }
+            }
+            else
+            {
+                countdownTimerText.text = "00:00";
 
-                if (gameState.paused)
-                    return;
-
-                elapsed = (NetworkTime.time - startTime - pausedAmount);
-
-                if (totalTime > elapsed) {
-                    var remaining =(int) (totalTime - elapsed);
-                    var minutes = remaining / 60;
-                    var seconds = (remaining % 60);
-
-                    if (seconds < 10) {
-                        countdownTimerText.text = minutes + ":" + "0" + seconds;
-                    }
-                    else {
-                        countdownTimerText.text = minutes + ":" + seconds;
-                    }
-                } else {
-                    countdownTimerText.text = "00:00";
-
-                    EventHub.Instance.FireEvent(
-                        new GameOverEvent() { gameOverReasong = GameOverEvent.GameOverReason.TIME_UP }
-                    );
-                }
+                EventHub.Instance.FireEvent(
+                    new GameOverEvent() { gameOverReasong = GameOverEvent.GameOverReason.TIME_UP }
+                );
             }
         }
     }

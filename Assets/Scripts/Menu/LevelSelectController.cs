@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using Mirror;
-
+using UnityEngine.SceneManagement;
 
 public class LevelSelectController : MonoBehaviour
 {
-    [SerializeField]
-    NetworkManager networkManager;
     [SerializeField]
     EventSystem eventSystem;
  
@@ -20,11 +17,6 @@ public class LevelSelectController : MonoBehaviour
 
     void ChangeScene(string path)
     {
-        networkManager.ServerChangeScene(path);
-    }
-
-    void Start()
-    {
-        networkManager = NetworkManager.singleton;
+        SceneManager.LoadScene(path);
     }
 }

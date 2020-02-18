@@ -5,13 +5,6 @@ using OOO.Utils;
 
 public class DeadZoneTrigger : BaseNetworkBehaviour
 {
-    public override void OnStartClient()
-    {
-        if (IsVrPlayer) {
-            Destroy(gameObject);
-        }
-    }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player_2D")) {

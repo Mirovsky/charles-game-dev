@@ -28,12 +28,12 @@ public class InGameUIController : MonoBehaviour
     public void ShowGamePause()
         => SwitchCurrent(gamePause);
 
-    void Start()
+    public void OnGameStart()
     {
-        var playerType = GameTypeResolver.Instance.playerType;
+        // gameObject.SetActive(true);
 
         var gameState = FindObjectOfType<LevelGameState>();
-        if (playerType != PlayerType.MOBILE || gameState == null) {
+        if (gameState == null) {
             Destroy(gameObject);
             return;
         }
@@ -44,15 +44,24 @@ public class InGameUIController : MonoBehaviour
         EventHub.Instance.AddListener<GamePauseEvent>(OnGamePause);
     }
 
+    public void OnGameEnd()
+    {
+        // gameObject.SetActive(false);
+
+        EventHub.Instance.RemoveListener<LevelCompleteEvent>(OnLevelCompleteEvent);
+        EventHub.Instance.RemoveListener<GameOverEvent>(OnGameOverEvent);
+        EventHub.Instance.RemoveListener<GamePauseEvent>(OnGamePause);
+    }
+
     void SwitchCurrent(GameObject next)
     {
-        if (current != null)
-            current.SetActive(false);
+        // if (current != null)
+            // current.SetActive(false);
         
-        current = next;
+        // current = next;
         
-        if (current != null)
-            current.SetActive(true);
+        // if (current != null)
+           //  current.SetActive(true);
     }
 
     void OnLevelCompleteEvent(LevelCompleteEvent e)

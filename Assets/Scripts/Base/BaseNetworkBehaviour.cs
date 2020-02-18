@@ -1,12 +1,9 @@
-using System;
-using Mirror;
+using UnityEngine;
+
 
 namespace OOO.Base
 {
-    public class BaseNetworkBehaviour: NetworkBehaviour
+    public class BaseNetworkBehaviour : MonoBehaviour
     {
-        protected bool IsMobilePlayer => GameTypeResolver.Instance.playerType == PlayerType.MOBILE;
-
-        protected bool IsVrPlayer => GameTypeResolver.Instance.playerType == PlayerType.VR;
     }
 }

@@ -9,7 +9,7 @@ public class SegmentSwitcherNetworkController : BaseNetworkBehaviour
     [SerializeField]
     ImmediateSegmentSwitcher immediateSwitcher;
 
-    void Awake()
+    /* void Awake()
     {
         if (IsMobilePlayer)
             return;
@@ -18,7 +18,7 @@ public class SegmentSwitcherNetworkController : BaseNetworkBehaviour
 
         if (immediateSwitcher)
             Destroy(immediateSwitcher);
-    }
+    } */
 
 #if UNITY_EDITOR
     void OnValidate()

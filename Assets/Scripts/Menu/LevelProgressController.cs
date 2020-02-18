@@ -9,7 +9,7 @@ public class LevelProgressController : MonoBehaviour
     TextMeshProUGUI collectedKeys;
     [SerializeField]
     TextMeshProUGUI requiredKeys;
-
+    [SerializeField]
     LevelGameState gameState;
 
 

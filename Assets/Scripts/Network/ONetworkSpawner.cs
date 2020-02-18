@@ -1,10 +1,6 @@
-using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using Mirror;
 using OOO.Base;
 using OOO.Camera;
-using TMPro;
 using UnityEngine.SceneManagement;
 
 
@@ -31,33 +27,20 @@ namespace OOO.Network
 
         [Header("VR Camera"), SerializeField]
         GameObject vrCamera;
-        [Header("VR Hands"), SerializeField]
-        GameObject leftHand;
-        [SerializeField]
-        GameObject rightHand;
+        
 
-
-        public override void OnStartLocalPlayer() {
+        void Start() {
             var sceneName = SceneManager.GetActiveScene().name;
-            var spawnAvailable = sceneName == "RoomScene" || sceneName == "MainMenu" || sceneName == "Loading";
-            if (spawnAvailable) {
-                SpawnCamera();
+            var isMenu = sceneName == "RoomScene" || sceneName == "MainMenu" || sceneName == "Loading";
+            if (isMenu) {
                 return;
             }
 
             OnEnvironmentSetup();
         }
 
-        public override void OnStartAuthority()
-        {
-            Debug.Log("Start Authority");
-        }
-
         /** The local player is connected and we can setup the cameras and platforms. */
         void OnEnvironmentSetup() {
-            SpawnCamera();
-            AssignNetworkedIdentity();
-
             FindObjectOfType<LevelGameState>().Initialize();
             
             OnGameStart();
@@ -69,129 +52,36 @@ namespace OOO.Network
          */
         void OnGameStart() {
             SpawnMobilePlayer();
+            StartUI();
             StartTimer();
             StartMusic();
 
-            if (isServer) {
-                //The server destroys both.
-                RpcDestroySpawner();
-            }
+            DestroySpawner();    
         }
 
-        void SpawnCamera() {
-            if (isLocalPlayer && IsMobilePlayer) {
-                SpawnMobileCamera();
-            }
-
-            if (isLocalPlayer && IsVrPlayer) {
-                SpawnVRCamera();
-            }
-        }
-        
-        [Client]
-        void AssignNetworkedIdentity() {
-            var networkedObjects = FindObjectsOfType<ONetworkedObject>();
-
-            if (IsVrPlayer && isLocalPlayer) {
-                var vrAuthorityObjects = networkedObjects
-                    .Where(o => o.authority == ONetworkedObject.ObjectAuthority.VR)
-                    .Select(o => o.gameObject)
-                    .ToArray();
-
-
-                CmdAssignCorrectNetworkedObjectIdentity(vrAuthorityObjects);
-            }
-
-            if (IsMobilePlayer && isLocalPlayer) {
-                var mobileAuthorityObjects = networkedObjects
-                    .Where(o => o.authority == ONetworkedObject.ObjectAuthority.MOBILE)
-                    .Select(o => o.gameObject)
-                    .ToArray();
-
-                CmdAssignCorrectNetworkedObjectIdentity(mobileAuthorityObjects);
-            }
-        }
-
-        [Command]
-        void CmdAssignCorrectNetworkedObjectIdentity(GameObject[] objects)
+        void StartUI()
         {
-            foreach (var o in objects) {
-                var identity = o.GetComponent<NetworkIdentity>();
-                identity.AssignClientAuthority(connectionToClient);
-            }
+            mobileCamera.GetComponentInChildren<InGameUIController>().OnGameStart();
         }
 
         void StartTimer()
         {
-            if (IsMobilePlayer) {
-                RpcStartTimer();
-            }
+            mobileCamera.GetComponentInChildren<TimerTextHandler>().OnGameStart();
+            vrCamera.GetComponentInChildren<TimerTextHandler>().OnGameStart();
         }
 
         void StartMusic()
         {
-            if (IsMobilePlayer) {
-                RpcStartMusic();
-            }
+            mobileCamera.GetComponentInChildren<AmbienceSoundController>().OnGameStart();
+            vrCamera.GetComponentInChildren<AmbienceSoundController>().OnGameStart();
         }
 
-        [ClientRpc]
-        void RpcStartTimer()
-        {
-            if (IsMobilePlayer && isLocalPlayer) {
-                mobileCamera.GetComponentInChildren<TimerTextHandler>().OnGameStart();
-            }
-
-            if (IsVrPlayer && isLocalPlayer) {
-                vrCamera.GetComponentInChildren<TimerTextHandler>().OnGameStart();
-            }
-        }
-
-        [ClientRpc]
-        void RpcStartMusic()
-        {
-            if (IsMobilePlayer && isLocalPlayer) {
-                mobileCamera.GetComponentInChildren<AmbienceSoundController>().OnGameStart();
-            }
-
-            if (IsVrPlayer && isLocalPlayer) {
-                vrCamera.GetComponentInChildren<AmbienceSoundController>().OnGameStart();
-            }
-        }
-
-        [Client]
         void SpawnMobilePlayer() {
-            if (IsMobilePlayer && isLocalPlayer) {
-                CmdSpawnMobilePlayer();
-            }
+            Instantiate(playerPrefab);
         }
 
-        [Command]
-        void CmdSpawnMobilePlayer() {
-            var player = Instantiate(playerPrefab);
-            NetworkServer.SpawnWithClientAuthority(player, NetworkServer.localConnection);
-        }
-
-
-        [ClientRpc]
-        void RpcDestroySpawner() {
+        void DestroySpawner() {
             Destroy(gameObject);
-        }
-
-        void SpawnMobileCamera()
-        {
-            mobileCamera = Instantiate(mobileCamera);
-        }
-
-        void SpawnVRCamera()
-        {
-            vrCamera = Instantiate(vrCamera);
-
-            leftHand = Instantiate(leftHand);
-            rightHand = Instantiate(rightHand);
-
-            leftHand.GetComponent<Grabber>().SetParentTransform(vrCamera.transform);
-            rightHand.GetComponent<Grabber>().SetParentTransform(vrCamera.transform);
         }
     }
 }

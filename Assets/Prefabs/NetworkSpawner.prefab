@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8562489253924319927}
-  - component: {fileID: 8562489253924319921}
   - component: {fileID: 8562489253924319926}
   m_Layer: 0
   m_Name: NetworkSpawner
@@ -32,21 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8562489253924319921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8562489253924319924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serverOnly: 0
-  m_AssetId: 3ed2a5b9d57a141e3a7ff483ac9bb529
-  m_SceneId: 0
 --- !u!114 &8562489253924319926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,8 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b680d5ccc84f23a517bb8b494e3abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
   playerPrefab: {fileID: 7447710313142363381, guid: 0455a227d5a284725b5d50918757809f,
     type: 3}
   mobileCamera: {fileID: 4182288405685184604, guid: 1cb131766d5bd46c7a7cb42d830b3995,

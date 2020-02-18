@@ -1,34 +1,58 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using OOO;
+using Mirror;
 
 
 public class LoadingManager : MonoBehaviour
 {
-    [SerializeField]
-    string vrLobbyScenePath;
-    [SerializeField]
-    string mainMenuScenePath;
+    [Scene]
+    public string scenePath;
 
+    [Header("2D Camera"), SerializeField]
+    GameObject mobileCamera;
+
+
+    [Header("VR Camera"), SerializeField]
+    GameObject vrCamera;
+    [Header("VR Hands"), SerializeField]
+    GameObject leftHand;
     [SerializeField]
-    GameObject wrongPlayerTypeInfo;
+    GameObject rightHand;
 
     void Start()
     {
-        wrongPlayerTypeInfo.SetActive(false);
+        SpawnCamera();
 
-        var playerType = GameTypeResolver.Instance.playerType;  
-    
-        if (playerType == PlayerType.MOBILE) {
-            SceneManager.LoadScene(mainMenuScenePath);
+        SceneManager.LoadScene(scenePath);
+    }
 
-            return;
-        } else if (playerType == PlayerType.VR) {
-            SceneManager.LoadScene(vrLobbyScenePath);
+    void SpawnCamera()
+    {
+        SpawnMobileCamera();
+        SpawnVRCamera();
+    }
 
-            return;
-        } else {
-            wrongPlayerTypeInfo.SetActive(true);
-        }
+    void SpawnMobileCamera()
+    {
+        mobileCamera = Instantiate(mobileCamera);
+
+        // mobileCamera.GetComponentInChildren<InGameUIController>().gameObject.SetActive(false);
+
+        DontDestroyOnLoad(mobileCamera);
+    }
+
+    void SpawnVRCamera()
+    {
+        vrCamera = Instantiate(vrCamera);
+
+        leftHand = Instantiate(leftHand);
+        rightHand = Instantiate(rightHand);
+
+        leftHand.GetComponent<Grabber>().SetParentTransform(vrCamera.transform);
+        rightHand.GetComponent<Grabber>().SetParentTransform(vrCamera.transform);
+
+        DontDestroyOnLoad(vrCamera);
+        DontDestroyOnLoad(rightHand);
+        DontDestroyOnLoad(leftHand);
     }
 }
