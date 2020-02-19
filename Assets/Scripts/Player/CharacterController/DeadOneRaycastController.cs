@@ -10,7 +10,7 @@ public class DeadOneRaycastController : MonoBehaviour
 
     SphereCollider sphereCollider;
 
-    public void Move(Vector3 motion, Vector3 gravity, Vector3 direction, Vector3 normal, bool wantsToJump)
+    public void Move(Vector3 motion, Vector3 gravity)
     {
         var velocity = motion + gravity;
         transform.Translate(velocity);

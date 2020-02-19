@@ -45,7 +45,6 @@ public class MultiPathDescriptor : MonoBehaviour
     public Quaternion GetRotationAtDistance(float distance)
         => Quaternion.LookRotation(GetTangent(distance), GetNormal(distance));
 
-
     void Awake()
     {
         if (startingSegment == null) {
@@ -117,7 +116,7 @@ public class MultiPathDescriptor : MonoBehaviour
                 }
             }
 
-            // Destroy(segment.spline.gameObject);
+            Destroy(segment.spline.gameObject);
             segment.processed = true;
             segment = segment.nextSegment;
 

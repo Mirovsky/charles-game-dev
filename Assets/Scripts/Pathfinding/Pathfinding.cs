@@ -11,14 +11,21 @@ public class Pathfinding : MonoBehaviour
     [SerializeField]
     float distance;
 
+    public Vector3 parentDelta;
+
+    Transform pathParent;
+    Vector3 prevPosition;
+
     void Awake()
     {
         path = FindObjectOfType<DefaultMultiPathDescriptor>()
             .DefaultMultiPath;
 
         path.GetClosestPointAndDistanceByPoint(transform.position, out distance);
+        pathParent = path.transform;
+        prevPosition = pathParent.position;
 
-        transform.SetParent(path.transform, false);
+        parentDelta = Vector3.zero;
     }
 
     void OnTriggerEnter(Collider other)
@@ -51,7 +58,10 @@ public class Pathfinding : MonoBehaviour
         path.GetClosestPointAndDistanceByPoint(transform.position, out distance);
 
         nextSwitcher.RotateSwitcher(path, distance);
-        transform.SetParent(path.transform);
+
+        pathParent = path.transform;
+        prevPosition = pathParent.position;
+        parentDelta = Vector3.zero;
     }
 
     public void UpdateDistance()
@@ -70,7 +80,7 @@ public class Pathfinding : MonoBehaviour
         => Quaternion.LookRotation(
             path.GetTangent(ModDistance(distance + nextStep)),
             path.GetNormal(ModDistance(distance + nextStep))
-    );
+        );
 
     float ModDistance(float dist)
     {
@@ -89,5 +99,11 @@ public class Pathfinding : MonoBehaviour
             dist += length;
 
         return dist;
+    }
+
+    void Update()
+    {
+        parentDelta = pathParent.position - prevPosition;
+        prevPosition = pathParent.position;
     }
 }

@@ -61,7 +61,6 @@ public class Player : MonoBehaviour
             yVelocity = maxJumpVelocity;
 
         var normal = pathfinding.GetNormal().normalized;
-        var direction = pathfinding.GetDirection().normalized;
 
         float nextStep = Direction * moveSpeed * Time.deltaTime;
         var currentPos = pathfinding.GetPosition();
@@ -70,7 +69,7 @@ public class Player : MonoBehaviour
         var g = normal * yVelocity * Time.deltaTime;
         var d = (pos - currentPos);
 
-        controller.Move(d, g, direction, normal, wantsToJump);
+        controller.Move(d + pathfinding.parentDelta, g);
 
         ConfirmMove(nextStep);
 
@@ -112,6 +111,6 @@ public class Player : MonoBehaviour
 
         var nextPos = pathfinding.GetPosition();
 
-        controller.Move(nextPos - currentPos, Vector3.zero, Vector3.zero, Vector3.zero, false);
+        controller.Move(nextPos - currentPos + pathfinding.parentDelta, Vector3.zero);
     }
 }
