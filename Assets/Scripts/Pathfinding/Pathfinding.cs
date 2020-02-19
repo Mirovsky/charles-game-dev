@@ -17,6 +17,8 @@ public class Pathfinding : MonoBehaviour
             .DefaultMultiPath;
 
         path.GetClosestPointAndDistanceByPoint(transform.position, out distance);
+
+        transform.SetParent(path.transform, false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -49,6 +51,7 @@ public class Pathfinding : MonoBehaviour
         path.GetClosestPointAndDistanceByPoint(transform.position, out distance);
 
         nextSwitcher.RotateSwitcher(path, distance);
+        transform.SetParent(path.transform);
     }
 
     public void UpdateDistance()

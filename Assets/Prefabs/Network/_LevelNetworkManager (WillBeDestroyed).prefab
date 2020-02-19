@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1632055458777809658}
+  - component: {fileID: 577361254478172285}
   m_Layer: 0
   m_Name: _LevelNetworkManager (WillBeDestroyed)
   m_TagString: Untagged
@@ -30,3 +31,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &577361254478172285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862181165200316262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06b680d5ccc84f23a517bb8b494e3abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 7447710313142363381, guid: 0455a227d5a284725b5d50918757809f,
+    type: 3}
+  mobileCamera: {fileID: 4182288405685184604, guid: 1cb131766d5bd46c7a7cb42d830b3995,
+    type: 3}
+  vrCamera: {fileID: 274474658664732215, guid: 5129efb8d9d02486c9253a9cac7c8531, type: 3}
+  leftHand: {fileID: 1723506367551182960, guid: 1ea1a1ec38a854bad9a53906b769ec28,
+    type: 3}
+  rightHand: {fileID: 4670533044216219965, guid: aaac9c3ae5ea74047bbe6845113d5e0a,
+    type: 3}

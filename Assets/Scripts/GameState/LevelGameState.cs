@@ -20,6 +20,9 @@ public class LevelGameState : BaseNetworkBehaviour
     [Header("Pause")]
     public bool paused;
 
+    [Header("Game Over")]
+    public bool gameOver;
+
     [Header("Timer")]
     double startTime = 0;
     bool wasPaused;
@@ -31,6 +34,10 @@ public class LevelGameState : BaseNetworkBehaviour
         SetupEventListeners();
 
         levelKeysCount = FindObjectsOfType<KeyController>().Length;
+
+        TotalTime = levelData.timeLimit;
+        startTime = Time.time;
+        HasStarted = true;
     }
 
     public bool HasStarted { get; private set; }
@@ -94,6 +101,7 @@ public class LevelGameState : BaseNetworkBehaviour
     void GameOverEventHandler(GameOverEvent e)
     {
         paused = true;
+        gameOver = true;
 
         FindObjectOfType<InGameUIController>().OnGameEnd();
     }

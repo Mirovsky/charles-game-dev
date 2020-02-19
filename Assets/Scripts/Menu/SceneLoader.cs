@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using Mirror;
 
 
@@ -11,16 +10,16 @@ public class SceneLoader : MonoBehaviour
     string mainMenuScene;
 
     LevelGameState gameState;
-    NetworkManager networkManager;
+
 
     public void OpenMenu()
     {
-        networkManager.ServerChangeScene(mainMenuScene);
+        SceneManager.LoadScene(mainMenuScene);
     }
 
     public void RestartLevel()
     {
-        networkManager.ServerChangeScene(gameState.levelData.scenePath);
+        SceneManager.LoadScene(gameState.levelData.scenePath);
     }
 
     public void NextLevel()
@@ -30,12 +29,11 @@ public class SceneLoader : MonoBehaviour
             return;
 
         var nextLevelScene = nextLevel.scenePath;
-        networkManager.ServerChangeScene(nextLevelScene);
+        SceneManager.LoadScene(nextLevelScene);
     }
 
     void Start()
     {
-        networkManager = NetworkManager.singleton;
         gameState = FindObjectOfType<LevelGameState>();
     }
 }

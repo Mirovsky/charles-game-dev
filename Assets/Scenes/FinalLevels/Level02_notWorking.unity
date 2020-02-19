@@ -832,6 +832,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2305811304790416960, guid: 42053a15b3b79074990795cd4c9e7ba0,
+        type: 3}
+      propertyPath: m_Name
+      value: ImmediateSegmentSwitcher
+      objectReference: {fileID: 0}
     - target: {fileID: 2305811304790416961, guid: 42053a15b3b79074990795cd4c9e7ba0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -886,11 +891,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2305811304790416960, guid: 42053a15b3b79074990795cd4c9e7ba0,
-        type: 3}
-      propertyPath: m_Name
-      value: ImmediateSegmentSwitcher
       objectReference: {fileID: 0}
     - target: {fileID: 8959269282150396289, guid: 42053a15b3b79074990795cd4c9e7ba0,
         type: 3}
@@ -2794,7 +2794,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1439988123}
-  - component: {fileID: 1439988122}
   - component: {fileID: 1439988121}
   m_Layer: 0
   m_Name: _GameState
@@ -2815,8 +2814,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7baaaa88a02b1b948a000c3c53bd37e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
   collectedKeys: 0
   levelKeysCount: 0
   playersInsideExit: 0
@@ -2824,21 +2821,7 @@ MonoBehaviour:
   vrInsideExit: 0
   levelData: {fileID: 0}
   paused: 0
---- !u!114 &1439988122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1439988120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serverOnly: 0
-  m_AssetId: 
-  m_SceneId: 1862045859
+  gameOver: 0
 --- !u!4 &1439988123
 Transform:
   m_ObjectHideFlags: 0

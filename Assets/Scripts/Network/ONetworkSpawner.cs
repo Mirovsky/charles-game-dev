@@ -27,30 +27,24 @@ namespace OOO.Network
 
         [Header("VR Camera"), SerializeField]
         GameObject vrCamera;
-        
+        [Header("VR Hands"), SerializeField]
+        GameObject leftHand;
+        [SerializeField]
+        GameObject rightHand;
+
 
         void Start() {
-            var sceneName = SceneManager.GetActiveScene().name;
-            var isMenu = sceneName == "RoomScene" || sceneName == "MainMenu" || sceneName == "Loading";
-            if (isMenu) {
-                return;
-            }
-
-            OnEnvironmentSetup();
-        }
-
-        /** The local player is connected and we can setup the cameras and platforms. */
-        void OnEnvironmentSetup() {
             FindObjectOfType<LevelGameState>().Initialize();
-            
+
             OnGameStart();
         }
-        
+
         /**
          * Game starts.
          * Spawn the player and destroy this object
          */
         void OnGameStart() {
+            SpawnCamera();
             SpawnMobilePlayer();
             StartUI();
             StartTimer();
@@ -73,11 +67,32 @@ namespace OOO.Network
         void StartMusic()
         {
             mobileCamera.GetComponentInChildren<AmbienceSoundController>().OnGameStart();
-            vrCamera.GetComponentInChildren<AmbienceSoundController>().OnGameStart();
         }
 
         void SpawnMobilePlayer() {
             Instantiate(playerPrefab);
+        }
+
+        void SpawnCamera()
+        {
+            SpawnMobileCamera();
+            SpawnVRCamera();
+        }
+
+        void SpawnMobileCamera()
+        {
+            mobileCamera = Instantiate(mobileCamera);
+        }
+
+        void SpawnVRCamera()
+        {
+            vrCamera = Instantiate(vrCamera);
+
+            leftHand = Instantiate(leftHand);
+            rightHand = Instantiate(rightHand);
+
+            leftHand.GetComponent<Grabber>().SetParentTransform(vrCamera.transform);
+            rightHand.GetComponent<Grabber>().SetParentTransform(vrCamera.transform);
         }
 
         void DestroySpawner() {
