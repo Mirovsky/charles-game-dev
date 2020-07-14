@@ -34,14 +34,17 @@ public class DoorController : MonoBehaviour
     */
 
     void OnKeyCollected(KeyCollectedEvent e)
-    {
+    {   
+        if (!gameObject.activeInHierarchy) {
+    return;
+}
         if (e.keyType == requiredKey) {
             collectedKeys++;
         }
 
         if (collectedKeys == requiredKeysCount) {
             onOpen?.Invoke();
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

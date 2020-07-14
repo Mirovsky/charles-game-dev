@@ -287,7 +287,6 @@ GameObject:
   - component: {fileID: 7447710313142363388}
   - component: {fileID: 2396328416803820382}
   - component: {fileID: 8932384023579105232}
-  - component: {fileID: 1418710220359613273}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player_2D
@@ -427,6 +426,7 @@ MonoBehaviour:
   path: {fileID: 0}
   nextSwitcher: {fileID: 0}
   distance: 0
+  parentDelta: {x: 0, y: 0, z: 0}
 --- !u!114 &2396328416803820382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,16 +454,3 @@ MonoBehaviour:
   movementEventRef: event:/Sounds/Movement
   jumpEventRef: event:/OneShots/Jump
   landEventRef: event:/OneShots/Land
---- !u!114 &1418710220359613273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7447710313142363381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9a75c4cf6cf24948b7578d6b5ff3591, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FakeParent: {fileID: 0}

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using OOO.Base;
 using OOO.Utils;
 
@@ -8,6 +9,7 @@ public class LevelGameState : BaseNetworkBehaviour
     [Header("Keys")]
     public int collectedKeys;
     public int levelKeysCount;
+    public KeyType requiredKey;
 
     [Header("Exit")]
     public bool playersInsideExit;
@@ -33,7 +35,9 @@ public class LevelGameState : BaseNetworkBehaviour
     {
         SetupEventListeners();
 
-        levelKeysCount = FindObjectsOfType<KeyController>().Length;
+        levelKeysCount = FindObjectsOfType<KeyController>()
+            .Where((KeyController kc) => kc.keyType == requiredKey)
+            .Count();
 
         TotalTime = levelData.timeLimit;
         startTime = Time.time;
@@ -52,7 +56,9 @@ public class LevelGameState : BaseNetworkBehaviour
 
     void KeyCollectedEventHandler(KeyCollectedEvent e)
     {
-        collectedKeys += 1;
+        if (e.keyType == requiredKey) {
+            collectedKeys++;
+        }
 
         if (collectedKeys == levelKeysCount) {
             EventHub.Instance.FireEvent(new ExitOpenEvent());

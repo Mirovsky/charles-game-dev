@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f21efef4080f8c4abe92cd030a09973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyType: {fileID: 0}
+  keyType: {fileID: 11400000, guid: 5627fedf34dd9fb4283eb65ae20c26ad, type: 2}
 --- !u!114 &-7486379060807029566
 MonoBehaviour:
   m_ObjectHideFlags: 0
