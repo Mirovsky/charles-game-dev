@@ -71,13 +71,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7447710311615283091}
-  m_LocalRotation: {x: -0, y: 0.38268322, z: -0, w: 0.9238797}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.5993613e-14, y: -0.000000119209275, z: -0.00000011920927}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2496001385565196087}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 45.000004, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7447710311615283103
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -438,11 +438,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d4b25ed59774c2dab59a88f8ad8428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxJumpHeight: 3.5
+  maxJumpHeight: 5.5
   timeToJumpApex: 0.3
   accelerationTimeAirborne: 0.2
   accelerationTimeGrounded: 0.05
-  moveSpeed: 15
+  moveSpeed: 12
   pathfinding: {fileID: 7447710313142363388}
 --- !u!114 &7447710313142363379
 MonoBehaviour:
